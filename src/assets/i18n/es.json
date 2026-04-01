@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "about": "Acerca",
+    "packages": "Paquetes",
+    "testimonials": "Testimonios",
+    "contact": "Contacto",
+    "bookNow": "Reservar"
+  },
+  "hero": {
+    "eyebrow": "El Oficial de Bodas Más Confiable de Miami",
+    "title": "Su Historia de Amor Merece un Comienzo Perfecto",
+    "subtitle": "Ceremonias de boda bilingües hechas con amor, elegancia e intención — en el corazón de Miami, FL.",
+    "cta": "Reservar Fecha",
+    "ctaSecondary": "Ver Paquetes"
+  },
+  "about": {
+    "eyebrow": "Acerca del Oficial",
+    "title": "Ceremonias Creadas con Corazón y Alma",
+    "body1": "Soy Juan Carlos, oficial de bodas bilingüe con licencia, sirviendo los condados de Miami-Dade, Broward y Palm Beach. Con más de 8 años de experiencia, me especializo en crear ceremonias personalizadas que reflejan tu historia de amor.",
+    "body2": "Ya sea que imagines una romántica ceremonia en la playa al amanecer, un íntimo intercambio en el juzgado, o una elegante celebración — estaré allí para guiar cada palabra, cada voto, cada momento inolvidable.",
+    "badge": "Años Sirviendo Miami",
+    "trust": {
+      "licensed":  { "title": "Con Licencia",      "desc": "Ordenado y certificado en Florida" },
+      "venue":     { "title": "Cualquier Lugar",    "desc": "Playa, parque, hotel o juzgado" },
+      "bilingual": { "title": "Bilingüe",           "desc": "Ceremonias en inglés y español" },
+      "vows":      { "title": "Votos Personalizados", "desc": "Cada guión es únicamente tuyo" }
+    }
+  },
+  "packages": {
+    "eyebrow": "Paquetes de Ceremonia",
+    "title": "Elige Tu Paquete Perfecto",
+    "subtitle": "Cada ceremonia está adaptada a tu visión. Todos los paquetes incluyen votos personalizados."
+  },
+  "contact": {
+    "eyebrow": "Reserva Tu Ceremonia",
+    "title": "Hagamos Tu Sueño Realidad",
+    "subtitle": "¿Listo para planear tu ceremonia perfecta? Contáctanos hoy para verificar disponibilidad."
+  },
+  "footer": {
+    "tagline": "Ceremonias de boda bilingües en el corazón de Miami, FL. Sirviendo parejas en el sur de Florida desde 2016.",
+    "rights": "Todos los derechos reservados. Con licencia en el Estado de Florida."
+  }
+}

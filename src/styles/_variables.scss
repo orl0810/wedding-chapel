@@ -1,0 +1,20 @@
+// ─────────────────────────────────────────────
+// Design Tokens
+// ─────────────────────────────────────────────
+
+:root {
+  --color-gold:       #C9A96E;
+  --color-gold-light: #E8D5B0;
+  --color-gold-dark:  #9E7D4A;
+  --color-cream:      #FAF7F2;
+  --color-cream-warm: #F5EFE4;
+  --color-charcoal:   #2C2825;
+  --color-blush:      #F2E8E0;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'Jost', sans-serif;
+
+  --transition-base: all 0.35s ease;
+  --shadow-soft:     0 4px 40px rgba(44, 40, 37, 0.08);
+  --shadow-gold:     0 8px 30px rgba(201, 169, 110, 0.3);
+}

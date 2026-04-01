@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "about": "About",
+    "packages": "Packages",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "eyebrow": "Miami's Most Trusted Wedding Officiant",
+    "title": "Your Love Story Deserves a Perfect Beginning",
+    "subtitle": "Bilingual wedding ceremonies crafted with love, elegance, and intention — right in the heart of Miami, FL.",
+    "cta": "Book Your Date",
+    "ctaSecondary": "View Packages"
+  },
+  "about": {
+    "eyebrow": "About the Officiant",
+    "title": "Ceremonies Crafted with Heart & Soul",
+    "body1": "I'm Juan Carlos, a licensed bilingual wedding officiant serving Miami-Dade, Broward, and Palm Beach counties. With over 8 years of experience uniting couples from all walks of life, I specialize in crafting personalized, heartfelt ceremonies that truly reflect your love story.",
+    "body2": "Whether you envision a romantic beach ceremony at sunrise, an intimate courthouse exchange, or an elegant reception celebration — I will be there to guide every word, every vow, every unforgettable moment.",
+    "badge": "Years Serving Miami",
+    "trust": {
+      "licensed": { "title": "Fully Licensed", "desc": "State of Florida ordained & certified" },
+      "venue":    { "title": "Any Venue",      "desc": "Beach, park, hotel, or courthouse" },
+      "bilingual":{ "title": "Bilingual",      "desc": "Ceremonies in English & Spanish" },
+      "vows":     { "title": "Personalized Vows", "desc": "Every script is uniquely yours" }
+    }
+  },
+  "packages": {
+    "eyebrow": "Wedding Ceremony Packages",
+    "title": "Choose Your Perfect Package",
+    "subtitle": "Every ceremony is tailored to your vision. All packages include personalized vows and a rehearsal consultation.",
+    "items": [
+      {
+        "id": "elopement",
+        "name": "Elopement",
+        "subtitle": "The Intimate Ceremony",
+        "price": 250,
+        "featured": false,
+        "badge": null,
+        "features": [
+          "Up to 10 guests",
+          "20-minute ceremony",
+          "Personalized script",
+          "Legal filing included",
+          "Miami-Dade County"
+        ]
+      },
+      {
+        "id": "celebration",
+        "name": "Celebration",
+        "subtitle": "The Full Experience",
+        "price": 450,
+        "featured": true,
+        "badge": "Most Popular",
+        "features": [
+          "Up to 50 guests",
+          "45-minute ceremony",
+          "Custom vow writing assistance",
+          "Rehearsal included",
+          "Legal filing included",
+          "Tri-county coverage"
+        ]
+      },
+      {
+        "id": "grand",
+        "name": "Grand Union",
+        "subtitle": "The Premium Package",
+        "price": 750,
+        "featured": false,
+        "badge": null,
+        "features": [
+          "Unlimited guests",
+          "60-minute ceremony",
+          "Complete vow writing service",
+          "Rehearsal + coordination",
+          "Unity ceremony included",
+          "Legal filing + keepsake",
+          "Statewide coverage"
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Love Stories Told",
+    "title": "Words From Our Couples",
+    "items": [
+      {
+        "text": "Juan Carlos made our beach ceremony feel like a fairy tale. Every word felt written just for us. We cried. Our guests cried. It was perfect.",
+        "author": "Sofia & Miguel Restrepo",
+        "location": "South Beach",
+        "date": "March 2024"
+      },
+      {
+        "text": "Bilingual ceremony for our family — half Spanish speakers, half English. He handled it flawlessly, with grace and warmth. Truly professional.",
+        "author": "Amanda & Carlos Vega",
+        "location": "Coral Gables",
+        "date": "October 2023"
+      },
+      {
+        "text": "We booked him just two weeks before our elopement. Calm, organized, and everything was seamless. The ceremony was intimate and emotional.",
+        "author": "Laura & David Kim",
+        "location": "Brickell",
+        "date": "January 2024"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Book Your Ceremony",
+    "title": "Let's Make Your Dream Come True",
+    "subtitle": "Ready to start planning your perfect ceremony? Reach out to check availability and begin crafting your story.",
+    "form": {
+      "yourName": "Your Name",
+      "partnerName": "Partner's Name",
+      "email": "Email Address",
+      "phone": "Phone / WhatsApp",
+      "date": "Ceremony Date",
+      "package": "Package",
+      "selectPackage": "Select a package",
+      "venue": "Venue / Location",
+      "message": "Additional Details",
+      "submit": "Submit Booking Request",
+      "success": "Request Sent! We'll contact you soon."
+    }
+  },
+  "footer": {
+    "tagline": "Bilingual wedding ceremonies crafted with love in the heart of Miami, FL. Serving couples across South Florida since 2016.",
+    "rights": "All rights reserved. Licensed in the State of Florida."
+  }
+}

@@ -1,0 +1,45 @@
+<header
+  [class.scrolled]="isScrolled()"
+  class="navbar"
+  role="banner"
+>
+  <div class="navbar__brand" (click)="scrollTo('hero')">
+    Miami <span>Wedding</span> Officiant
+  </div>
+
+  <nav class="navbar__links" aria-label="Main navigation">
+    <button (click)="scrollTo('about')"       class="nav-link">{{ t('nav.about') }}</button>
+    <button (click)="scrollTo('packages')"    class="nav-link">{{ t('nav.packages') }}</button>
+    <button (click)="scrollTo('testimonials')"class="nav-link">{{ t('nav.testimonials') }}</button>
+    <button (click)="scrollTo('contact')"     class="nav-link">{{ t('nav.contact') }}</button>
+
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+      @for (lang of languages; track lang) {
+        <button
+          [class.active]="i18n.currentLang() === lang"
+          (click)="setLang(lang)"
+          class="lang-btn"
+          [attr.aria-pressed]="i18n.currentLang() === lang"
+        >
+          {{ lang.toUpperCase() }}
+        </button>
+        @if (!$last) {
+          <span class="lang-sep" aria-hidden="true">|</span>
+        }
+      }
+    </div>
+
+    <button class="btn-nav-cta" (click)="scrollTo('contact')">
+      {{ t('nav.bookNow') }}
+    </button>
+  </nav>
+
+  <button
+    class="mobile-toggle"
+    (click)="menuOpen.set(!menuOpen())"
+    [attr.aria-expanded]="menuOpen()"
+    aria-label="Toggle menu"
+  >
+    <span></span><span></span><span></span>
+  </button>
+</header>
