@@ -1,11 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss";
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+/* ─── Google Fonts ─────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
 
+/* ─── CSS Custom Properties (replaces tailwind.config.js theme) ─── */
+:root {
+  --font-display:    "Playfair Display", serif;
+  --font-body:       "Source Sans 3", sans-serif;
+  --color-cream:     #F8F5EE;
+  --color-gold:      #B89B77;
+  --color-sapphire:  #1A374D;
+  --color-dark:      #333333;
+  --color-light:     #F8F5EE;
+}
+
+/* ─── Global Reset & Base ──────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -13,45 +22,34 @@ html {
 }
 
 body {
-  font-family: var(--font-body, 'Source Sans Pro', sans-serif);
-  color: theme('colors.text-dark');
-  background-color: theme('colors.primary-cream');
-  overflow-x: hidden; // Prevent horizontal scroll issues
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  background-color: var(--color-cream);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display, 'Playfair Display', serif);
-  color: theme('colors.accent-sapphire');
+  font-family: var(--font-display);
+  color: var(--color-sapphire);
 }
 
-/* Custom utility for subtle text shadow (optional, for visual flair) */
-.text-shadow-subtle {
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-}
-
-/* Scroll-triggered animations (example) */
+/* ─── Scroll-triggered Animations ─────────────────────────────────── */
 .animated-section {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animated-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-// Custom scrollbar for a refined look (optional)
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: theme('colors.primary-cream');
-}
-::-webkit-scrollbar-thumb {
-  background: theme('colors.secondary-gold');
+/* ─── Custom Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 8px; }
+::-webkit-scrollbar-track  { background: var(--color-cream); }
+::-webkit-scrollbar-thumb  {
+  background: var(--color-gold);
   border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.accent-sapphire');
+  &:hover { background: var(--color-sapphire); }
 }

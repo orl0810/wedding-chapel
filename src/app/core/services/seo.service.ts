@@ -29,14 +29,14 @@ export class SeoService {
 
   updateSeoTags(data: SeoData): void {
     // Set Title
-    this.titleService.setTitle(data.title);
+    this.titleService.setTitle(data.ogTitle!);
 
     // Update Meta Description
     this.metaService.updateTag({ name: 'description', content: data.description });
     this.metaService.updateTag({ property: 'og:description', content: data.ogDescription || data.description });
 
     // Update Open Graph Tags
-    this.metaService.updateTag({ property: 'og:title', content: data.ogTitle || data.title });
+    this.metaService.updateTag({ property: 'og:title', content: data.ogTitle || data.ogTitle! });
     this.metaService.updateTag({ property: 'og:type', content: 'website' });
     if (data.ogImage) {
       this.metaService.updateTag({ property: 'og:image', content: data.ogImage });

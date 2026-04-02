@@ -1,0 +1,38 @@
+/* src/tailwind.css  (or inline this into styles.scss) */
+@import "tailwindcss";
+
+/* ─── Theme Customization via @theme ───────────────────────────────── */
+@theme {
+  /* Fonts */
+  --font-display:    "Playfair Display", serif;
+  --font-body:       "Source Sans 3", sans-serif;
+
+  /* Custom Color Palette */
+  --color-primary-cream:    #F8F5EE;
+  --color-secondary-gold:   #B89B77;
+  --color-accent-sapphire:  #1A374D;
+  --color-text-dark:        #333333;
+  --color-text-light:       #F8F5EE;
+  --color-border-light:     #E0DBD2;
+
+  /* Custom Animations */
+  --animate-fade-in-up:   fadeInUp 0.8s ease-out forwards;
+  --animate-scale-in:     scaleIn 0.6s ease-out forwards;
+  --animate-slide-left:   slideInLeft 0.7s ease-out forwards;
+}
+
+/* ─── Keyframes ────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

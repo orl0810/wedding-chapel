@@ -1,47 +1,72 @@
-import { Injectable, signal, computed, inject } from '@angular/core';
-import { PLATFORM_ID } from '@angular/core';
+import { Injectable, signal, effect, computed, PLATFORM_ID, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
-import en from '../../i18n/en.json';
-import es from '../../i18n/es.json';
 
 export type Language = 'en' | 'es';
 
-const translations: Record<Language, Record<string, unknown>> = { en, es };
-
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class I18nService {
-  private platformId = inject(PLATFORM_ID);
+  private readonly DEFAULT_LANG: Language = 'en';
+  private readonly LANG_KEY = 'app_lang';
 
-  readonly currentLang = signal<Language>(this.getInitialLang());
-  readonly t = computed(() => translations[this.currentLang()]);
+  private _currentLang = signal<Language>(this.DEFAULT_LANG);
+  private _translations = signal<Record<string, string>>({});
+  private _isLoading = signal<boolean>(true);
 
-  setLanguage(lang: Language): void {
-    this.currentLang.set(lang);
+  public currentLang = this._currentLang.asReadonly();
+  public translations = this._translations.asReadonly();
+  public isLoading = this._isLoading.asReadonly();
+  public isInitialized = computed(() => Object.keys(this._translations()).length > 0 && !this._isLoading());
+
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    // Initialize language from localStorage or default
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('lang', lang);
-      document.documentElement.lang = lang;
+      const storedLang = localStorage.getItem(this.LANG_KEY) as Language;
+      if (storedLang && ['en', 'es'].includes(storedLang)) {
+        this._currentLang.set(storedLang);
+      }
+    }
+
+    // Effect to load translations when language changes
+    effect(() => {
+      this.loadTranslations(this._currentLang());
+    });
+  }
+
+  private loadTranslations(lang: Language): void {
+    this._isLoading.set(true);
+    this.http.get<Record<string, string>>(`/assets/i18n/${lang}.json`).subscribe({
+      next: (data) => {
+        this._translations.set(data);
+        this._isLoading.set(false);
+      },
+      error: (error) => {
+        console.error(`Failed to load translations for ${lang}`, error);
+        // Fallback to default language if loading fails
+        if (lang !== this.DEFAULT_LANG) {
+          this._currentLang.set(this.DEFAULT_LANG);
+        } else {
+          this._isLoading.set(false); // Stop loading even if default fails
+        }
+      }
+    });
+  }
+
+  public setLanguage(lang: Language): void {
+    if (this._currentLang() !== lang) {
+      this._currentLang.set(lang);
+      if (isPlatformBrowser(this.platformId)) {
+        localStorage.setItem(this.LANG_KEY, lang);
+      }
     }
   }
 
-  /** Resolve a dot-notation key: t('hero.title') */
-  translate(key: string): string {
-    const keys = key.split('.');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let result: any = this.t();
-    for (const k of keys) {
-      result = result?.[k];
-      if (result === undefined) return key;
-    }
-    return String(result);
-  }
-
-  private getInitialLang(): Language {
-    if (isPlatformBrowser(this.platformId)) {
-      const stored = localStorage.getItem('lang') as Language | null;
-      if (stored === 'en' || stored === 'es') return stored;
-      const browser = navigator.language.slice(0, 2);
-      if (browser === 'es') return 'es';
-    }
-    return 'en';
+  public translate(key: string): string {
+    return this._translations()[key] || key;
   }
 }
