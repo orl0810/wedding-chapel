@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
+import { LandingComponent } from './features/landing/landing.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./features/home/home.component').then(m => m.HomeComponent),
- | Bilingual Ceremonies in Miami, FL',
+    component: LandingComponent,
     data: {
-      description:
-        'Licensed bilingual wedding officiant in Miami, FL. Serving Miami-Dade, Broward & Palm Beach. Personalized English & Spanish ceremonies. Book online.',
-    },
+      description: 'Celebrate your love with a personalized, bilingual wedding ceremony in Miami & South Florida. Experienced officiant for luxury weddings, beach elopements, and vow renewals.',
+      ogTitle: 'Miami Wedding Officiant - Your Dream Ceremony',
+      ogDescription: 'Crafting heartfelt English and Spanish ceremonies for unforgettable moments in Miami, Broward, and Palm Beach Counties.',
+      ogImage: 'https://jcamilomb.wixsite.com/weddingofficiant/assets/images/hero-bg.jpg', // Placeholder
+      canonicalUrl: 'https://yourdomain.com/'
+    }
   },
-  {
-    path: '**',
-    redirectTo: '',
-  },
+  // Add other routes here if the application expands (e.g., /privacy, /blog)
+  // { path: '**', redirectTo: '' } // Catch-all for 404, redirect to home
 ];
