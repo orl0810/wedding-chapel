@@ -1,130 +1,69 @@
 {
-  "nav": {
-    "about": "About",
-    "packages": "Packages",
-    "testimonials": "Testimonials",
-    "contact": "Contact",
-    "bookNow": "Book Now"
-  },
-  "hero": {
-    "eyebrow": "Miami's Most Trusted Wedding Officiant",
-    "title": "Your Love Story Deserves a Perfect Beginning",
-    "subtitle": "Bilingual wedding ceremonies crafted with love, elegance, and intention — right in the heart of Miami, FL.",
-    "cta": "Book Your Date",
-    "ctaSecondary": "View Packages"
-  },
-  "about": {
-    "eyebrow": "About the Officiant",
-    "title": "Ceremonies Crafted with Heart & Soul",
-    "body1": "I'm Juan Carlos, a licensed bilingual wedding officiant serving Miami-Dade, Broward, and Palm Beach counties. With over 8 years of experience uniting couples from all walks of life, I specialize in crafting personalized, heartfelt ceremonies that truly reflect your love story.",
-    "body2": "Whether you envision a romantic beach ceremony at sunrise, an intimate courthouse exchange, or an elegant reception celebration — I will be there to guide every word, every vow, every unforgettable moment.",
-    "badge": "Years Serving Miami",
-    "trust": {
-      "licensed": { "title": "Fully Licensed", "desc": "State of Florida ordained & certified" },
-      "venue":    { "title": "Any Venue",      "desc": "Beach, park, hotel, or courthouse" },
-      "bilingual":{ "title": "Bilingual",      "desc": "Ceremonies in English & Spanish" },
-      "vows":     { "title": "Personalized Vows", "desc": "Every script is uniquely yours" }
-    }
-  },
-  "packages": {
-    "eyebrow": "Wedding Ceremony Packages",
-    "title": "Choose Your Perfect Package",
-    "subtitle": "Every ceremony is tailored to your vision. All packages include personalized vows and a rehearsal consultation.",
-    "items": [
-      {
-        "id": "elopement",
-        "name": "Elopement",
-        "subtitle": "The Intimate Ceremony",
-        "price": 250,
-        "featured": false,
-        "badge": null,
-        "features": [
-          "Up to 10 guests",
-          "20-minute ceremony",
-          "Personalized script",
-          "Legal filing included",
-          "Miami-Dade County"
-        ]
-      },
-      {
-        "id": "celebration",
-        "name": "Celebration",
-        "subtitle": "The Full Experience",
-        "price": 450,
-        "featured": true,
-        "badge": "Most Popular",
-        "features": [
-          "Up to 50 guests",
-          "45-minute ceremony",
-          "Custom vow writing assistance",
-          "Rehearsal included",
-          "Legal filing included",
-          "Tri-county coverage"
-        ]
-      },
-      {
-        "id": "grand",
-        "name": "Grand Union",
-        "subtitle": "The Premium Package",
-        "price": 750,
-        "featured": false,
-        "badge": null,
-        "features": [
-          "Unlimited guests",
-          "60-minute ceremony",
-          "Complete vow writing service",
-          "Rehearsal + coordination",
-          "Unity ceremony included",
-          "Legal filing + keepsake",
-          "Statewide coverage"
-        ]
-      }
-    ]
-  },
-  "testimonials": {
-    "eyebrow": "Love Stories Told",
-    "title": "Words From Our Couples",
-    "items": [
-      {
-        "text": "Juan Carlos made our beach ceremony feel like a fairy tale. Every word felt written just for us. We cried. Our guests cried. It was perfect.",
-        "author": "Sofia & Miguel Restrepo",
-        "location": "South Beach",
-        "date": "March 2024"
-      },
-      {
-        "text": "Bilingual ceremony for our family — half Spanish speakers, half English. He handled it flawlessly, with grace and warmth. Truly professional.",
-        "author": "Amanda & Carlos Vega",
-        "location": "Coral Gables",
-        "date": "October 2023"
-      },
-      {
-        "text": "We booked him just two weeks before our elopement. Calm, organized, and everything was seamless. The ceremony was intimate and emotional.",
-        "author": "Laura & David Kim",
-        "location": "Brickell",
-        "date": "January 2024"
-      }
-    ]
-  },
-  "contact": {
-    "eyebrow": "Book Your Ceremony",
-    "title": "Let's Make Your Dream Come True",
-    "subtitle": "Ready to start planning your perfect ceremony? Reach out to check availability and begin crafting your story.",
-    "form": {
-      "yourName": "Your Name",
-      "partnerName": "Partner's Name",
-      "email": "Email Address",
-      "phone": "Phone / WhatsApp",
-      "date": "Ceremony Date",
-      "package": "Package",
-      "selectPackage": "Select a package",
-      "venue": "Venue / Location",
-      "message": "Additional Details",
-      "submit": "Submit Booking Request",
-      "success": "Request Sent! We'll contact you soon."
-    }
-  },
-  "footer": {
-    "tagline": "Bilingual wedding ceremonies crafted with love in the heart of Miami, FL. Serving couples across South Florida since 2016.",
-    "rights": "All rights reserved. Licensed in the State of Florida."
-  }
+  "NAV_HOME": "Home",
+  "NAV_ABOUT": "About",
+  "NAV_PACKAGES": "Packages",
+  "NAV_TESTIMONIALS": "Testimonials",
+  "NAV_CONTACT": "Contact",
+  "HERO_HEADLINE": "Your Love Story, Beautifully Told",
+  "HERO_SUBHEADLINE": "Crafting unique, bilingual wedding ceremonies in Miami & South Florida.",
+  "HERO_CTA_BOOK": "Book Your Ceremony",
+  "ABOUT_TITLE": "Meet Your Officiant",
+  "ABOUT_INTRO": "Hello! I'm Juan Camilo Méndez, an experienced Miami wedding officiant dedicated to creating personalized and heartfelt ceremonies. Whether it's a luxury wedding, an intimate elopement, or a vow renewal, I ensure your 'I do' moment is as meaningful as your love story. I specialize in seamless bilingual (English & Spanish) ceremonies across Miami-Dade, Broward, and Palm Beach Counties.",
+  "ABOUT_TRUST_1": "Personalized Scripts",
+  "ABOUT_TRUST_2": "Bilingual Expertise",
+  "ABOUT_TRUST_3": "Stress-Free Process",
+  "PACKAGES_TITLE": "Our Ceremony Packages",
+  "PACKAGES_SUBTITLE": "Tailored to celebrate every unique journey.",
+  "PACKAGE_INTIMATE_TITLE": "Intimate & Elopements",
+  "PACKAGE_INTIMATE_PRICE": "$650",
+  "PACKAGE_INTIMATE_DESC": "Perfect for smaller gatherings or elopements.",
+  "PACKAGE_INTIMATE_FEATURE_1": "20-min Discovery Call",
+  "PACKAGE_INTIMATE_FEATURE_2": "Unique Bilingual Script",
+  "PACKAGE_INTIMATE_FEATURE_3": "One Symbolic Ritual (Sand, Light, or Tree)",
+  "PACKAGE_INTIMATE_FEATURE_4": "Legal Marriage Integration & Filing",
+  "PACKAGE_INTIMATE_FEATURE_5": "Soul Certificate Keepsake",
+  "PACKAGE_SIGNATURE_TITLE": "Signature Ceremonies",
+  "PACKAGE_SIGNATURE_PRICE": "$950",
+  "PACKAGE_SIGNATURE_DESC": "Our most popular choice for a comprehensive experience.",
+  "PACKAGE_SIGNATURE_FEATURE_1": "Everything in Intimate Package",
+  "PACKAGE_SIGNATURE_FEATURE_2": "'Honoring Mom & Dad' Ritual",
+  "PACKAGE_SIGNATURE_FEATURE_3": "Two Symbolic Rituals",
+  "PACKAGE_SIGNATURE_FEATURE_4": "2 Alignment Sessions (Online)",
+  "PACKAGE_SIGNATURE_FEATURE_5": "Vow Architecture Video Guide",
+  "PACKAGE_SIGNATURE_FEATURE_6": "Rehearsal Coordination",
+  "PACKAGE_PREMIUM_TITLE": "Premium Experience",
+  "PACKAGE_PREMIUM_PRICE": "$1,950",
+  "PACKAGE_PREMIUM_DESC": "The ultimate package for a deeply immersive and spiritual union.",
+  "PACKAGE_PREMIUM_FEATURE_1": "Everything in Signature Package",
+  "PACKAGE_PREMIUM_FEATURE_2": "Deep Immersion (5 Online Sessions)",
+  "PACKAGE_PREMIUM_FEATURE_3": "Energetic Union Ritual",
+  "PACKAGE_PREMIUM_FEATURE_4": "Three Symbolic Rituals",
+  "PACKAGE_PREMIUM_FEATURE_5": "VIP Priority WhatsApp Access",
+  "PACKAGES_CTA": "Learn More & Book",
+  "TESTIMONIALS_TITLE": "What Our Couples Say",
+  "TESTIMONIALS_SUBTITLE": "Heartfelt words from those we've celebrated with.",
+  "TESTIMONIAL_1_NAME": "Jovaleris & Wilfredo",
+  "TESTIMONIAL_1_QUOTE": "We wanted a ceremony that felt personal and not like a script. He captured our story perfectly and kept our guests engaged the whole time. If you are getting married in Miami, look no further!",
+  "TESTIMONIAL_2_NAME": "Daniela & Austin",
+  "TESTIMONIAL_2_QUOTE": "As a bride from out of state, I was worried about the legal requirements in Florida. He walked us through the marriage license process and delivered a stunning bilingual ceremony that our families loved.",
+  "TESTIMONIAL_3_NAME": "Sara & Damian",
+  "TESTIMONIAL_3_QUOTE": "Professional, punctual, and incredibly well-spoken. He worked seamlessly with our wedding planner and made the most important part of our day feel truly sacred.",
+  "CONTACT_TITLE": "Let's Plan Your Perfect Day",
+  "CONTACT_SUBTITLE": "Schedule your complimentary consultation.",
+  "FORM_NAME": "Your Name",
+  "FORM_COUPLE_NAME": "Couple's Name",
+  "FORM_EMAIL": "Email",
+  "FORM_PHONE": "Phone",
+  "FORM_DATE": "Ceremony Date",
+  "FORM_TIME": "Ceremony Time",
+  "FORM_LOCATION": "Ceremony Location (Venue)",
+  "FORM_DETAILS": "Tell us more about your vision...",
+  "FORM_PACKAGE_INTEREST": "Interested Package",
+  "FORM_SUBMIT": "Send Inquiry",
+  "FORM_REQUIRED_FIELD": "This field is required.",
+  "FORM_INVALID_EMAIL": "Please enter a valid email.",
+  "FORM_INVALID_DATE": "Please enter a valid date.",
+  "FOOTER_CONTACT_INFO": "Contact Information",
+  "FOOTER_ADDRESS": "7218 West 4th Ave, Hialeah, FL",
+  "FOOTER_COPYRIGHT": "© 2024 Wedding Officiant Miami. All rights reserved."
 }
