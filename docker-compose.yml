@@ -5,9 +5,21 @@ services:
     build: .
     container_name: wedding-app
     restart: unless-stopped
-    ports:
-      - "4000:4000"
+    expose:
+      - "4000"
     environment:
       - NODE_ENV=production
       - PORT=4000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wedding.rule=Host(`miamiweddingsofficiant.com`) || Host(`www.miamiweddingsofficiant.com`)"
+      - "traefik.http.routers.wedding.entrypoints=websecure"
+      - "traefik.http.routers.wedding.tls.certresolver=letsencrypt"
+      - "traefik.http.services.wedding.loadbalancer.server.port=4000"
+    networks:
+      - web
 
+networks:
+  web:
+    external: true
+    name: root_default
