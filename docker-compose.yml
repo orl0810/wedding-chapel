@@ -12,14 +12,13 @@ services:
       - PORT=4000
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wedding.rule=Host(`miamiweddingsofficiant.com`) || Host(`www.miamiweddingsofficiant.com`)"
-      - "traefik.http.routers.wedding.entrypoints=websecure"
-      - "traefik.http.routers.wedding.tls.certresolver=letsencrypt"
-      - "traefik.http.services.wedding.loadbalancer.server.port=4000"
+      - "traefik.http.routers.wedding-chapel.rule=Host(`miamiweddingsofficiant.com`) || Host(`www.miamiweddingsofficiant.com`)"
+      - "traefik.http.routers.wedding-chapel.entrypoints=websecure"
+      - "traefik.http.routers.wedding-chapel.tls.certresolver=letsencrypt"
+      - "traefik.http.services.wedding-chapel.loadbalancer.server.port=4000"
     networks:
-      - web
+      - traefik-proxy
 
 networks:
-  web:
+  traefik-proxy:
     external: true
-    name: root_default
