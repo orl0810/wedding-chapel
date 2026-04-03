@@ -14,11 +14,12 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.wedding-chapel.rule=Host(`miamiweddingsofficiant.com`) || Host(`www.miamiweddingsofficiant.com`)"
       - "traefik.http.routers.wedding-chapel.entrypoints=websecure"
-      - "traefik.http.routers.wedding-chapel.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.wedding-chapel.tls=true"
+      - "traefik.http.routers.wedding-chapel.tls.certresolver=mytlschallenge"
       - "traefik.http.services.wedding-chapel.loadbalancer.server.port=4000"
     networks:
-      - traefik-proxy
+      - n8n_evoapi
 
 networks:
-  traefik-proxy:
+  n8n_evoapi:
     external: true
