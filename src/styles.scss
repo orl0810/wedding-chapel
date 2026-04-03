@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* ─── Google Fonts ─────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
@@ -33,16 +35,54 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-sapphire);
 }
 
-/* ─── Scroll-triggered Animations ─────────────────────────────────── */
-.animated-section {
+/* ─── Scroll reveal (Wix-style fade / rise; SSR & reduced-motion safe via directive) ─ */
+.reveal-on-scroll {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(2rem);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
 
-  &.is-visible {
+.reveal-on-scroll.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    transition: none;
   }
+}
+
+/* ─── Marquee (hero strip; respects reduced motion via Tailwind arbitrary or media) ─ */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-track {
+  animation: marquee-scroll 45s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-track {
+    animation: none;
+  }
+}
+
+/* Legacy helper: subtle hover lift on cards */
+.animated-section {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* ─── Custom Scrollbar ─────────────────────────────────────────────── */

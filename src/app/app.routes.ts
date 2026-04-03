@@ -7,9 +7,9 @@ export const routes: Routes = [
     component: LandingComponent,
     data: {
       description: 'Celebrate your love with a personalized, bilingual wedding ceremony in Miami & South Florida. Experienced officiant for luxury weddings, beach elopements, and vow renewals.',
-      ogTitle: 'Miami Wedding Officiant - Your Dream Ceremony',
-      ogDescription: 'Crafting heartfelt English and Spanish ceremonies for unforgettable moments in Miami, Broward, and Palm Beach Counties.',
-      ogImage: 'https://jcamilomb.wixsite.com/weddingofficiant/assets/images/hero-bg.jpg', // Placeholder
+      ogTitle: 'Miami Wedding Officiant — Unique, Bilingual & Beautiful Ceremonies',
+      ogDescription: 'Bilingual wedding officiant in Miami & South Florida. Personalized English and Spanish ceremonies, elopements, and vow renewals.',
+      ogImage: 'https://jcamilomb.wixsite.com/weddingofficiant/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.jpg', // Placeholder
       canonicalUrl: 'https://yourdomain.com/'
     }
   },

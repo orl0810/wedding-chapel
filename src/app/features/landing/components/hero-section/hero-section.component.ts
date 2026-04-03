@@ -9,31 +9,73 @@ import { ScrollService } from '../../../../core/services/scroll.service';
   standalone: true,
   imports: [CommonModule, ButtonComponent, TranslatePipe],
   template: `
-    <section class="relative h-screen flex items-center justify-center text-white overflow-hidden bg-hero-pattern bg-cover bg-center" aria-label="Hero Section - Wedding Officiant">
-      <div class="absolute inset-0 bg-accent-sapphire opacity-50"></div>
-      <div class="relative z-10 text-center px-4 max-w-4xl">
-        <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 animate-fadeInUp text-text-light text-shadow-subtle">
+    <section
+      class="relative min-h-screen flex flex-col justify-center items-center text-white overflow-hidden bg-hero-pattern bg-cover bg-center"
+      aria-label="Hero Section - Wedding Officiant">
+      <div class="absolute inset-0 bg-gradient-to-b from-accent-sapphire/75 via-accent-sapphire/55 to-accent-sapphire/80"></div>
+      <div class="absolute inset-0 bg-black/20"></div>
+
+      <div class="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-4 max-w-5xl pt-24 pb-36">
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-semibold leading-[1.15] mb-6 md:mb-8 uppercase tracking-[0.06em] text-text-light animate-fade-in-up drop-shadow-md">
           {{ 'HERO_HEADLINE' | translate }}
         </h1>
-        <p class="text-xl md:text-2xl font-body mb-10 animate-fadeInUp animation-delay-300 text-text-light opacity-90 text-shadow-subtle">
+        <p
+          class="text-lg md:text-xl lg:text-2xl font-body font-light mb-10 md:mb-12 text-text-light/95 max-w-2xl animate-fade-in-up [animation-delay:0.2s] [animation-fill-mode:both]">
           {{ 'HERO_SUBHEADLINE' | translate }}
         </p>
-        <app-button variant="primary" size="lg" class="animate-fadeInUp animation-delay-600" (click)="scrollToSection('contact')">
+        <app-button
+          variant="primary"
+          size="lg"
+          class="animate-fade-in-up [animation-delay:0.4s] [animation-fill-mode:both]"
+          (click)="scrollToSection('contact')">
           {{ 'HERO_CTA_BOOK' | translate }}
         </app-button>
+      </div>
+
+      <div
+        class="absolute bottom-0 left-0 right-0 z-10 border-t border-white/15 bg-black/35 backdrop-blur-[2px] py-3 md:py-4 overflow-hidden">
+        <div class="flex w-[200%] animate-marquee-track hover:[animation-play-state:paused]">
+          @for (half of marqueeHalves; track half) {
+            <div
+              class="flex min-w-[50%] items-center justify-around gap-8 md:gap-16 px-4 md:px-8">
+              @for (i of marqueeItems; track i) {
+                <span
+                  class="font-display text-xs sm:text-sm md:text-base uppercase tracking-[0.2em] text-white/90 whitespace-nowrap">
+                  {{ 'HERO_HEADLINE' | translate }}
+                </span>
+              }
+            </div>
+          }
+        </div>
       </div>
     </section>
   `,
   styles: `
     .bg-hero-pattern {
-      background-image: url('/assets/images/hero-bg.jpg'); /* Ensure this path is correct */
+      background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=80');
     }
-    .animation-delay-300 { animation-delay: 0.3s; }
-    .animation-delay-600 { animation-delay: 0.6s; }
-  `
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      opacity: 0;
+      animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-in-up {
+        opacity: 1;
+        animation: none;
+        transform: none;
+      }
+    }
+  `,
 })
 export class HeroSectionComponent {
   private scrollService = inject(ScrollService);
+  readonly marqueeHalves = [0, 1] as const;
+  readonly marqueeItems = [0, 1, 2, 3, 4, 5] as const;
 
   scrollToSection(id: string): void {
     this.scrollService.scrollToElementById(id);

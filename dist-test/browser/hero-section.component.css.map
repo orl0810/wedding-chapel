@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/landing/components/hero-section/hero-section.component.ts"],
+  "sourcesContent": ["\n    .bg-hero-pattern {\n      background-image: url('/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.jpg'); /* Ensure this path is correct */\n    }\n    .animation-delay-300 { animation-delay: 0.3s; }\n    .animation-delay-600 { animation-delay: 0.6s; }\n  "],
+  "mappings": ";AACI,CAAA;AACE,oBAAA;;AAEF,CAAA;AAAuB,mBAAA;;AACvB,CAAA;AAAuB,mBAAA;;",
+  "names": []
+}

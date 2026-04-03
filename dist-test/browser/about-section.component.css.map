@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/landing/components/about-section/about-section.component.ts"],
+  "sourcesContent": ["\n    img {\n      max-width: 400px; /* Constrain image size */\n      aspect-ratio: 3/4; /* Example aspect ratio */\n    }\n  "],
+  "mappings": ";AACI;AACE,aAAA;AACA,gBAAA,CAAA,CAAA;;",
+  "names": []
+}

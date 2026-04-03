@@ -1,5 +1,5 @@
-import { Component, OnInit, inject, effect, PLATFORM_ID } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive, ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Component, OnInit, inject, signal, effect, PLATFORM_ID } from '@angular/core';
+import { RouterOutlet, RouterLink, ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SeoService } from './core/services/seo.service';
 import { I18nService, Language } from './core/services/i18n.service';
 import { filter, map } from 'rxjs/operators';
@@ -9,7 +9,6 @@ import { LanguageSwitcherComponent } from './shared/components/language-switcher
 import { WhatsAppButtonComponent } from './shared/components/whatsapp-button/whatsapp-button.component';
 import { ScrollService } from './core/services/scroll.service';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -17,24 +16,24 @@ import { ScrollService } from './core/services/scroll.service';
     CommonModule,
     RouterOutlet,
     RouterLink,
-    RouterLinkActive,
     TranslatePipe,
     LanguageSwitcherComponent,
     WhatsAppButtonComponent
   ],
   template: `
     @if (i18nService.isInitialized()) {
-      <header class="fixed w-full z-50 bg-primary-cream/90 backdrop-blur-sm shadow-sm py-4">
-        <nav class="container mx-auto flex justify-between items-center px-4">
-          <a routerLink="/" class="text-accent-sapphire text-2xl font-display font-bold hover:text-secondary-gold transition-colors">
+      <header class="fixed w-full z-50 bg-primary-cream/95 backdrop-blur-md border-b border-black/[0.06] py-3 md:py-4 shadow-wix-soft">
+        <nav class="container mx-auto flex justify-between items-center px-4 max-w-7xl">
+          <a routerLink="/" class="text-accent-sapphire text-xl md:text-2xl font-display font-semibold hover:text-secondary-gold transition-colors duration-300 tracking-tight">
             Miami Wedding Officiant
           </a>
-          <div class="flex items-center space-x-6">
-            <ul class="hidden md:flex space-x-6 font-body text-text-dark">
+          <div class="flex items-center gap-4 md:gap-6">
+            <ul class="hidden lg:flex flex-wrap justify-end gap-x-5 gap-y-2 font-body text-sm md:text-[15px] text-text-dark uppercase tracking-[0.12em]">
               <li><a (click)="scrollToSection('hero')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_HOME' | translate }}</a></li>
-              <li><a (click)="scrollToSection('about')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_ABOUT' | translate }}</a></li>
-              <li><a (click)="scrollToSection('packages')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_PACKAGES' | translate }}</a></li>
+              <li><a (click)="scrollToSection('process')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_PROCESS' | translate }}</a></li>
+              <li><a (click)="scrollToSection('packages')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_SERVICES' | translate }}</a></li>
               <li><a (click)="scrollToSection('testimonials')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_TESTIMONIALS' | translate }}</a></li>
+              <li><a (click)="scrollToSection('why-us')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_WHY' | translate }}</a></li>
               <li><a (click)="scrollToSection('contact')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_CONTACT' | translate }}</a></li>
             </ul>
             <app-language-switcher [currentLang]="i18nService.currentLang()" (langChange)="onLangChange($event)"></app-language-switcher>
@@ -68,7 +67,6 @@ export class AppComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   private document = inject(DOCUMENT);
 
-  
   constructor() {
     effect(() => {
       // Update language for SEO when it changes

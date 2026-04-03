@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/landing/components/testimonials-section/testimonials-section.component.ts"],
+  "sourcesContent": ["\n    .bg-texture-subtle {\n      background-image: url('/assets/images/subtle-texture.png'); /* Ensure this path is correct */\n      background-size: cover;\n      background-position: center;\n    }\n  "],
+  "mappings": ";AACI,CAAA;AACE,oBAAA;AACA,mBAAA;AACA,uBAAA;;",
+  "names": []
+}

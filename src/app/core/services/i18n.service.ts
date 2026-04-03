@@ -1,4 +1,5 @@
-import { Injectable, signal, effect, computed, PLATFORM_ID, Inject } from '@angular/core';
+import { Injectable, signal, effect, computed, PLATFORM_ID, Inject, Optional } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -20,10 +21,14 @@ export class I18nService {
   public isLoading = this._isLoading.asReadonly();
   public isInitialized = computed(() => Object.keys(this._translations()).length > 0 && !this._isLoading());
 
+  private readonly baseHref: string;
+
   constructor(
     private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Optional() @Inject(APP_BASE_HREF) private appBaseHref?: string
   ) {
+    this.baseHref = ((this.appBaseHref || '/') as string).replace(/\/$/, '');
     // Initialize language from localStorage or default
     if (isPlatformBrowser(this.platformId)) {
       const storedLang = localStorage.getItem(this.LANG_KEY) as Language;
@@ -38,13 +43,18 @@ export class I18nService {
     });
   }
 
+  private getTranslationUrl(lang: Language): string {
+    return `${this.baseHref}/assets/i18n/${lang}.json`.replace(/\/\/+/g, '/');
+  }
+
   private loadTranslations(lang: Language): void {
     this._isLoading.set(true);
-    this.http.get<Record<string, string>>(`/assets/i18n/${lang}.json`).subscribe({
+    this.http.get<Record<string, string>>(this.getTranslationUrl(lang)).subscribe({
       next: (data) => {
         this._translations.set(data);
         this._isLoading.set(false);
       },
+
       error: (error) => {
         console.error(`Failed to load translations for ${lang}`, error);
         // Fallback to default language if loading fails

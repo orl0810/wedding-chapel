@@ -7,6 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
+          "standalone": true,
           "style": "scss"
         }
       },
@@ -16,7 +17,7 @@
       "architect": {
         "build": {
           "builder": "@angular/build:application",
-          "options": {
+           "options": {
             "outputPath": "dist/wedding-chapel",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -26,6 +27,8 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/favicon.ico",
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -38,8 +41,8 @@
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
-              "entry": "server.ts"
-            }
+              "entry": "src/main.server.ts"
+             }
           },
           "configurations": {
             "production": {
@@ -67,7 +70,7 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-          "configurations": {
+           "configurations": {
             "production": {
               "buildTarget": "wedding-chapel:build:production"
             },
@@ -78,11 +81,16 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
-        },
+          "builder": "@angular/build:extract-i18n",
+          "options": {
+            "buildTarget": "wedding-chapel:build",
+            "format": "json",
+            "outputPath": "src/assets/i18n"
+          }
+         },
         "test": {
           "builder": "@angular/build:karma",
-          "options": {
+           "options": {
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -90,6 +98,8 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+               "src/favicon.ico",
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"

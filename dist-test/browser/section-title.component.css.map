@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/components/section-title/section-title.component.ts"],
+  "sourcesContent": ["\n    .animated-text {\n      opacity: 0;\n      transform: translateY(20px);\n      animation: fadeInUp 0.8s ease-out forwards;\n    }\n    .animated-line {\n      opacity: 0;\n      transform: scaleX(0);\n      animation: scaleXIn 0.8s ease-out 0.3s forwards;\n    }\n    @keyframes scaleXIn {\n      from { opacity: 0; transform: scaleX(0); }\n      to { opacity: 1; transform: scaleX(1); }\n    }\n  "],
+  "mappings": ";AACI,CAAA;AACE,WAAA;AACA,aAAA,WAAA;AACA,aAAA,SAAA,KAAA,SAAA;;AAEF,CAAA;AACE,WAAA;AACA,aAAA,OAAA;AACA,aAAA,SAAA,KAAA,SAAA,KAAA;;AAEF,WAFE;AAGA;AAAO,aAAA;AAAY,eAAA,OAAA;;AACnB;AAAK,aAAA;AAAY,eAAA,OAAA;;;",
+  "names": []
+}
