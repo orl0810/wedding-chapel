@@ -64,19 +64,18 @@ export class TestimonialsSectionComponent {
       nameKey: 'TESTIMONIAL_1_NAME',
       quoteKey: 'TESTIMONIAL_1_QUOTE',
       image:
-        'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=200&h=200&q=80',
+        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami-56.jpg',
     },
     {
       nameKey: 'TESTIMONIAL_2_NAME',
       quoteKey: 'TESTIMONIAL_2_QUOTE',
       image:
-        'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=200&h=200&q=80',
+        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami21.png',
     },
     {
       nameKey: 'TESTIMONIAL_3_NAME',
       quoteKey: 'TESTIMONIAL_3_QUOTE',
-      image:
-        'https://images.unsplash.com/photo-1469371670807-613ccf68837a?auto=format&fit=crop&w=200&h=200&q=80',
+      image:'/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida.jpg',
     },
   ];
 }

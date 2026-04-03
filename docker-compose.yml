@@ -4,9 +4,12 @@ services:
   app:
     build: .
     container_name: wedding-app
-    restart: always
+    restart: unless-stopped
     ports:
       - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
 
   nginx:
     image: nginx:alpine

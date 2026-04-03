@@ -24,7 +24,7 @@ import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on
           </div>
           <div appReveal class="order-1 md:order-2 flex justify-center reveal-delay-1">
             <img
-              src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80"
+              src="/assets/images/miami-officiant-marriage-south-florida-best-venues-florida-luxury-miami2.jpg"
               alt="Juan Camilo Méndez - Miami Wedding Officiant"
               class="rounded-sm shadow-wix-card max-w-full h-auto object-cover border border-black/10 w-full max-w-md aspect-[4/5] hover:scale-[1.02] transition-transform duration-700 ease-out"
               loading="lazy" />

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class WhatsappService {
-  private readonly phone = '13055550188';
+  private readonly phone = '13058703010';
 
   buildUrl(message?: string): string {
     const encoded = encodeURIComponent(

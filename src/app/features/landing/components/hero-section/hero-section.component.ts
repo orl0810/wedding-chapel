@@ -53,7 +53,7 @@ import { ScrollService } from '../../../../core/services/scroll.service';
   `,
   styles: `
     .bg-hero-pattern {
-      background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=80');
+      background-image: url('/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.jpg');
     }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(28px); }
