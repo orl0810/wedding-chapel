@@ -270,10 +270,10 @@ export class ContactBookingSectionComponent {
       alert('Thank you for your booking inquiry! We will contact you to confirm the details.');
 
       this.bookingService
-      .submitBooking(this.contactForm.getRawValue() as any)
+      .submitBooking(this.bookingForm.getRawValue() as any)
       .subscribe({
         next: () => this.contactForm.reset(),
-        error: () => { /* Errors handled inside service */ },
+        error: () => { console.error('Error submitting booking form'); },
       });
 
     } else {

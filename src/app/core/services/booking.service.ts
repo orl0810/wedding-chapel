@@ -56,7 +56,7 @@ export class BookingService {
     this.bookingId.set(null);
 
     return this.http
-      .post<BookingResponse>(environment.bookingFunctionUrl, payload)
+      .post<any>(environment.bookingN8NFunctionUrl, payload)
       .pipe(
         tap((response) => {
           if (response.success) {
