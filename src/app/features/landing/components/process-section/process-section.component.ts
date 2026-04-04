@@ -20,9 +20,9 @@ import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on
           [subtitle]="'PROCESS_SUBTITLE' | translate"
           [showRule]="true" />
 
-        <p class="text-center font-body text-sm uppercase tracking-[0.2em] text-secondary-gold mb-10">
+        <!-- <p class="text-center font-body text-sm uppercase tracking-[0.2em] text-secondary-gold mb-10">
           {{ 'PROCESS_LABEL' | translate }}
-        </p>
+        </p> -->
 
         <ol class="space-y-10 md:space-y-12 list-none p-0 m-0">
           @for (n of steps; track n; let idx = $index) {
@@ -32,7 +32,9 @@ import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on
               [class.reveal-delay-1]="idx === 1"
               [class.reveal-delay-2]="idx === 2"
               [class.reveal-delay-3]="idx === 3">
-              <p class="font-body text-base md:text-lg text-text-dark/95 leading-relaxed">
+              <p class="font-body text-base md:text-lg text-text-dark/95 font-semibold leading-relaxed">
+                {{ ('PROCESS_STEP_TITLE_' + n) | translate }}
+              </p><p class="font-body text-base md:text-lg text-text-dark/95 leading-relaxed">
                 {{ ('PROCESS_STEP_' + n) | translate }}
               </p>
             </li>

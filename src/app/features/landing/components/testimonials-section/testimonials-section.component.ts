@@ -24,7 +24,7 @@ interface Testimonial {
           id="testimonials-title"
           [title]="'TESTIMONIALS_TITLE' | translate"
           [subtitle]="'TESTIMONIALS_SUBTITLE' | translate"
-          [wide]="true" />
+          [wide]="false" />
 
         <div class="grid md:grid-cols-3 gap-8 md:gap-10 mt-6">
           @for (testimonial of testimonials; track testimonial.nameKey; let idx = $index) {
@@ -64,18 +64,18 @@ export class TestimonialsSectionComponent {
       nameKey: 'TESTIMONIAL_1_NAME',
       quoteKey: 'TESTIMONIAL_1_QUOTE',
       image:
-        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami-56.jpg',
+        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami-56.webp',
     },
     {
       nameKey: 'TESTIMONIAL_2_NAME',
       quoteKey: 'TESTIMONIAL_2_QUOTE',
       image:
-        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami21.png',
+        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami21.webp',
     },
     {
       nameKey: 'TESTIMONIAL_3_NAME',
       quoteKey: 'TESTIMONIAL_3_QUOTE',
-      image:'/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida.jpg',
+      image:'/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida.webp',
     },
   ];
 }

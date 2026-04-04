@@ -29,7 +29,6 @@ interface Package {
         <app-section-title
           id="packages-title"
           [title]="'PACKAGES_TITLE' | translate"
-          [subtitle]="packagesSubtitle()"
           [wide]="true" />
 
         <div class="grid lg:grid-cols-3 gap-8 md:gap-10 mt-4 md:mt-8">
@@ -76,11 +75,6 @@ interface Package {
 export class PackagesSectionComponent {
   private scrollService = inject(ScrollService);
   private i18n = inject(I18nService);
-
-  readonly packagesSubtitle = computed(() => {
-    const raw = this.i18n.translate('PACKAGES_SUBTITLE');
-    return raw.trim().length > 0 ? raw : undefined;
-  });
 
   packages: Package[] = [
     {

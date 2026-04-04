@@ -2,16 +2,24 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../../../shared/pipes/translate/translate.pipe';
 import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
+import { SectionTitleComponent } from "../../../../shared/components/section-title/section-title.component";
+import { YoutubeVideoComponent } from "../../../../shared/components/youtube-video/youtube-video.component";
 
 @Component({
   selector: 'app-about-section',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, RevealOnScrollDirective],
+  imports: [CommonModule, TranslatePipe, RevealOnScrollDirective, SectionTitleComponent, YoutubeVideoComponent],
   template: `
     <section id="about" class="bg-wix-warm py-20 md:py-28 px-4 border-b border-black/[0.06]" aria-label="About">
       <div class="container mx-auto max-w-6xl">
         <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div appReveal class="order-2 md:order-1 space-y-6 md:space-y-8 text-text-dark">
+
+          <app-section-title
+          id="about-title"
+          [title]="'ABOUT_TITLE' | translate"
+          [wide]="true" />
+          
             <p class="text-base md:text-lg leading-relaxed font-body text-text-dark/95">
               {{ 'ABOUT_P1' | translate }}
             </p>
@@ -23,11 +31,7 @@ import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on
             </p>
           </div>
           <div appReveal class="order-1 md:order-2 flex justify-center reveal-delay-1">
-            <img
-              src="/assets/images/miami-officiant-marriage-south-florida-best-venues-florida-luxury-miami2.jpg"
-              alt="Juan Camilo Méndez - Miami Wedding Officiant"
-              class="rounded-sm shadow-wix-card max-w-full h-auto object-cover border border-black/10 w-full max-w-md aspect-[4/5] hover:scale-[1.02] transition-transform duration-700 ease-out"
-              loading="lazy" />
+              <app-youtube-video class="max-w-full object-cover border border-black/10 w-full max-w-md transition-transform duration-700 ease-out" videoId="5VYZgXbb6I4?si=sQJQAVx0LmwORqKg"></app-youtube-video>
           </div>
         </div>
       </div>
