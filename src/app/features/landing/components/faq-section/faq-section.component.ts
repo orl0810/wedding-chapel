@@ -8,7 +8,7 @@ import { TranslatePipe } from '../../../../shared/pipes/translate/translate.pipe
   standalone: true,
   imports: [CommonModule, SectionTitleComponent, TranslatePipe],
   template: `
-    <section id="faq" class="bg-wix-paper py-20 md:py-28 px-4" aria-labelledby="faq-heading">
+    <section class="bg-wix-paper py-20 md:py-28 px-4" aria-labelledby="faq-heading">
       <div class="container mx-auto max-w-3xl">
         <app-section-title
           id="faq-heading"

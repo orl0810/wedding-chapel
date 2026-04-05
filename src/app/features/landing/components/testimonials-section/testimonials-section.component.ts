@@ -18,7 +18,6 @@ interface Testimonial {
   imports: [CommonModule, NgOptimizedImage, SectionTitleComponent, TranslatePipe, RevealOnScrollDirective],
   template: `
     <section
-      id="testimonials"
       class="py-20 md:py-28 px-4 bg-wix-paper border-y border-black/[0.06]"
       aria-labelledby="testimonials-title">
       <div class="container mx-auto max-w-6xl">

@@ -31,7 +31,7 @@ import { YoutubeVideoComponent } from "../../../../shared/components/youtube-vid
             </p>
           </div>
           <div appReveal class="order-1 md:order-2 flex justify-center reveal-delay-1">
-              <app-youtube-video class="max-w-full object-cover border border-black/10 w-full max-w-md transition-transform duration-700 ease-out" videoId="5VYZgXbb6I4"></app-youtube-video>
+              <app-youtube-video class="max-w-full object-cover border border-black/10 w-full transition-transform duration-700 ease-out" videoId="5VYZgXbb6I4"></app-youtube-video>
           </div>
         </div>
       </div>
