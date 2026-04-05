@@ -1,13 +1,15 @@
-import { Component, OnInit, inject, signal, effect, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, inject, effect } from '@angular/core';
 import { RouterOutlet, RouterLink, ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SeoService } from './core/services/seo.service';
-import { I18nService, Language } from './core/services/i18n.service';
-import { filter, map } from 'rxjs/operators';
-import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { I18nService } from './core/services/i18n.service';
+import { filter } from 'rxjs/operators';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { TranslatePipe } from './shared/pipes/translate/translate.pipe';
 import { LanguageSwitcherComponent } from './shared/components/language-switcher/language-switcher.component';
 import { WhatsAppButtonComponent } from './shared/components/whatsapp-button/whatsapp-button.component';
 import { ScrollService } from './core/services/scroll.service';
+import { LanguageUrlService } from './core/services/language-url.service';
+import type { PageKey, SiteLang } from './routing/localized-page-meta';
 
 @Component({
   selector: 'app-root',
@@ -24,19 +26,23 @@ import { ScrollService } from './core/services/scroll.service';
     @if (i18nService.isInitialized()) {
       <header class="fixed w-full z-50 bg-primary-cream/95 backdrop-blur-md border-b border-black/[0.06] py-3 md:py-4 shadow-wix-soft">
         <nav class="container mx-auto flex justify-between items-center px-4 max-w-7xl">
-          <a routerLink="/" class="text-accent-sapphire text-xl md:text-2xl font-display font-semibold hover:text-secondary-gold transition-colors duration-300 tracking-tight">
+          <a [routerLink]="navPage('home')" class="text-accent-sapphire text-xl md:text-2xl font-display font-semibold hover:text-secondary-gold transition-colors duration-300 tracking-tight">
             Miami Wedding Officiant
           </a>
           <div class="flex items-center gap-4 md:gap-6">
             <ul class="hidden lg:flex flex-wrap justify-end gap-x-5 gap-y-2 font-body text-sm md:text-[15px] text-text-dark uppercase tracking-[0.12em]">
-              <li><a (click)="scrollToSection('hero')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_HOME' | translate }}</a></li>
+              <li><a [routerLink]="navPage('home')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_HOME' | translate }}</a></li>
+              <li><a [routerLink]="navPage('services')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_SERVICES' | translate }}</a></li>
+              <li><a [routerLink]="navPage('elopement')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_ELOPEMENT' | translate }}</a></li>
               <li><a (click)="scrollToSection('process')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_PROCESS' | translate }}</a></li>
-              <li><a (click)="scrollToSection('packages')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_SERVICES' | translate }}</a></li>
+              <li><a (click)="scrollToSection('about')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_ABOUT' | translate }}</a></li>
+              <li><a (click)="scrollToSection('areas')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_AREAS' | translate }}</a></li>
               <li><a (click)="scrollToSection('testimonials')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_TESTIMONIALS' | translate }}</a></li>
-              <li><a (click)="scrollToSection('why-us')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_WHY' | translate }}</a></li>
-              <li><a (click)="scrollToSection('contact')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_CONTACT' | translate }}</a></li>
+              <li><a (click)="scrollToSection('faq')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_FAQ' | translate }}</a></li>
+              <li><a [routerLink]="navPage('contact')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_CONTACT' | translate }}</a></li>
+              <li><a [routerLink]="navPage('blog')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_BLOG' | translate }}</a></li>
             </ul>
-            <app-language-switcher [currentLang]="i18nService.currentLang()" (langChange)="onLangChange($event)"></app-language-switcher>
+            <app-language-switcher [currentLang]="i18nService.currentLang()"></app-language-switcher>
           </div>
           <!-- Mobile menu button (Hamburger icon) -->
           <!-- <button class="md:hidden text-accent-sapphire text-2xl">
@@ -64,49 +70,62 @@ export class AppComponent implements OnInit {
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
   private scrollService = inject(ScrollService);
-  private platformId = inject(PLATFORM_ID);
+  private languageUrl = inject(LanguageUrlService);
   private document = inject(DOCUMENT);
 
   constructor() {
     effect(() => {
-      // Update language for SEO when it changes
-      const lang = this.i18nService.currentLang();
-      // Potentially update HTML lang attribute here if needed, or rely on SSR
-      if (isPlatformBrowser(this.platformId)) {
-        this.document.documentElement.lang = lang;
-      }
+      this.document.documentElement.lang = this.i18nService.currentLang();
     });
   }
 
   ngOnInit(): void {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => {
-        let child = this.activatedRoute.firstChild;
-        while (child && child.firstChild) {
-          child = child.firstChild;
-        }
-        return child?.snapshot.data;
-      })
-    ).subscribe((data: any) => {
-      if (data) {
-        this.seoService.updateSeoTags({
-          description: data['description'],
-          ogTitle: data['ogTitle'],
-          ogDescription: data['ogDescription'],
-          ogImage: data['ogImage'],
-          canonicalUrl: data['canonicalUrl']
-        });
-        this.seoService.addLocalBusinessSchema();
+    const applyRouteSeo = (): void => {
+      let route = this.activatedRoute;
+      while (route.firstChild) {
+        route = route.firstChild;
       }
-    });
+      const data = route.snapshot.data as Record<string, unknown>;
+      if (!data || !Object.keys(data).length) {
+        return;
+      }
+      this.seoService.updateSeoTags({
+        title: data['title'] as string | undefined,
+        description: data['description'] as string,
+        ogTitle: data['ogTitle'] as string | undefined,
+        ogDescription: data['ogDescription'] as string | undefined,
+        ogImage: data['ogImage'] as string | undefined,
+        ogUrl: data['ogUrl'] as string | undefined,
+        canonicalUrl: data['canonicalUrl'] as string | undefined,
+        hreflangAlternates: data['hreflangAlternates'] as
+          | { hreflang: string; href: string }[]
+          | undefined,
+      });
+      if (data['includeLocalBusinessSchema']) {
+        this.seoService.addLocalBusinessSchema();
+      } else {
+        this.seoService.removeJsonLd('local-business-schema');
+      }
+    };
+
+    applyRouteSeo();
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe(() => applyRouteSeo());
   }
 
-  onLangChange(lang: Language): void {
-    this.i18nService.setLanguage(lang);
+  navPage(pageKey: PageKey): (string | SiteLang)[] {
+    return this.languageUrl.navCommands(this.i18nService.currentLang(), pageKey);
   }
 
   scrollToSection(id: string): void {
-    this.scrollService.scrollToElementById(id);
+    const lang = this.i18nService.currentLang();
+    const path = this.router.url.split('?')[0];
+    const pageKey = this.languageUrl.pageKeyFromPath(path) ?? 'home';
+    if (pageKey === 'home') {
+      this.scrollService.scrollToElementById(id);
+    } else {
+      void this.router.navigate(['/', lang], { fragment: id });
+    }
   }
 }

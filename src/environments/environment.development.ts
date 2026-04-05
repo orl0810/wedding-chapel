@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  siteUrl: 'http://localhost:4200',
   bookingN8NFunctionUrl:'https://n8n.srv1108930.hstgr.cloud/webhook-test/wedding-lead',
   bookingFunctionUrl:
     'https://tbdxcbpmifupsufmnqtj.supabase.co/functions/v1/submit-booking',

@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -6,9 +6,13 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   standalone: true,
   template: `
     <div class="video-container">
-        <iframe [src]="videoUrl"
+      <iframe
+        [src]="videoUrl"
         title="YouTube Wedding Chapel"
-        frameborder="0" 
+        width="560"
+        height="315"
+        loading="lazy"
+        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen></iframe>
@@ -44,21 +48,17 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   `]
 })
 export class YoutubeVideoComponent {
-  isPlaying = signal(false);
-  
   @Input() videoId: string = '';
-
-  thumbnailUrl = `https://img.youtube.com/vi/${this.videoId}/hqdefault.jpg`;
 
   constructor(private sanitizer: DomSanitizer) {}
 
+  private get embedId(): string {
+    return this.videoId.split('?')[0].trim();
+  }
+
   get videoUrl(): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
-    `https://www.youtube.com/embed/${this.videoId}?autoplay=1`
-);
-}
-
-  playVideo() {
-    this.isPlaying.set(true);
+      `https://www.youtube.com/embed/${this.embedId}?autoplay=1`,
+    );
   }
 }

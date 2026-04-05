@@ -45,5 +45,5 @@ import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on
   `,
 })
 export class ProcessSectionComponent {
-  readonly steps = [1, 2, 3, 4] as const;
+  readonly steps = [1, 2, 3] as const;
 }

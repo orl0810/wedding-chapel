@@ -38960,9 +38960,9 @@ var SeoService = class _SeoService {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Miami Wedding Officiant",
-      "image": "https://yourdomain.com/assets/images/officiant-logo.png",
+      "image": "https://miamiweddingsofficiant.com/assets/images/officiant-logo.png",
       // Replace with actual logo/image
-      "url": "https://yourdomain.com/",
+      "url": "https://miamiweddingsofficiant.com/",
       "telephone": "+13058703010",
       "email": "mailto:vuelvealser@gmail.com",
       "address": {
@@ -38994,7 +38994,7 @@ var SeoService = class _SeoService {
         }
       ],
       "sameAs": [
-        "https://www.instagram.com/weddingofficiant_miami/"
+        "https://www.instagram.com/miami_weddingofficiant/"
       ]
     };
     this.addJsonLd(schema, "local-business-schema");
@@ -74222,7 +74222,7 @@ var SocialLinksComponent = class _SocialLinksComponent {
     {
       icon: "M16.983 2H7.017C4.254 2 2 4.254 2 7.017v9.966C2 19.746 4.254 22 7.017 22h9.966C19.746 22 22 19.746 22 16.983V7.017C22 4.254 19.746 2 16.983 2zM12 17.5c-3.033 0-5.5-2.467-5.5-5.5s2.467-5.5 5.5-5.5 5.5 2.467 5.5 5.5-2.467 5.5-5.5 5.5zm5.5-10.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5zM12 15.5c2.209 0 4-1.791 4-4s-1.791-4-4-4-4 1.791-4 4 1.791 4 4 4z",
       // Instagram icon
-      url: "https://www.instagram.com/weddingofficiant_miami/",
+      url: "https://www.instagram.com/miami_weddingofficiant/",
       name: "Instagram"
     }
     // Add other social links as needed (Facebook, Pinterest, etc.)
@@ -74431,9 +74431,9 @@ var routes = [
       description: "Celebrate your love with a personalized, bilingual wedding ceremony in Miami & South Florida. Experienced officiant for luxury weddings, beach elopements, and vow renewals.",
       ogTitle: "Miami Wedding Officiant - Your Dream Ceremony",
       ogDescription: "Crafting heartfelt English and Spanish ceremonies for unforgettable moments in Miami, Broward, and Palm Beach Counties.",
-      ogImage: "https://jcamilomb.wixsite.com/weddingofficiant/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.jpg",
+      ogImage: "https://miamiweddingsofficiant.com/weddingofficiant/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.jpg",
       // Placeholder
-      canonicalUrl: "https://yourdomain.com/"
+      canonicalUrl: "https://miamiweddingsofficiant.com/"
     }
   }
   // Add other routes here if the application expands (e.g., /privacy, /blog)

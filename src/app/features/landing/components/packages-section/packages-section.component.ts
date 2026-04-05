@@ -1,11 +1,10 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { TranslatePipe } from '../../../../shared/pipes/translate/translate.pipe';
 import { ScrollService } from '../../../../core/services/scroll.service';
 import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
-import { I18nService } from '../../../../core/services/i18n.service';
 
 interface Package {
   key: string;
@@ -24,12 +23,36 @@ interface Package {
     RevealOnScrollDirective,
   ],
   template: `
-    <section class="bg-primary-cream py-20 md:py-28 px-4" aria-labelledby="packages-title">
+    <section id="packages" class="bg-primary-cream py-20 md:py-28 px-4" aria-labelledby="packages-title">
       <div class="container mx-auto max-w-7xl">
         <app-section-title
           id="packages-title"
-          [title]="'PACKAGES_TITLE' | translate"
+          [title]="'SERVICES_SECTION_H2' | translate"
+          [subtitle]="'SERVICES_SECTION_SUBTITLE' | translate"
           [wide]="true" />
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 md:mb-20">
+          @for (svc of serviceTypes; track svc.key; let idx = $index) {
+            <article
+              appReveal
+              class="bg-wix-paper border border-black/[0.07] rounded-sm shadow-wix-soft p-6 md:p-7 text-center sm:text-left"
+              [class.reveal-delay-1]="idx === 1"
+              [class.reveal-delay-2]="idx === 2"
+              [class.reveal-delay-3]="idx === 3">
+              <h3 class="text-lg md:text-xl font-display font-semibold text-accent-sapphire mb-3 leading-snug">
+                {{ ('SERVICE_TYPE_' + svc.key + '_TITLE') | translate }}
+              </h3>
+              <p class="font-body text-[15px] md:text-base text-text-dark/88 leading-relaxed m-0">
+                {{ ('SERVICE_TYPE_' + svc.key + '_BODY') | translate }}
+              </p>
+            </article>
+          }
+        </div>
+
+        <h3
+          class="text-2xl md:text-3xl font-display font-semibold text-center text-accent-sapphire mb-10 md:mb-12">
+          {{ 'PACKAGES_TIER_HEADING' | translate }}
+        </h3>
 
         <div class="grid lg:grid-cols-3 gap-8 md:gap-10 mt-4 md:mt-8">
           @for (pkg of packages; track pkg.key; let idx = $index) {
@@ -74,7 +97,13 @@ interface Package {
 })
 export class PackagesSectionComponent {
   private scrollService = inject(ScrollService);
-  private i18n = inject(I18nService);
+
+  readonly serviceTypes = [
+    { key: 'BEACH' },
+    { key: 'COURTHOUSE' },
+    { key: 'BACKYARD' },
+    { key: 'VENUE' },
+  ] as const;
 
   packages: Package[] = [
     {

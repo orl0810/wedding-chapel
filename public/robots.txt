@@ -1,0 +1,9 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Disallow: /api/
+
+Sitemap: https://miamiweddingsofficiant.com/sitemap.xml

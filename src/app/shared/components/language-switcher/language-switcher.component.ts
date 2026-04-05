@@ -1,6 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { Language } from '../../../core/services/i18n.service';
+import { LanguageUrlService } from '../../../core/services/language-url.service';
 
 @Component({
   selector: 'app-language-switcher',
@@ -28,8 +30,9 @@ import { Language } from '../../../core/services/i18n.service';
 })
 export class LanguageSwitcherComponent {
   @Input() currentLang: Language = 'en';
-  @Output() langChange = new EventEmitter<Language>();
 
+  private router = inject(Router);
+  private languageUrl = inject(LanguageUrlService);
   isOpen: boolean = false;
 
   toggleDropdown(): void {
@@ -37,7 +40,9 @@ export class LanguageSwitcherComponent {
   }
 
   selectLang(lang: Language): void {
-    this.langChange.emit(lang);
     this.isOpen = false;
+    const path = this.router.url.split('?')[0];
+    const pageKey = this.languageUrl.pageKeyFromPath(path) ?? 'home';
+    void this.router.navigate(this.languageUrl.navCommands(lang, pageKey));
   }
 }

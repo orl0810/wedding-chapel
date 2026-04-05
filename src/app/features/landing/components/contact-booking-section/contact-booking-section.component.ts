@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
@@ -12,6 +12,7 @@ import { BookingService } from '../../../../core/services/booking.service';
   standalone: true,
   imports: [
     CommonModule,
+    NgOptimizedImage,
     ReactiveFormsModule,
     SectionTitleComponent,
     ButtonComponent,
@@ -90,15 +91,32 @@ import { BookingService } from '../../../../core/services/booking.service';
       [onDark]="true"
       [wide]="true" />
 
+      <div
+        class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 md:gap-8 mb-10 md:mb-12 font-body text-text-light/95 text-sm md:text-base">
+        <a href="tel:+13058703010" class="hover:text-secondary-gold transition-colors font-semibold tracking-wide">
+          {{ 'CONTACT_PHONE_DISPLAY' | translate }}
+        </a>
+        <span class="hidden sm:inline text-text-light/40" aria-hidden="true">|</span>
+        <a href="mailto:vuelvealser@gmail.com" class="hover:text-secondary-gold transition-colors break-all">
+          {{ 'CONTACT_EMAIL_DISPLAY' | translate }}
+        </a>
+      </div>
+
       <div class="grid md:grid-cols-2 gap-8 md:gap-10 mt-4 md:mt-8 items-stretch">
 
       <!-- ① Cinematic banner image — full width, fixed height -->
-      <div class="relative rounded-sm overflow-hidden shadow-wix-card min-h-[320px] md:min-h-0 self-stretch">
-        <img
-          src="/assets/images/miami-officiant-marriage-south-florida-best-venues-florida-luxury-miami2.jpg"
-          alt="Juan Camilo Méndez - Miami Wedding Officiant"
-          class="absolute inset-0 w-full h-full object-cover object-center border border-black/10"
-          loading="lazy" />
+      <div class="relative min-h-[320px] self-stretch overflow-hidden rounded-sm shadow-wix-card md:min-h-0 md:h-full">
+        <picture class="absolute inset-0 block h-full w-full">
+          <source
+            type="image/webp"
+            srcset="/assets/images/miami-officiant-marriage-south-florida-best-venues-florida-luxury-miami2.webp" />
+          <img
+            ngSrc="/assets/images/miami-officiant-marriage-south-florida-best-venues-florida-luxury-miami2.jpg"
+            fill
+            sizes="(max-width: 767px) 100vw, 50vw"
+            alt="Juan Camilo Méndez - Miami Wedding Officiant"
+            class="border border-black/10 object-cover object-center" />
+        </picture>
       </div>
 
       <!-- ② Form card -->

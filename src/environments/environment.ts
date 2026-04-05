@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
+  /** Public site origin for canonical URLs, sitemap, and JSON-LD (no trailing slash). */
+  siteUrl: 'https://miamiweddingsofficiant.com',
   bookingN8NFunctionUrl:'https://n8n.srv1108930.hstgr.cloud/webhook/wedding-lead'
 ,  bookingFunctionUrl:
     'https://tbdxcbpmifupsufmnqtj.supabase.co/functions/v1/submit-booking',

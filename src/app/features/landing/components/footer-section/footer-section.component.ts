@@ -4,7 +4,8 @@ import { RouterLink } from '@angular/router';
 import { SocialLinksComponent } from '../../../../shared/components/social-links/social-links.component';
 import { TranslatePipe } from '../../../../shared/pipes/translate/translate.pipe';
 import { LanguageSwitcherComponent } from '../../../../shared/components/language-switcher/language-switcher.component';
-import { I18nService, Language } from '../../../../core/services/i18n.service';
+import { I18nService } from '../../../../core/services/i18n.service';
+import { LanguageUrlService } from '../../../../core/services/language-url.service';
 
 @Component({
   selector: 'app-footer-section',
@@ -15,7 +16,7 @@ import { I18nService, Language } from '../../../../core/services/i18n.service';
       <div class="container mx-auto max-w-6xl grid md:grid-cols-3 gap-10 md:gap-12 text-center md:text-left">
         <div>
           <a
-            routerLink="/"
+            [routerLink]="languageUrl.navCommands(i18nService.currentLang(), 'home')"
             class="text-primary-cream text-2xl md:text-3xl font-display font-semibold hover:text-secondary-gold transition-colors duration-300 inline-block">
             Miami Wedding Officiant
           </a>
@@ -42,9 +43,7 @@ import { I18nService, Language } from '../../../../core/services/i18n.service';
 
         <div class="flex flex-col items-center md:items-end justify-between gap-8">
           <app-social-links></app-social-links>
-          <app-language-switcher
-            [currentLang]="i18nService.currentLang()"
-            (langChange)="onLangChange($event)"></app-language-switcher>
+          <app-language-switcher [currentLang]="i18nService.currentLang()"></app-language-switcher>
         </div>
       </div>
     </footer>
@@ -52,8 +51,5 @@ import { I18nService, Language } from '../../../../core/services/i18n.service';
 })
 export class FooterSectionComponent {
   public i18nService = inject(I18nService);
-
-  onLangChange(lang: Language): void {
-    this.i18nService.setLanguage(lang);
-  }
+  public languageUrl = inject(LanguageUrlService);
 }

@@ -2,11 +2,14 @@ import { Injectable, signal, effect, computed, PLATFORM_ID, Inject, Optional } f
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 export type Language = 'en' | 'es';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class I18nService {
   private readonly DEFAULT_LANG: Language = 'en';
@@ -25,22 +28,53 @@ export class I18nService {
 
   constructor(
     private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: object,
+    @Inject(DOCUMENT) private document: Document,
+    private router: Router,
     @Optional() @Inject(APP_BASE_HREF) private appBaseHref?: string
   ) {
     this.baseHref = ((this.appBaseHref || '/') as string).replace(/\/$/, '');
-    // Initialize language from localStorage or default
-    if (isPlatformBrowser(this.platformId)) {
+
+    let initial: Language = this.DEFAULT_LANG;
+    const fromPath = this.peekLangFromPath(this.document.location?.pathname);
+    if (fromPath) {
+      initial = fromPath;
+    } else if (isPlatformBrowser(this.platformId)) {
       const storedLang = localStorage.getItem(this.LANG_KEY) as Language;
       if (storedLang && ['en', 'es'].includes(storedLang)) {
-        this._currentLang.set(storedLang);
+        initial = storedLang;
       }
     }
+    this._currentLang.set(initial);
 
-    // Effect to load translations when language changes
+    this.router.events
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe(() => {
+        const fromRouter = this.peekLangFromPath(this.router.url.split('?')[0]);
+        if (fromRouter) {
+          this.setLanguage(fromRouter);
+        }
+      });
+
     effect(() => {
       this.loadTranslations(this._currentLang());
     });
+  }
+
+  private peekLangFromPath(path: string | undefined): Language | null {
+    if (!path) {
+      return null;
+    }
+    const prefix = this.baseHref && this.baseHref !== '/' ? this.baseHref : '';
+    let rest = path;
+    if (prefix && rest.startsWith(prefix)) {
+      rest = rest.slice(prefix.length) || '/';
+    }
+    const first = rest.replace(/^\//, '').split('/')[0];
+    if (first === 'en' || first === 'es') {
+      return first;
+    }
+    return null;
   }
 
   private getTranslationUrl(lang: Language): string {
