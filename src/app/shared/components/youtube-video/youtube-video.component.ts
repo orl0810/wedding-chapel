@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -6,16 +6,18 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   standalone: true,
   template: `
     <div class="video-container">
-      <iframe
-        [src]="videoUrl"
-        title="YouTube Wedding Chapel"
-        width="560"
-        height="315"
-        loading="lazy"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen></iframe>
+      @if (videoUrl) {
+        <iframe
+          [src]="videoUrl"
+          title="YouTube Wedding Chapel"
+          width="560"
+          height="315"
+          loading="lazy"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      }
     </div>
   `,
   styles: [`
@@ -47,18 +49,23 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
     }
   `]
 })
-export class YoutubeVideoComponent {
-  @Input() videoId: string = '';
+export class YoutubeVideoComponent implements OnChanges {
+  @Input() videoId = '';
+
+  /** Cached so change detection does not assign a new [src] and reload the iframe. */
+  videoUrl: SafeResourceUrl | null = null;
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  private get embedId(): string {
-    return this.videoId.split('?')[0].trim();
-  }
-
-  get videoUrl(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://www.youtube.com/embed/${this.embedId}?autoplay=1`,
-    );
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['videoId']) {
+      return;
+    }
+    const id = this.videoId.split('?')[0].trim();
+    this.videoUrl = id
+      ? this.sanitizer.bypassSecurityTrustResourceUrl(
+          `https://www.youtube.com/embed/${id}?autoplay=1`,
+        )
+      : null;
   }
 }

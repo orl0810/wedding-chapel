@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 
@@ -39,16 +39,20 @@ import { FaqSectionComponent } from './components/faq-section/faq-section.compon
     <app-process-section></app-process-section>
     <app-about-section></app-about-section>
     <app-service-areas-section></app-service-areas-section>
-    @defer (on viewport) {
-      <app-testimonials-section></app-testimonials-section>
-    } @placeholder {
-      <div class="min-h-[28rem] bg-wix-paper border-y border-black/[0.06]" aria-hidden="true"></div>
-    }
-    @defer (on viewport) {
-      <app-faq-section></app-faq-section>
-    } @placeholder {
-      <div class="min-h-[22rem] bg-primary-cream/40 border-y border-black/[0.06]" aria-hidden="true"></div>
-    }
+    <div id="testimonials" class="scroll-mt-24">
+      @defer (on viewport) {
+        <app-testimonials-section></app-testimonials-section>
+      } @placeholder {
+        <div class="min-h-[28rem] bg-wix-paper border-y border-black/[0.06]" aria-hidden="true"></div>
+      }
+    </div>
+    <div id="faq" class="scroll-mt-24">
+      @defer (on viewport) {
+        <app-faq-section></app-faq-section>
+      } @placeholder {
+        <div class="min-h-[22rem] bg-primary-cream/40 border-y border-black/[0.06]" aria-hidden="true"></div>
+      }
+    </div>
     @defer (on viewport) {
       <app-contact-booking-section></app-contact-booking-section>
     } @placeholder {
@@ -63,6 +67,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   private router = inject(Router);
   private scrollService = inject(ScrollService);
   private platformId = inject(PLATFORM_ID);
+  private document = inject(DOCUMENT);
   private navSub?: Subscription;
 
   ngOnInit(): void {
@@ -80,14 +85,29 @@ export class LandingComponent implements OnInit, OnDestroy {
   }
 
   private scrollToRouteSection(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    const id = this.resolveScrollTargetSectionId();
+    if (!id) {
+      return;
+    }
+    setTimeout(() => this.scrollService.scrollToElementByIdWhenReady(id), 0);
+  }
+
+  /** Hash from the address bar (router URL omits fragment). */
+  private resolveScrollTargetSectionId(): string | undefined {
+    const hash = this.document.defaultView?.location.hash;
+    if (hash?.startsWith('#')) {
+      const fromHash = decodeURIComponent(hash.slice(1)).trim();
+      if (fromHash) {
+        return fromHash;
+      }
+    }
     let r = this.route;
     while (r.firstChild) {
       r = r.firstChild;
     }
-    const id = r.snapshot.data['initialSectionId'] as string | undefined;
-    if (!id || !isPlatformBrowser(this.platformId)) {
-      return;
-    }
-    setTimeout(() => this.scrollService.scrollToElementById(id), 0);
+    return r.snapshot.data['initialSectionId'] as string | undefined;
   }
 }

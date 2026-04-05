@@ -33,7 +33,6 @@ import type { PageKey, SiteLang } from './routing/localized-page-meta';
             <ul class="hidden lg:flex flex-wrap justify-end gap-x-5 gap-y-2 font-body text-sm md:text-[15px] text-text-dark uppercase tracking-[0.12em]">
               <li><a [routerLink]="navPage('home')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_HOME' | translate }}</a></li>
               <li><a [routerLink]="navPage('services')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_SERVICES' | translate }}</a></li>
-              <li><a [routerLink]="navPage('elopement')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_ELOPEMENT' | translate }}</a></li>
               <li><a (click)="scrollToSection('process')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_PROCESS' | translate }}</a></li>
               <li><a (click)="scrollToSection('about')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_ABOUT' | translate }}</a></li>
               <li><a (click)="scrollToSection('areas')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_AREAS' | translate }}</a></li>
@@ -123,7 +122,7 @@ export class AppComponent implements OnInit {
     const path = this.router.url.split('?')[0];
     const pageKey = this.languageUrl.pageKeyFromPath(path) ?? 'home';
     if (pageKey === 'home') {
-      this.scrollService.scrollToElementById(id);
+      this.scrollService.scrollToElementByIdWhenReady(id);
     } else {
       void this.router.navigate(['/', lang], { fragment: id });
     }
