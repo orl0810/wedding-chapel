@@ -97,7 +97,8 @@ export class TestimonialsSectionComponent {
       nameKey: 'TESTIMONIAL_3_NAME',
       quoteKey: 'TESTIMONIAL_3_QUOTE',
       typeKey: 'TESTIMONIAL_3_TYPE',
-      imageWebp: '/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-small.webp',
+      imageWebp:
+        '/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-small.webp',
       imageFallback:
         '/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida.webp',
     },
