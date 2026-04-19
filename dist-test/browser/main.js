@@ -44587,7 +44587,7 @@ var routes = [
     path: "",
     component: LandingComponent,
     data: {
-      description: "Celebrate your love with a personalized, bilingual wedding ceremony in Miami & South Florida. Experienced officiant for luxury weddings, beach elopements, and vow renewals.",
+      description: "Celebrate your love with a personalized, bilingual wedding ceremony in Miami & South Florida. Experienced officiant for luxury weddings, beach elopements, and vows renewals.",
       ogTitle: "Miami Wedding Officiant - Your Dream Ceremony",
       ogDescription: "Crafting heartfelt English and Spanish ceremonies for unforgettable moments in Miami, Broward, and Palm Beach Counties.",
       ogImage: "https://jcamilomb.wixsite.com/weddingofficiant/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.jpg",

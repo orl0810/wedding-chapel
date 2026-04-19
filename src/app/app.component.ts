@@ -161,6 +161,11 @@ export class AppComponent implements OnInit {
         ogImage: data['ogImage'] as string | undefined,
         ogUrl: data['ogUrl'] as string | undefined,
         canonicalUrl: data['canonicalUrl'] as string | undefined,
+        ogType: data['ogType'] as string | undefined,
+        twitterCard: data['twitterCard'] as 'summary' | 'summary_large_image' | undefined,
+        twitterTitle: data['twitterTitle'] as string | undefined,
+        twitterDescription: data['twitterDescription'] as string | undefined,
+        twitterImage: data['twitterImage'] as string | undefined,
         hreflangAlternates: data['hreflangAlternates'] as
           | { hreflang: string; href: string }[]
           | undefined,

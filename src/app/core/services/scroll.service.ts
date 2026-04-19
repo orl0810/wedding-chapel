@@ -10,13 +10,23 @@ export class ScrollService {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  scrollToElementById(id: string, options?: { silent?: boolean }): boolean {
+  scrollToElementById(
+    id: string,
+    options?: {
+      silent?: boolean;
+      behavior?: ScrollBehavior;
+      block?: ScrollLogicalPosition;
+    },
+  ): boolean {
     if (!isPlatformBrowser(this.platformId)) {
       return false;
     }
     const element = this.document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({
+        behavior: options?.behavior ?? 'smooth',
+        block: options?.block ?? 'start',
+      });
       return true;
     }
     if (!options?.silent) {
@@ -26,14 +36,29 @@ export class ScrollService {
   }
 
   /** Retries for deferred blocks, hydration, or scroll restoration finishing after navigation. */
-  scrollToElementByIdWhenReady(id: string, maxAttempts = 40, intervalMs = 50): void {
+  scrollToElementByIdWhenReady(
+    id: string,
+    opts?: {
+      maxAttempts?: number;
+      intervalMs?: number;
+      behavior?: ScrollBehavior;
+      block?: ScrollLogicalPosition;
+    },
+  ): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
+    const maxAttempts = opts?.maxAttempts ?? 40;
+    const intervalMs = opts?.intervalMs ?? 50;
+    const behavior = opts?.behavior ?? 'smooth';
+    const block = opts?.block ?? 'start';
     let attempt = 0;
     const tick = (): void => {
       const silent = attempt < maxAttempts - 1;
-      if (this.scrollToElementById(id, { silent }) || attempt >= maxAttempts) {
+      if (
+        this.scrollToElementById(id, { silent, behavior, block }) ||
+        attempt >= maxAttempts
+      ) {
         return;
       }
       attempt += 1;

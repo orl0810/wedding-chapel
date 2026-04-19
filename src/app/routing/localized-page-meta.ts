@@ -44,10 +44,10 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
     en: {
       title: 'Wedding Officiant Miami | Bilingual Ceremonies & Elopements',
       description:
-        'Licensed bilingual wedding officiant in Miami, FL. Beach elopements, courthouse & backyard ceremonies. Serving Miami-Dade & Broward. Book today!',
+        'Bilingual wedding officiant in Miami, FL. Beach elopements, courthouse & backyard ceremonies. Serving Miami-Dade & Broward. Book today!',
       ogTitle: 'Wedding Officiant Miami | Bilingual Ceremonies & Elopements',
       ogDescription:
-        'Licensed bilingual wedding officiant in Miami. Beach elopements, courthouse and backyard ceremonies. Serving Miami-Dade & Broward.',
+        'Bilingual wedding officiant in Miami. Beach elopements, courthouse and backyard ceremonies. Serving Miami-Dade & Broward.',
       ogImage: heroOgImage,
       includeLocalBusinessSchema: true,
     },
@@ -90,7 +90,7 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
     en: {
       title: 'Elopement Miami | Beach & Intimate Wedding Officiant',
       description:
-        'Plan a Miami elopement with a licensed officiant: sunrise or sunset beach ceremonies, micro-weddings, and simple legal signings. Bilingual support.',
+        'Plan a Miami elopement with a officiant: sunrise or sunset beach ceremonies, micro-weddings, and simple legal signings. Bilingual support.',
       ogTitle: 'Elopement Miami | Beach Wedding Officiant',
       ogDescription:
         'Intimate Miami elopements on the sand or at your chosen spot—calm planning, bilingual ceremony, license guidance.',
@@ -119,7 +119,7 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
       ogDescription: 'Reach out to book your Miami ceremony date and discuss beach, venue, or courthouse options.',
       ogImage: heroOgImage,
       includeLocalBusinessSchema: false,
-      initialSectionId: 'contact',
+      initialSectionId: 'footer',
     },
     es: {
       title: 'Contacto — Oficiante de Bodas en Miami | Reserva tu Ceremonia',
@@ -129,7 +129,7 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
       ogDescription: 'Escríbenos para reservar tu fecha y hablar de ceremonia en la playa, venue o juzgado.',
       ogImage: heroOgImage,
       includeLocalBusinessSchema: false,
-      initialSectionId: 'contact',
+      initialSectionId: 'footer',
     },
   },
   blog: {
@@ -141,7 +141,6 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
       ogDescription: 'Guides and ideas for couples marrying in Miami and South Florida.',
       ogImage: heroOgImage,
       includeLocalBusinessSchema: false,
-      initialSectionId: 'hero',
     },
     es: {
       title: 'Blog del Oficiante de Bodas en Miami | Elopements y Consejos',
@@ -151,7 +150,6 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
       ogDescription: 'Guías e ideas para parejas que se casan en Miami y el sur de Florida.',
       ogImage: heroOgImage,
       includeLocalBusinessSchema: false,
-      initialSectionId: 'hero',
     },
   },
 };

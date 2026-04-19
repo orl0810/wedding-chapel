@@ -42,7 +42,6 @@ export class LanguageSwitcherComponent {
   selectLang(lang: Language): void {
     this.isOpen = false;
     const path = this.router.url.split('?')[0];
-    const pageKey = this.languageUrl.pageKeyFromPath(path) ?? 'home';
-    void this.router.navigate(this.languageUrl.navCommands(lang, pageKey));
+    void this.router.navigate(this.languageUrl.navCommandsForPath(path, lang));
   }
 }

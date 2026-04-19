@@ -1,0 +1,1047 @@
+<article class="blog-article text-text-dark">
+  <div class="mx-auto max-w-5xl px-4 pt-8 md:pt-10">
+    <nav class="mb-6 text-sm font-body text-text-dark/70" aria-label="Breadcrumb">
+      <ol class="flex flex-wrap gap-x-2 gap-y-1">
+        <li>
+          <a
+            [routerLink]="navPage('home')"
+            class="text-accent-sapphire hover:text-secondary-gold underline-offset-2 hover:underline"
+            >Home</a
+          >
+        </li>
+        <li aria-hidden="true">/</li>
+        <li>
+          <a
+            [routerLink]="navPage('blog')"
+            class="text-accent-sapphire hover:text-secondary-gold underline-offset-2 hover:underline"
+            >Blog</a
+          >
+        </li>
+        <li aria-hidden="true">/</li>
+        <li class="text-text-dark/90">
+          {{ i18n.currentLang() === 'es' ? 'Ceremonia íntima en Miami' : 'How to elope in Miami' }}
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Hero (full-bleed) -->
+  <header class="relative isolate mb-12 md:mb-16 overflow-hidden bg-accent-sapphire shadow-wix-card ring-1 ring-black/10">
+    <img
+      [src]="img.hero"
+      alt="Couple walking the shoreline during a Miami beach wedding — guide to how to elope in Miami"
+      width="1920"
+      height="1080"
+      sizes="100vw"
+      class="blog-hero-img h-[min(52vh,520px)] w-full object-cover object-[center_30%] md:h-[min(58vh,600px)] md:object-center"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-accent-sapphire/[0.97] via-accent-sapphire/50 to-black/25"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(248,245,238,0.08)_0%,transparent_55%)]"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="absolute inset-0 flex flex-col justify-end px-4 pb-10 md:pb-14 mx-auto max-w-5xl w-full"
+    >
+      <p class="font-body text-xs uppercase tracking-[0.2em] text-white/90 mb-2">Miami · Elopement · 2025</p>
+      @if (i18n.currentLang() === 'en') {
+        <h1 class="font-display text-3xl md:text-5xl font-semibold text-white tracking-tight max-w-3xl drop-shadow-sm">
+          How to Elope in Miami: Complete 2025 Guide
+        </h1>
+        <p class="mt-4 max-w-2xl font-body text-base md:text-lg text-white/95 leading-relaxed">
+          Legal steps, locations, timing, and a realistic budget—written for couples who want a premium
+          intimate wedding day without the noise of a ballroom production.
+        </p>
+      } @else {
+        <h1 class="font-display text-3xl md:text-5xl font-semibold text-white tracking-tight max-w-3xl drop-shadow-sm">
+          Cómo casarse en Miami en una ceremonia íntima (Guía 2025)
+        </h1>
+        <p class="mt-4 max-w-2xl font-body text-base md:text-lg text-white/95 leading-relaxed">
+          Trámites en Florida, mejores escenarios en la ciudad, calendario y números reales para planificar
+          una boda pequeña con estilo editorial.
+        </p>
+      }
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-5xl px-4 pb-14 md:pb-20">
+    @if (i18n.currentLang() === 'en') {
+      <ng-container *ngTemplateOutlet="englishBlock"></ng-container>
+      <ng-container *ngTemplateOutlet="spanishBlock"></ng-container>
+    } @else {
+      <ng-container *ngTemplateOutlet="spanishBlock"></ng-container>
+      <ng-container *ngTemplateOutlet="englishBlock"></ng-container>
+    }
+
+    <p class="mt-12 text-sm font-body text-text-dark/60 border-t border-black/[0.06] pt-8">
+      <span class="sr-only">Other language version: </span>
+      <a
+        class="text-accent-sapphire hover:text-secondary-gold underline-offset-2 hover:underline mr-3"
+        [routerLink]="['/en', 'blog', articleSlug]"
+        >English version</a
+      >
+      <a
+        class="text-accent-sapphire hover:text-secondary-gold underline-offset-2 hover:underline"
+        [routerLink]="['/es', 'blog', articleSlug]"
+        >Versión en español</a
+      >
+    </p>
+  </div>
+</article>
+
+<!-- ——— English ——— -->
+<ng-template #englishBlock>
+  <section lang="en" id="article-en" class="scroll-mt-24 space-y-12 md:space-y-16 mb-16 md:mb-20">
+    <p class="font-body text-lg md:text-xl leading-relaxed text-text-dark/95 max-w-3xl">
+      If you are researching
+      <strong class="font-semibold text-accent-sapphire">how to elope in Miami</strong>, you are likely
+      chasing warm light, ocean air, and a ceremony that still feels intentional. Miami makes that easy on
+      the eyes—now let’s make it easy on the paperwork, too: here’s the same path we walk with couples who
+      want intimate vows, bilingual storytelling, and photos that look like your day felt.
+    </p>
+
+    <!-- Why + beach image -->
+    <section class="grid gap-8 md:gap-12 md:grid-cols-2 md:items-center" aria-labelledby="en-why">
+      <div class="order-2 md:order-1 space-y-4">
+        @if (i18n.currentLang() === 'en') {
+          <h2 id="en-why" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Why elope in Miami
+          </h2>
+        } @else {
+          <h3 id="en-why" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Why elope in Miami
+          </h3>
+        }
+        <p class="font-body leading-relaxed text-text-dark/90">
+          Between reliable flights, turquoise backdrops, and vendors who understand fast timelines, Miami is
+          built for modern elopements. Pair a sunrise beach moment with a late lunch in Coconut Grove—or
+          keep it administrative at the courthouse, then steal golden-hour portraits on the sand. Learning
+          <span class="whitespace-nowrap">how to elope in Miami</span> starts with deciding the vibe, then
+          aligning the legal window and permits.
+        </p>
+        <ul class="space-y-2 font-body text-text-dark/90">
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Micro-guest counts and bilingual ceremonies are common—scripting can match your families.
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Combine public scenery with private dinner—timeline flexibility is your advantage.
+          </li>
+        </ul>
+      </div>
+      <figure class="article-figure order-1 md:order-2 overflow-hidden rounded-2xl shadow-wix-card ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.miamiDestination"
+          alt="Miami skyline and turquoise Atlantic — destination backdrop for couples planning how to elope in Miami"
+          width="960"
+          height="640"
+          loading="lazy"
+          decoding="async"
+          sizes="(min-width: 768px) 42vw, 100vw"
+          class="h-full w-full object-cover aspect-[4/3]"
+        />
+        <figcaption class="sr-only">Miami skyline and ocean</figcaption>
+      </figure>
+    </section>
+
+    <!-- Legal + courthouse image -->
+    <section aria-labelledby="en-legal">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="en-legal" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Legal requirements (Florida)
+        </h2>
+      } @else {
+        <h3 id="en-legal" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Legal requirements (Florida)
+        </h3>
+      }
+      <div class="grid gap-8 md:grid-cols-2 md:items-start">
+        <figure class="article-figure overflow-hidden rounded-2xl shadow-wix-soft order-2 md:order-1 ring-1 ring-accent-sapphire/10">
+          <img
+            [src]="img.legalMarriageLicense"
+            alt="Wedding rings resting on Florida marriage license paperwork — legal checklist for eloping in Miami"
+            width="960"
+            height="640"
+            loading="lazy"
+            sizes="(min-width: 768px) 42vw, 100vw"
+            class="w-full object-cover aspect-[4/3]"
+          />
+        </figure>
+        <div class="order-1 md:order-2 space-y-4">
+          <p class="font-body leading-relaxed">
+            Florida requires a valid marriage license before your officiant performs the ceremony. Partners
+            typically apply in person with identification; waiting periods and exceptions vary—always confirm
+            with the county clerk for your exact dates. Your ceremony must be conducted by an authorized
+            officiant; afterward, filing happens on a defined timeline so your marriage is recorded properly.
+          </p>
+          <aside
+            class="rounded-xl border border-secondary-gold/40 bg-primary-cream/80 p-5 shadow-wix-soft"
+            aria-label="Important legal note"
+          >
+            <p class="font-display text-sm uppercase tracking-[0.15em] text-accent-sapphire/80 mb-2">
+              Important
+            </p>
+            <p class="font-body text-sm leading-relaxed text-text-dark/90">
+              Rules can change by county office hours, residency, and prior marital history. Book the license
+              window <em>before</em> you lock photographer start times—especially for beach permits and sunset
+              shots.
+            </p>
+          </aside>
+          <ul class="space-y-2 font-body">
+            <li class="flex gap-2">
+              <span class="text-secondary-gold" aria-hidden="true">✔</span>
+              Align license validity with your ceremony date and travel schedule.
+            </li>
+            <li class="flex gap-2">
+              <span class="text-secondary-gold" aria-hidden="true">✔</span>
+              Ask about witness needs and bilingual certificate details in advance.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations -->
+    <section aria-labelledby="en-locations">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="en-locations" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Best locations to elope in Miami
+        </h2>
+      } @else {
+        <h3 id="en-locations" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Best locations to elope in Miami
+        </h3>
+      }
+      <div class="grid gap-10 md:gap-14">
+        <div class="grid md:grid-cols-2 gap-6 md:gap-10 md:items-center">
+          <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-card ring-1 ring-accent-sapphire/10">
+            <img
+              [src]="img.beachCeremony"
+              alt="Oceanfront wedding ceremony setup overlooking the water — Miami beach elopement location inspiration"
+              width="960"
+              height="640"
+              loading="lazy"
+              sizes="(min-width: 768px) 42vw, 100vw"
+              class="w-full object-cover aspect-[4/3]"
+            />
+          </figure>
+          <div>
+            @if (i18n.currentLang() === 'en') {
+              <h3 class="font-display text-xl font-semibold text-accent-sapphire mb-3">Beach &amp; waterfront</h3>
+            } @else {
+              <h4 class="font-display text-xl font-semibold text-accent-sapphire mb-3">Beach &amp; waterfront</h4>
+            }
+            <p class="font-body leading-relaxed mb-4">
+              Public beaches can require permits and have speaker or guest caps. Sunrise gives you softer
+              light and fewer crowds; a weekday can feel more private without sacrificing drama. For more
+              planning support, compare notes with our
+              <a
+                [routerLink]="navPage('elopement')"
+                class="text-accent-sapphire font-semibold underline-offset-2 hover:underline hover:text-secondary-gold"
+                >elopement offerings</a
+              >—timing is half the magic.
+            </p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 md:gap-10 md:items-center md:flex-row-reverse">
+          <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-card md:order-2 ring-1 ring-accent-sapphire/10">
+            <img
+              [src]="img.civilOrBoutique"
+              alt="Tropical boutique resort pool and palms — private Miami elopement venue alternative to a busy public beach"
+              width="960"
+              height="640"
+              loading="lazy"
+              sizes="(min-width: 768px) 42vw, 100vw"
+              class="w-full object-cover aspect-[4/3]"
+            />
+          </figure>
+          <div class="md:order-1">
+            @if (i18n.currentLang() === 'en') {
+              <h3 class="font-display text-xl font-semibold text-accent-sapphire mb-3">Courthouse &amp; boutique hotels</h3>
+            } @else {
+              <h4 class="font-display text-xl font-semibold text-accent-sapphire mb-3">Courthouse &amp; boutique hotels</h4>
+            }
+            <p class="font-body leading-relaxed mb-4">
+              Courthouse routes can be streamlined and budget-smart; boutique rooftops add privacy and air
+              conditioning—ideal for attire you do not want blowing sideways. Mix both: legal signing plus a
+              portrait session elsewhere.
+            </p>
+            <p class="font-body text-sm text-text-dark/75">
+              Internal resource:
+              <a
+                [routerLink]="navPage('services')"
+                class="text-accent-sapphire font-semibold underline-offset-2 hover:underline"
+                >officiant &amp; ceremony services</a
+              >
+              (placeholder hub for customizing vows and rehearsal pacing).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best time + sunset -->
+    <section class="grid gap-8 md:grid-cols-2 md:items-center" aria-labelledby="en-time">
+      <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-soft ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.sunsetElopement"
+          alt="Bride and groom on the beach at sunset — golden-hour light for a Miami elopement wedding"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 42vw, 100vw"
+          class="w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+      <div>
+        @if (i18n.currentLang() === 'en') {
+          <h2 id="en-time" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-4">
+            Best time of year
+          </h2>
+        } @else {
+          <h3 id="en-time" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-4">
+            Best time of year
+          </h3>
+        }
+        <p class="font-body leading-relaxed mb-4">
+          Late fall through early spring often brings friendlier humidity for outdoor vows. Summer can be
+          luminous—but plan hydration, makeup touch-ups, and a rain plan for fast-moving storms. Weekday
+          mornings remain underrated for quieter beaches and shorter lines if your schedule allows.
+        </p>
+        <div class="rounded-xl bg-white/90 border border-black/[0.06] p-4 shadow-wix-soft">
+          <p class="font-display text-sm text-accent-sapphire mb-1">Pro tip</p>
+          <p class="font-body text-sm leading-relaxed">
+            Schedule portraits so you’re not rushing from traffic straight into vows—Miami minutes are real,
+            especially crossing bridges to the beach keys.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Costs -->
+    <section aria-labelledby="en-costs">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="en-costs" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Costs of eloping in Miami
+        </h2>
+      } @else {
+        <h3 id="en-costs" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Costs of eloping in Miami
+        </h3>
+      }
+      <p class="font-body leading-relaxed mb-8 max-w-3xl">
+        Use these as planning anchors—not quotes. Actual spend shifts with guest count, permits, photography
+        hours, and whether you’re styling a full editorial day or a nimble ceremony-and-dinner arc.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-black/[0.08] bg-white/70 shadow-wix-soft mb-8">
+        <table class="min-w-full text-left font-body text-sm md:text-base">
+          <caption class="sr-only">
+            Approximate Miami elopement budget breakdown
+          </caption>
+          <thead class="bg-accent-sapphire/95 text-white">
+            <tr>
+              <th scope="col" class="px-4 py-3 font-semibold">Item</th>
+              <th scope="col" class="px-4 py-3 font-semibold">Typical range (USD)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-black/[0.06] text-text-dark/90">
+            <tr>
+              <td class="px-4 py-3">Marriage license + county fees</td>
+              <td class="px-4 py-3">~$90–$120+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Officiant for custom bilingual ceremony</td>
+              <td class="px-4 py-3">~$350–$900+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Photography (2–6 hrs)</td>
+              <td class="px-4 py-3">~$800–$3,500+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Permits / location fees</td>
+              <td class="px-4 py-3">$0–$500+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Florals, hair/makeup, styling</td>
+              <td class="px-4 py-3">~$400–$2,500+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="rounded-2xl border border-black/[0.06] bg-primary-cream/90 p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Lean &amp; legal</p>
+          <p class="font-body text-sm text-text-dark/85">License + officiant + portraits mini-session.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Editorial beach</p>
+          <p class="font-body text-sm text-text-dark/85">Permits, timeline buffer, photographer golden hour.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-primary-cream/90 p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Courthouse + suite</p>
+          <p class="font-body text-sm text-text-dark/85">Fast signing + hotel rooftop celebration.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Luxury micro-wedding</p>
+          <p class="font-body text-sm text-text-dark/85">Design, floral, multi-location transport.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Luxury image strip -->
+    <section class="grid md:grid-cols-5 gap-6 md:gap-8 items-center" aria-labelledby="en-tips">
+      <figure class="article-figure md:col-span-2 rounded-2xl overflow-hidden shadow-wix-card ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.luxurySetup"
+          alt="Editorial reception table with florals and candlelight — luxury Miami micro-wedding styling ideas"
+          width="960"
+          height="720"
+          loading="lazy"
+          sizes="(min-width: 768px) 38vw, 100vw"
+          class="w-full object-cover aspect-[3/4] md:aspect-[4/5]"
+        />
+      </figure>
+      <div class="md:col-span-3 space-y-5">
+        @if (i18n.currentLang() === 'en') {
+          <h2 id="en-tips" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Tips for a calm elopement day
+          </h2>
+        } @else {
+          <h3 id="en-tips" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Tips for a calm elopement day
+          </h3>
+        }
+        <ul class="space-y-3 font-body leading-relaxed">
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Book your officiant and photographer on one coherent timeline—avoid “squeeze the vows between
+            sets.”
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Build a rain path that still photographs beautifully (hotel lobby, arcades, palm alleys).
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Keep a printed checklist: IDs, license window, rings, vow books, comfortable shoes for sand.
+          </li>
+        </ul>
+        <aside class="rounded-xl border-l-4 border-secondary-gold bg-white/90 p-4 shadow-wix-soft">
+          <p class="font-display text-sm text-accent-sapphire mb-1">Planner note</p>
+          <p class="font-body text-sm leading-relaxed">
+            If your dream sentence starts with “how to elope in Miami without stress,” the through-line is
+            simple: fewer moving parts, earlier confirmations, and pros who’ve done this hundreds of times in
+            South Florida humidity.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section aria-labelledby="en-timeline">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="en-timeline" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Step-by-step elopement timeline
+        </h2>
+      } @else {
+        <h3 id="en-timeline" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Step-by-step elopement timeline
+        </h3>
+      }
+      <ol class="relative border-l border-secondary-gold/40 pl-8 space-y-8 ml-2 font-body">
+        <li class="relative">
+          <span
+            class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream"
+            aria-hidden="true"
+          ></span>
+          <p class="font-semibold text-accent-sapphire">8–12 weeks out</p>
+          <p class="text-text-dark/85 mt-1">
+            Choose ceremony archetype (beach, courthouse, hotel), lock officiant availability, and outline
+            photography coverage.
+          </p>
+        </li>
+        <li class="relative">
+          <span
+            class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream"
+            aria-hidden="true"
+          ></span>
+          <p class="font-semibold text-accent-sapphire">4–6 weeks out</p>
+          <p class="text-text-dark/85 mt-1">
+            Secure permits if required, confirm bilingual script, plan transportation across Miami traffic
+            patterns.
+          </p>
+        </li>
+        <li class="relative">
+          <span
+            class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream"
+            aria-hidden="true"
+          ></span>
+          <p class="font-semibold text-accent-sapphire">1–2 weeks out</p>
+          <p class="text-text-dark/85 mt-1">
+            License appointment confirmed, final timeline sent, rain plan activated if forecasts trend wet.
+          </p>
+        </li>
+        <li class="relative">
+          <span
+            class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream"
+            aria-hidden="true"
+          ></span>
+          <p class="font-semibold text-accent-sapphire">Day-of</p>
+          <p class="text-text-dark/85 mt-1">
+            Buffer, breathe, marry. Signature moments first—celebration meal second.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-labelledby="en-faq">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="en-faq" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          FAQ
+        </h2>
+      } @else {
+        <h3 id="en-faq" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          FAQ
+        </h3>
+      }
+      <div class="divide-y divide-black/[0.06] rounded-2xl border border-black/[0.08] bg-white/80 shadow-wix-soft">
+        <details class="group p-5 md:p-6">
+          <summary
+            class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4"
+          >
+            Do you need a permit to elope on the beach in Miami?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Often yes—it depends on the municipality and beach segment. Many public beaches require permits or
+            set rules for ceremonies and photography setups. Your officiant or planner should help you pick
+            compliant spots—or schedule a private terrace backup.
+          </p>
+        </details>
+        <details class="group p-5 md:p-6">
+          <summary
+            class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4"
+          >
+            How long does a Florida marriage license take?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            After you apply with the county, there is typically a waiting period before the license is valid
+            for ceremony—exceptions may apply for non-residents. Confirm dates with the clerk and schedule your
+            ceremony inside the valid window.
+          </p>
+        </details>
+        <details class="group p-5 md:p-6">
+          <summary
+            class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4"
+          >
+            Can our Miami elopement ceremony be bilingual?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Absolutely. Many couples blend English and Spanish for vows and storytelling. A bilingual officiant
+            keeps signatures, pacing, and family cues seamless—especially when photos follow immediately after.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <aside
+      class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent-sapphire via-accent-sapphire to-[#0f2433] px-6 py-10 md:px-12 text-center shadow-wix-card"
+      aria-label="Book your Miami elopement"
+    >
+      <div class="pointer-events-none absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,#B89B77_0%,transparent_50%)]" aria-hidden="true"></div>
+      @if (i18n.currentLang() === 'en') {
+        <h2 class="relative font-display text-2xl md:text-3xl font-semibold text-white mb-3">
+          Ready for soft light and a ceremony that sounds like you?
+        </h2>
+      } @else {
+        <h3 class="relative font-display text-2xl md:text-3xl font-semibold text-white mb-3">
+          Ready for soft light and a ceremony that sounds like you?
+        </h3>
+      }
+      <p class="relative font-body text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Tell us your date ideas—beach, courthouse first-look, or rooftop micro-toast—and we’ll help you align
+        the legal timeline with photography and family moments.
+      </p>
+      <div class="relative flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [routerLink]="navPage('contact')"
+          class="inline-flex items-center justify-center rounded-full bg-secondary-gold px-8 py-3 font-body font-semibold text-accent-sapphire shadow-lg hover:bg-white transition-colors"
+        >
+          Check availability
+        </a>
+        <a
+          [routerLink]="navPage('elopement')"
+          class="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-3 font-body font-semibold text-white hover:bg-white/10 transition-colors"
+        >
+          Explore elopement collections
+        </a>
+      </div>
+      <p class="relative mt-6 text-xs text-white/70 font-body">
+        Prefer email first?
+        <a [routerLink]="navPage('contact')" class="underline underline-offset-2 hover:text-secondary-gold"
+          >Contact</a
+        >
+        · photography-forward timelines welcome
+      </p>
+    </aside>
+  </section>
+</ng-template>
+
+<!-- ——— Spanish ——— -->
+<ng-template #spanishBlock>
+  <section lang="es" id="article-es" class="scroll-mt-24 space-y-12 md:space-y-16 pt-12 md:pt-16 border-t border-black/[0.06] mb-8">
+    <header class="max-w-3xl">
+      @if (i18n.currentLang() === 'es') {
+        <h1 class="font-display text-3xl md:text-4xl font-semibold text-accent-sapphire tracking-tight mb-4">
+          Cómo casarse en Miami en una ceremonia íntima (Guía 2025)
+        </h1>
+      } @else {
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-accent-sapphire tracking-tight mb-4">
+          Cómo casarse en Miami en una ceremonia íntima (Guía 2025)
+        </h2>
+      }
+      <p class="font-body text-lg md:text-xl leading-relaxed text-text-dark/95">
+        Esta guía está pensada para parejas que quieren calidez, estética y trámites claros: no es una copia
+        palabra por palabra del inglés, sino una lectura natural en español sobre cómo organizar una boda
+        pequeña en Miami con sentido común y buen ritmo narrativo para familia y fotos.
+      </p>
+    </header>
+
+    <section class="grid gap-8 md:gap-12 md:grid-cols-2 md:items-center" aria-labelledby="es-why">
+      <div class="order-2 md:order-1 space-y-4">
+        @if (i18n.currentLang() === 'es') {
+          <h2 id="es-why" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Por qué Miami para una ceremonia íntima
+          </h2>
+        } @else {
+          <h3 id="es-why" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Por qué Miami para una ceremonia íntima
+          </h3>
+        }
+        <p class="font-body leading-relaxed text-text-dark/90">
+          Hay ciudades bonitas; Miami suma vuelos frecuentes, horizonte atlántico y proveedores acostumbrados a
+          parejas que llegan de fuera y necesitan todo resuelto en pocos días. Podés imaginar la mañana en la
+          arena, la firma práctica en la ciudad y un brindis corto sin convertir el día en producción masiva:
+          la clave es ordenar licencia, lugar y tiempo fotográfico desde el principio.
+        </p>
+        <ul class="space-y-2 font-body text-text-dark/90">
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Guión bilingüe cuando conviven idiomas en familia—suena más natural que forzar solo uno.
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Escenarios mixtos: playa pública, terraza privada o hotel boutique para plan B climático.
+          </li>
+        </ul>
+      </div>
+      <figure class="article-figure order-1 md:order-2 overflow-hidden rounded-2xl shadow-wix-card ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.miamiDestination"
+          alt="Horizonte de Miami y Atlántico turquesa — contexto de destino para casarse en una ceremonia íntima"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 42vw, 100vw"
+          class="h-full w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+    </section>
+
+    <section aria-labelledby="es-legal">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="es-legal" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Requisitos legales en Florida
+        </h2>
+      } @else {
+        <h3 id="es-legal" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Requisitos legales en Florida
+        </h3>
+      }
+      <div class="grid gap-8 md:grid-cols-2 md:items-start">
+        <figure class="article-figure overflow-hidden rounded-2xl shadow-wix-soft order-2 md:order-1 ring-1 ring-accent-sapphire/10">
+          <img
+            [src]="img.legalMarriageLicense"
+            alt="Anillos sobre documentación de licencia matrimonial en Florida — trámites para casarse en Miami"
+            width="960"
+            height="640"
+            loading="lazy"
+            sizes="(min-width: 768px) 42vw, 100vw"
+            class="w-full object-cover aspect-[4/3]"
+          />
+        </figure>
+        <div class="order-1 md:order-2 space-y-4">
+          <p class="font-body leading-relaxed">
+            Para casarte legalmente necesitás licencia matrimonial emitida por el condado correspondiente y una
+            ceremonia realizada por quien la ley autoriza. Los plazos de vigencia y posibles esperas dependen de
+            tu situación; por eso conviene hablar fechas con la oficina del clerk y solo después fijar hora de
+            fotos o la entrada al salón. El registro posterior tiene ventanas que no se negocian con el atardecer
+            perfecto—mejor coordinar con tiempo.
+          </p>
+          <aside class="rounded-xl border border-secondary-gold/40 bg-primary-cream/80 p-5 shadow-wix-soft">
+            <p class="font-display text-sm uppercase tracking-[0.15em] text-accent-sapphire/80 mb-2">
+              A tener en cuenta
+            </p>
+            <p class="font-body text-sm leading-relaxed text-text-dark/90">
+              Reglas y costos pueden variar; traé identificación válida y, si aplica, certificaciones de
+              divorcio previo. Si tu prioridad es una ceremonia íntima en Miami sin sobresaltos, la licencia va
+              primero en la agenda.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="es-locations">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="es-locations" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Dónde celebrar: playa, ciudad y estilo
+        </h2>
+      } @else {
+        <h3 id="es-locations" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Dónde celebrar: playa, ciudad y estilo
+        </h3>
+      }
+      <div class="grid gap-10 md:gap-14">
+        <div class="grid md:grid-cols-2 gap-6 md:gap-10 md:items-center">
+          <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-card ring-1 ring-accent-sapphire/10">
+            <img
+              [src]="img.beachCeremony"
+              alt="Ceremonia frente al mar con vista al océano — inspiración para boda íntima en la costa de Miami"
+              width="960"
+              height="640"
+              loading="lazy"
+              sizes="(min-width: 768px) 42vw, 100vw"
+              class="w-full object-cover aspect-[4/3]"
+            />
+          </figure>
+          <div>
+            @if (i18n.currentLang() === 'es') {
+              <h3 class="font-display text-xl font-semibold text-accent-sapphire mb-3">Playa y costa</h3>
+            } @else {
+              <h4 class="font-display text-xl font-semibold text-accent-sapphire mb-3">Playa y costa</h4>
+            }
+            <p class="font-body leading-relaxed mb-4">
+              La arena puede ser cinematográfica, pero también tiene reglas. Revisá permisos, accesibilidad y
+              viento si llevás velo o decoración mínima. Si buscás acompañamiento profesional para el guion y el
+              pulso del día, mirá
+              <a
+                [routerLink]="navPage('elopement')"
+                class="text-accent-sapphire font-semibold underline-offset-2 hover:underline hover:text-secondary-gold"
+                >opciones de elopement</a
+              >
+              como referencia de tiempos y backup.
+            </p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 md:gap-10 md:items-center">
+          <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-card md:order-2 ring-1 ring-accent-sapphire/10">
+            <img
+              [src]="img.civilOrBoutique"
+              alt="Resort boutique con palmeras y piscina — venue privado en Miami para civil o celebración íntima"
+              width="960"
+              height="640"
+              loading="lazy"
+              sizes="(min-width: 768px) 42vw, 100vw"
+              class="w-full object-cover aspect-[4/3]"
+            />
+          </figure>
+          <div class="md:order-1">
+            @if (i18n.currentLang() === 'es') {
+              <h3 class="font-display text-xl font-semibold text-accent-sapphire mb-3">Civil y hoteles boutique</h3>
+            } @else {
+              <h4 class="font-display text-xl font-semibold text-accent-sapphire mb-3">Civil y hoteles boutique</h4>
+            }
+            <p class="font-body leading-relaxed mb-4">
+              Para parejas que valoran velocidad y presupuesto, el circuito civil puede ser la base; el hotel
+              aporta sombra y servicio para familia reducida. Si querés personalizar votos y rituales,
+              enlazamos con
+              <a
+                [routerLink]="navPage('services')"
+                class="text-accent-sapphire font-semibold underline-offset-2 hover:underline"
+                >servicios de ceremonia</a
+              >
+              para afinar tono y duración.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2 md:items-center" aria-labelledby="es-time">
+      <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-soft ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.sunsetElopement"
+          alt="Novios en la playa al atardecer — luz dorada para fotografía de ceremonia íntima en Miami"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 42vw, 100vw"
+          class="w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+      <div>
+        @if (i18n.currentLang() === 'es') {
+          <h2 id="es-time" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-4">
+            Mejor época del año
+          </h2>
+        } @else {
+          <h3 id="es-time" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-4">
+            Mejor época del año
+          </h3>
+        }
+        <p class="font-body leading-relaxed mb-4">
+          En otoño e invierno local suele haber menos humedad pegajosa para estar al aire libre; en verano el
+          color del cielo puede ser espectacular, pero planificá hidratación, maquillaje y un plan B serio para
+          chaparrones rápidos. Entre semana a la mañana muchas veces gana por calma y estacionamiento.
+        </p>
+        <div class="rounded-xl bg-white/90 border border-black/[0.06] p-4 shadow-wix-soft">
+          <p class="font-display text-sm text-accent-sapphire mb-1">Tip de producción</p>
+          <p class="font-body text-sm leading-relaxed">
+            No subestimes el tránsito hacia las playas o keys: mejor sobrar minutos y disfrutar el primer baile
+            con luz limpia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="es-costs">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="es-costs" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Presupuesto realista en Miami
+        </h2>
+      } @else {
+        <h3 id="es-costs" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Presupuesto realista en Miami
+        </h3>
+      }
+      <p class="font-body leading-relaxed mb-8 max-w-3xl">
+        Estas cifras orientan; tu historia puede caer más abajo o subir si sumás escenografía o transporte entre
+        varios escenarios. Úsalas como mapa para hablarlo en pareja sin sorpresas incómodas.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-black/[0.08] bg-white/70 shadow-wix-soft mb-8">
+        <table class="min-w-full text-left font-body text-sm md:text-base">
+          <caption class="sr-only">
+            Referencia de costos para una ceremonia íntima en Miami
+          </caption>
+          <thead class="bg-accent-sapphire/95 text-white">
+            <tr>
+              <th scope="col" class="px-4 py-3 font-semibold">Concepto</th>
+              <th scope="col" class="px-4 py-3 font-semibold">Rango típico (USD)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-black/[0.06] text-text-dark/90">
+            <tr>
+              <td class="px-4 py-3">Licencia y tasas del condado</td>
+              <td class="px-4 py-3">~US$90–120+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Oficiante con ceremonia personalizada</td>
+              <td class="px-4 py-3">~US$350–900+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Fotografía (2–6 h)</td>
+              <td class="px-4 py-3">~US$800–3.500+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Permisos / cargos del lugar</td>
+              <td class="px-4 py-3">US$0–500+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Estilismo, florales, beauty</td>
+              <td class="px-4 py-3">~US$400–2.500+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="rounded-2xl border border-black/[0.06] bg-primary-cream/90 p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Esencial</p>
+          <p class="font-body text-sm text-text-dark/85">Licencia + oficiante + retratos cortos.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Costa editorial</p>
+          <p class="font-body text-sm text-text-dark/85">Permiso, margen horario y fotógrafo en dorado.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-primary-cream/90 p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Civil + suite</p>
+          <p class="font-body text-sm text-text-dark/85">Firma veloz y brindis en terraza privada.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Micro-lujo</p>
+          <p class="font-body text-sm text-text-dark/85">Diseño floral, logística multi-spot.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-5 gap-6 md:gap-8 items-center" aria-labelledby="es-tips">
+      <figure class="article-figure md:col-span-2 rounded-2xl overflow-hidden shadow-wix-card ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.luxurySetup"
+          alt="Mesa de celebración con flores y velas — inspiración para micro-boda de lujo en Miami"
+          width="960"
+          height="720"
+          loading="lazy"
+          sizes="(min-width: 768px) 38vw, 100vw"
+          class="w-full object-cover aspect-[3/4] md:aspect-[4/5]"
+        />
+      </figure>
+      <div class="md:col-span-3 space-y-5">
+        @if (i18n.currentLang() === 'es') {
+          <h2 id="es-tips" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Consejos para que el día respire
+          </h2>
+        } @else {
+          <h3 id="es-tips" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Consejos para que el día respire
+          </h3>
+        }
+        <ul class="space-y-3 font-body leading-relaxed">
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Coordiná oficiante y fotografía en una sola línea de tiempo—nadie quiere votos apurados por el
+            álbum.
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Plan B bonito: lobby art deco, pasillo de palmeras, interior con ventanales si llueve en minutos.
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Checklist físico: documentos, anillos, calzado cómodo para arena.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="es-timeline">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="es-timeline" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Cronograma sugerido
+        </h2>
+      } @else {
+        <h3 id="es-timeline" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Cronograma sugerido
+        </h3>
+      }
+      <ol class="relative border-l border-secondary-gold/40 pl-8 space-y-8 ml-2 font-body">
+        <li class="relative">
+          <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream" aria-hidden="true"></span>
+          <p class="font-semibold text-accent-sapphire">8–12 semanas antes</p>
+          <p class="text-text-dark/85 mt-1">
+            Definí tono de ceremonia, reservá oficiante y fotografía, bosquejad invitados reales vs. testigos.
+          </p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream" aria-hidden="true"></span>
+          <p class="font-semibold text-accent-sapphire">4–6 semanas antes</p>
+          <p class="text-text-dark/85 mt-1">
+            Permisos si aplican, lectura bilingüe pulida, logística de traslados en horas pico.
+          </p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream" aria-hidden="true"></span>
+          <p class="font-semibold text-accent-sapphire">1–2 semanas antes</p>
+          <p class="text-text-dark/85 mt-1">
+            Licencia confirmada, timeline repartido a proveedores, plan B climático activado si pinta feo.
+          </p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream" aria-hidden="true"></span>
+          <p class="font-semibold text-accent-sapphire">El día</p>
+          <p class="text-text-dark/85 mt-1">
+            Ritmo pausado: ceremonia primero, abrazos después, festejo cuando la luz ya os favoreció.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="es-faq">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="es-faq" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Preguntas frecuentes
+        </h2>
+      } @else {
+        <h3 id="es-faq" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Preguntas frecuentes
+        </h3>
+      }
+      <div class="divide-y divide-black/[0.06] rounded-2xl border border-black/[0.08] bg-white/80 shadow-wix-soft">
+        <details class="group p-5 md:p-6">
+          <summary class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4">
+            ¿Se necesita permiso para casarse en la playa en Miami?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Muchas veces sí: depende del municipio y del tramo. Revisá normas para ceremonias y equipos de foto;
+            tu oficiante puede proponer alternativas privadas si el clima o la logística aprietan.
+          </p>
+        </details>
+        <details class="group p-5 md:p-6">
+          <summary class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4">
+            ¿Cuánto tarda la licencia matrimonial de Florida?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Tras pedirla en el condado puede haber esperas antes de casaros legalmente salvo excepciones
+            aplicables. Cruzá fechas con la oficina del clerk antes de pagar extras de último minuto.
+          </p>
+        </details>
+        <details class="group p-5 md:p-6">
+          <summary class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4">
+            ¿La ceremonia puede ser bilingüe de verdad?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Sí: podés alternar español e inglés para que familia y fotos reflejen vuestra voz cotidiana. Un
+            oficiante cómodo en ambos idiomas marca la diferencia en ritmo y abrazos posteriores.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <aside
+      class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent-sapphire via-accent-sapphire to-[#0f2433] px-6 py-10 md:px-12 text-center shadow-wix-card"
+      aria-label="Reservá tu ceremonia íntima"
+    >
+      <div class="pointer-events-none absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_80%_30%,#B89B77_0%,transparent_55%)]" aria-hidden="true"></div>
+      @if (i18n.currentLang() === 'es') {
+        <h2 class="relative font-display text-2xl md:text-3xl font-semibold text-white mb-3">
+          ¿Seguimos con fecha y tono de ceremonia?
+        </h2>
+      } @else {
+        <h3 class="relative font-display text-2xl md:text-3xl font-semibold text-white mb-3">
+          ¿Seguimos con fecha y tono de ceremonia?
+        </h3>
+      }
+      <p class="relative font-body text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Contanos si imaginás playa al amanecer, civil veloz con retratos después, o brunch íntimo: alineamos
+        licencia, guión y fotografía para que el día se sienta liviano y elegante al mismo tiempo.
+      </p>
+      <div class="relative flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [routerLink]="navPage('contact')"
+          class="inline-flex items-center justify-center rounded-full bg-secondary-gold px-8 py-3 font-body font-semibold text-accent-sapphire shadow-lg hover:bg-white transition-colors"
+        >
+          Consultar disponibilidad
+        </a>
+        <a
+          [routerLink]="navPage('elopement')"
+          class="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-3 font-body font-semibold text-white hover:bg-white/10 transition-colors"
+        >
+          Ver propuestas de elopement
+        </a>
+      </div>
+    </aside>
+  </section>
+</ng-template>

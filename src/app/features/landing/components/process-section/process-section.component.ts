@@ -31,7 +31,8 @@ import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on
               class="relative"
               [class.reveal-delay-1]="idx === 1"
               [class.reveal-delay-2]="idx === 2"
-              [class.reveal-delay-3]="idx === 3">
+              [class.reveal-delay-3]="idx === 3"
+              [class.reveal-delay-4]="idx === 4">
               <p class="font-body text-base md:text-lg text-text-dark/95 font-semibold leading-relaxed">
                 {{ ('PROCESS_STEP_TITLE_' + n) | translate }}
               </p><p class="font-body text-base md:text-lg text-text-dark/95 leading-relaxed">
@@ -45,5 +46,5 @@ import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on
   `,
 })
 export class ProcessSectionComponent {
-  readonly steps = [1, 2, 3] as const;
+  readonly steps = [1, 2, 3, 4] as const;
 }

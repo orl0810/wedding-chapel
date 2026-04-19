@@ -11,6 +11,12 @@ export interface SeoData {
   ogImage?: string;
   ogUrl?: string;
   canonicalUrl?: string;
+  /** Defaults to `website`; use `article` for blog posts. */
+  ogType?: string;
+  twitterCard?: 'summary' | 'summary_large_image';
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
   /** When set, replaces default en/es home alternates (same URL triple as canonical per language). */
   hreflangAlternates?: { hreflang: string; href: string }[];
 }
@@ -44,7 +50,7 @@ export class SeoService {
 
     const ogTitle = data.ogTitle ?? pageTitle;
     this.metaService.updateTag({ property: 'og:title', content: ogTitle });
-    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:type', content: data.ogType ?? 'website' });
     if (data.ogImage) {
       this.metaService.updateTag({ property: 'og:image', content: data.ogImage });
     }
@@ -60,6 +66,23 @@ export class SeoService {
 
     this.setCanonicalUrl(data.canonicalUrl);
     this.setHreflangAlternates(data.hreflangAlternates);
+
+    const twCard = data.twitterCard ?? 'summary_large_image';
+    this.metaService.updateTag({ name: 'twitter:card', content: twCard });
+    this.metaService.updateTag({
+      name: 'twitter:title',
+      content: data.twitterTitle ?? ogTitle,
+    });
+    this.metaService.updateTag({
+      name: 'twitter:description',
+      content: data.twitterDescription ?? data.ogDescription ?? data.description,
+    });
+    const twImage = data.twitterImage ?? data.ogImage;
+    if (twImage) {
+      this.metaService.updateTag({ name: 'twitter:image', content: twImage });
+    } else {
+      this.metaService.removeTag('name="twitter:image"');
+    }
   }
 
   private setCanonicalUrl(url?: string): void {

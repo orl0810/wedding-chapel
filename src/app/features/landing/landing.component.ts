@@ -53,11 +53,13 @@ import { FaqSectionComponent } from './components/faq-section/faq-section.compon
         <div class="min-h-[22rem] bg-primary-cream/40 border-y border-black/[0.06]" aria-hidden="true"></div>
       }
     </div>
-    @defer (on viewport) {
-      <app-contact-booking-section></app-contact-booking-section>
-    } @placeholder {
-      <div class="min-h-[40rem] bg-accent-sapphire/[0.06]" aria-hidden="true"></div>
-    }
+    <div id="contact" class="scroll-mt-24">
+      @defer (on viewport) {
+        <app-contact-booking-section></app-contact-booking-section>
+      } @placeholder {
+        <div class="min-h-[40rem] bg-accent-sapphire/[0.06]" aria-hidden="true"></div>
+      }
+    </div>
     <app-footer-section></app-footer-section>
   `,
 })
@@ -92,11 +94,26 @@ export class LandingComponent implements OnInit, OnDestroy {
     if (!id) {
       return;
     }
-    setTimeout(() => this.scrollService.scrollToElementByIdWhenReady(id), 0);
+    const block = id === 'footer' ? 'end' : 'start';
+    setTimeout(
+      () =>
+        this.scrollService.scrollToElementByIdWhenReady(id, {
+          behavior: 'auto',
+          block,
+        }),
+      0,
+    );
   }
 
-  /** Hash from the address bar (router URL omits fragment). */
   private resolveScrollTargetSectionId(): string | undefined {
+    let r = this.route;
+    while (r.firstChild) {
+      r = r.firstChild;
+    }
+    const fromData = r.snapshot.data['initialSectionId'] as string | undefined;
+    if (fromData) {
+      return fromData;
+    }
     const hash = this.document.defaultView?.location.hash;
     if (hash?.startsWith('#')) {
       const fromHash = decodeURIComponent(hash.slice(1)).trim();
@@ -104,10 +121,6 @@ export class LandingComponent implements OnInit, OnDestroy {
         return fromHash;
       }
     }
-    let r = this.route;
-    while (r.firstChild) {
-      r = r.firstChild;
-    }
-    return r.snapshot.data['initialSectionId'] as string | undefined;
+    return undefined;
   }
 }

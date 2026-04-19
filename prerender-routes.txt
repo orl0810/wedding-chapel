@@ -1,4 +1,7 @@
 /
+/blog/
+/blog/how-to-elope-in-miami/
+/blog/courthouse-wedding-miami/
 /en/
 /es/
 /en/services/
@@ -9,3 +12,7 @@
 /es/contacto/
 /en/blog/
 /es/blog/
+/en/blog/how-to-elope-in-miami/
+/es/blog/how-to-elope-in-miami/
+/en/blog/courthouse-wedding-miami/
+/es/blog/courthouse-wedding-miami/
