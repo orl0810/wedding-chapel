@@ -80,26 +80,26 @@ export class TestimonialsSectionComponent {
       quoteKey: 'TESTIMONIAL_1_QUOTE',
       typeKey: 'TESTIMONIAL_1_TYPE',
       imageWebp:
-        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami-56.webp',
+        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami-56-small.webp',
       imageFallback:
-        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami-56.jpg',
+        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami-56.webp',
     },
     {
       nameKey: 'TESTIMONIAL_2_NAME',
       quoteKey: 'TESTIMONIAL_2_QUOTE',
       typeKey: 'TESTIMONIAL_2_TYPE',
       imageWebp:
-        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami21.webp',
+        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami21-small.webp',
       imageFallback:
-        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami21.png',
+        '/assets/images/miami-officiant-marriage-certificate-south-florida-best-venues-florida-luxury-miami21.webp',
     },
     {
       nameKey: 'TESTIMONIAL_3_NAME',
       quoteKey: 'TESTIMONIAL_3_QUOTE',
       typeKey: 'TESTIMONIAL_3_TYPE',
-      imageWebp: '/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida.webp',
+      imageWebp: '/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-small.webp',
       imageFallback:
-        '/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida.jpg',
+        '/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida.webp',
     },
   ];
 }

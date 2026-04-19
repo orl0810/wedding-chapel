@@ -2,7 +2,7 @@ Title: UNIQUE, BILINGUAL & BEAUTIFUL WEDDING CEREMONIES
 
 Bilingual Wedding Officiant in Miami & South Florida
 ​
-Celebrate your love with a personalized, bilingual wedding ceremony designed to reflect your unique journey. As an experienced Miami wedding officiant, I specialize in crafting heartfelt English and Spanish ceremonies for luxury weddings, beach elopements, and vow renewals across South Florida.
+Celebrate your love with a personalized, bilingual wedding ceremony designed to reflect your unique journey. As an experienced Miami wedding officiant, I specialize in crafting heartfelt English and Spanish ceremonies for luxury weddings, beach elopements, and vows renewals across South Florida.
 ​
 Serving Miami-Dade, Broward, and Palm Beach Counties. I provide a stress-free and professional experience, ensuring your "I do" moment is as meaningful as your love story.
  
@@ -40,12 +40,12 @@ Two Symbolic Rituals: signature rituals (Unity Sand,
 Light, or Tree).
 2 Alignment Sessions (Online): Couple mentoring sessions to align your
 values, purpose, and communication.
-Vow Architecture Video: A private link to guide you in writing authentic vows.
-Rehearsal Coordination: On-site with wedding planner and production sound.
+Vows Architecture Video: A private link to guide you in writing authentic vows.
+Previous Coordination: On-site with wedding planner and production sound.
 Signature Ceremonies $950
 
 Everything in the Signature Package.
-Deep Immersion (5 Online Sessions): A comprehensive mentoring
+Deep Immersion (Total of 5 Online Sessions): A comprehensive mentoring
 based on the V.A.S. Method (Vulnerability, Action, and Security).
 Energetic Union Ritual: A private, 15-minute manifestation and intention-
 setting session held just before the ceremony.
@@ -84,7 +84,7 @@ We specialize in crafting seamless bilingual ceremonies, perfectly blending Engl
 SIGNATURE SERVICES
 
 
-From legal-only signings and intimate elopements to grand bilingual celebrations and vow renewals, we offer a range of professional services. Each package is designed to meet your specific needs while ensuring your marriage is legally recognized and beautifully honored.
+From legal-only signings and intimate elopements to grand bilingual celebrations and vows renewals, we offer a range of professional services. Each package is designed to meet your specific needs while ensuring your marriage is legally recognized and beautifully honored.
 
 DETAIL-ORIENTED
 A flawless experience is in the details. From the flow of the ceremony to the meticulous handling of your Florida marriage license, we ensure every element is legal, organized, and beautifully executed, so you can focus only on saying 'I do'.

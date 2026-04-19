@@ -1,0 +1,899 @@
+<article class="blog-article text-text-dark">
+  <div class="mx-auto max-w-5xl px-4 pt-8 md:pt-10">
+    <nav class="mb-6 text-sm font-body text-text-dark/70" aria-label="Breadcrumb">
+      <ol class="flex flex-wrap gap-x-2 gap-y-1">
+        <li>
+          <a
+            [routerLink]="navPage('home')"
+            class="text-accent-sapphire hover:text-secondary-gold underline-offset-2 hover:underline"
+            >Home</a
+          >
+        </li>
+        <li aria-hidden="true">/</li>
+        <li>
+          <a
+            [routerLink]="navPage('blog')"
+            class="text-accent-sapphire hover:text-secondary-gold underline-offset-2 hover:underline"
+            >Blog</a
+          >
+        </li>
+        <li aria-hidden="true">/</li>
+        <li class="text-text-dark/90">
+          {{
+            i18n.currentLang() === 'es'
+              ? 'Boda civil / juzgado Miami'
+              : 'Courthouse wedding Miami'
+          }}
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <header class="relative isolate mb-12 md:mb-16 overflow-hidden bg-accent-sapphire shadow-wix-card ring-1 ring-black/10">
+    <img
+      [src]="img.hero"
+      alt="Marriage rings on Florida marriage license paperwork — courthouse wedding Miami preparation"
+      width="1920"
+      height="1080"
+      sizes="100vw"
+      class="blog-hero-img h-[min(52vh,520px)] w-full object-cover object-center md:h-[min(58vh,600px)]"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-accent-sapphire/[0.97] via-accent-sapphire/50 to-black/25"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(248,245,238,0.08)_0%,transparent_55%)]"
+      aria-hidden="true"
+    ></div>
+    <div class="absolute inset-0 flex flex-col justify-end px-4 pb-10 md:pb-14 mx-auto max-w-5xl w-full">
+      <p class="font-body text-xs uppercase tracking-[0.2em] text-white/90 mb-2">
+        Miami-Dade · Civil marriage · 2025
+      </p>
+      @if (i18n.currentLang() === 'en') {
+        <h1 class="font-display text-3xl md:text-5xl font-semibold text-white tracking-tight max-w-3xl drop-shadow-sm">
+          Getting Married at Miami Courthouse: Step-by-Step
+        </h1>
+        <p class="mt-4 max-w-2xl font-body text-base md:text-lg text-white/95 leading-relaxed">
+          A calm checklist for couples searching
+          <strong class="font-semibold text-secondary-gold">courthouse wedding Miami</strong> workflows—what the
+          clerk handles, what Florida requires first, and how to plan portraits or vows the same day.
+        </p>
+      } @else {
+        <h1 class="font-display text-3xl md:text-5xl font-semibold text-white tracking-tight max-w-3xl drop-shadow-sm">
+          Casarse por lo civil en Miami en el juzgado (paso a paso)
+        </h1>
+        <p class="mt-4 max-w-2xl font-body text-base md:text-lg text-white/95 leading-relaxed">
+          Una guía ordenada si buscás una experiencia tipo
+          <strong class="font-semibold text-secondary-gold">courthouse wedding en Miami</strong>: licencia del
+          condado, documentación de Florida y opciones para ceremonia u oficiante después del clerk.
+        </p>
+      }
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-5xl px-4 pb-14 md:pb-20">
+    @if (i18n.currentLang() === 'en') {
+      <ng-container *ngTemplateOutlet="englishBlock"></ng-container>
+      <ng-container *ngTemplateOutlet="spanishBlock"></ng-container>
+    } @else {
+      <ng-container *ngTemplateOutlet="spanishBlock"></ng-container>
+      <ng-container *ngTemplateOutlet="englishBlock"></ng-container>
+    }
+
+    <p class="mt-12 text-sm font-body text-text-dark/60 border-t border-black/[0.06] pt-8">
+      <span class="sr-only">Other language version: </span>
+      <a
+        class="text-accent-sapphire hover:text-secondary-gold underline-offset-2 hover:underline mr-3"
+        [routerLink]="['/en', 'blog', articleSlug]"
+        >English version</a
+      >
+      <a
+        class="text-accent-sapphire hover:text-secondary-gold underline-offset-2 hover:underline"
+        [routerLink]="['/es', 'blog', articleSlug]"
+        >Versión en español</a
+      >
+    </p>
+  </div>
+</article>
+
+<ng-template #englishBlock>
+  <section lang="en" id="article-en-cw" class="scroll-mt-24 space-y-12 md:space-y-16 mb-16 md:mb-20">
+    <p class="font-body text-lg md:text-xl leading-relaxed text-text-dark/95 max-w-3xl">
+      If you are planning a
+      <strong class="font-semibold text-accent-sapphire">courthouse wedding in Miami</strong>, treat the day as
+      two threads: first, the Florida marriage license and Miami-Dade Clerk logistics; second, how you want the
+      moment to feel—quick signatures, or signatures plus bilingual vows with an officiant on a terrace or
+      beach later. This guide keeps both threads visible so nothing surprises you at the window.
+    </p>
+
+    <section class="grid gap-8 md:gap-12 md:grid-cols-2 md:items-center" aria-labelledby="cw-en-why">
+      <div class="order-2 md:order-1 space-y-4">
+        @if (i18n.currentLang() === 'en') {
+          <h2 id="cw-en-why" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Why couples choose a Miami courthouse path
+          </h2>
+        } @else {
+          <h3 id="cw-en-why" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Why couples choose a Miami courthouse path
+          </h3>
+        }
+        <p class="font-body leading-relaxed text-text-dark/90">
+          A Miami-Dade courthouse-style workflow can be efficient for travelers, second marriages, or pairs who
+          want legal clarity before a larger celebration. Downtown offices pair well with skyline portraits; many
+          couples still hire a photographer for the steps outside or a nearby park—your
+          <span class="whitespace-nowrap">courthouse wedding Miami</span> story can stay chic without a ballroom.
+        </p>
+        <ul class="space-y-2 font-body text-text-dark/90">
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Predictable paperwork focus—great when timelines are tight.
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Easy pairing with restaurant or micro-toast blocks later the same evening.
+          </li>
+        </ul>
+      </div>
+      <figure class="article-figure order-1 md:order-2 overflow-hidden rounded-2xl shadow-wix-card ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.downtownMiami"
+          alt="Miami downtown skyline — civic setting near Miami-Dade Clerk offices for a courthouse wedding"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 42vw, 100vw"
+          class="h-full w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+    </section>
+
+    <section aria-labelledby="cw-en-license">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="cw-en-license" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Florida marriage license basics (before any courthouse trip)
+        </h2>
+      } @else {
+        <h3 id="cw-en-license" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Florida marriage license basics (before any courthouse trip)
+        </h3>
+      }
+      <div class="grid gap-8 md:grid-cols-2 md:items-start">
+        <figure class="article-figure overflow-hidden rounded-2xl shadow-wix-soft order-2 md:order-1 ring-1 ring-accent-sapphire/10">
+          <img
+            [src]="img.marriageLicenseDocs"
+            alt="Wedding rings with marriage certificate documents — Florida license requirements for Miami courthouse marriage"
+            width="960"
+            height="640"
+            loading="lazy"
+            sizes="(min-width: 768px) 42vw, 100vw"
+            class="w-full object-cover aspect-[4/3]"
+          />
+        </figure>
+        <div class="order-1 md:order-2 space-y-4">
+          <p class="font-body leading-relaxed">
+            Florida requires an issued marriage license before your ceremony is legally binding. Partners usually
+            apply together with valid identification; residence and waiting-period rules affect when you may marry—
+            verify current guidance with Miami-Dade Clerk resources before locking flights or photographers.
+          </p>
+          <aside
+            class="rounded-xl border border-secondary-gold/40 bg-primary-cream/80 p-5 shadow-wix-soft"
+            aria-label="Compliance reminder"
+          >
+            <p class="font-display text-sm uppercase tracking-[0.15em] text-accent-sapphire/80 mb-2">
+              Important
+            </p>
+            <p class="font-body text-sm leading-relaxed text-text-dark/90">
+              Processes and fees change—always confirm hours, payment methods, and appointment rules on the
+              official Miami-Dade Clerk site. This article is planning context, not legal advice.
+            </p>
+          </aside>
+          <ul class="space-y-2 font-body">
+            <li class="flex gap-2">
+              <span class="text-secondary-gold" aria-hidden="true">✔</span>
+              Align license validity with your ceremony slot—same day or later the same week.
+            </li>
+            <li class="flex gap-2">
+              <span class="text-secondary-gold" aria-hidden="true">✔</span>
+              Ask about certified copies if you need them for immigration or banking workflows.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="cw-en-steps">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="cw-en-steps" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Step-by-step: Miami-Dade Clerk workflow
+        </h2>
+      } @else {
+        <h3 id="cw-en-steps" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Step-by-step: Miami-Dade Clerk workflow
+        </h3>
+      }
+      <ol class="relative border-l border-secondary-gold/40 pl-8 space-y-8 ml-2 font-body">
+        <li class="relative">
+          <span
+            class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream"
+            aria-hidden="true"
+          ></span>
+          <p class="font-semibold text-accent-sapphire">1. Pre-check requirements</p>
+          <p class="text-text-dark/85 mt-1">
+            Read Miami-Dade’s marriage license checklist online: IDs, prior divorce documentation if applicable,
+            and whether appointments are required.
+          </p>
+        </li>
+        <li class="relative">
+          <span
+            class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream"
+            aria-hidden="true"
+          ></span>
+          <p class="font-semibold text-accent-sapphire">2. Apply &amp; pay fees</p>
+          <p class="text-text-dark/85 mt-1">
+            Complete the application process as directed by the Clerk; note when your license becomes valid for
+            ceremony based on Florida rules applicable to your situation.
+          </p>
+        </li>
+        <li class="relative">
+          <span
+            class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream"
+            aria-hidden="true"
+          ></span>
+          <p class="font-semibold text-accent-sapphire">3. Decide ceremony path</p>
+          <p class="text-text-dark/85 mt-1">
+            Some couples marry off-site with a licensed officiant after picking up the license; others pursue a
+            county-scheduled civil option when available—confirm availability rather than assuming same-day rooms.
+          </p>
+        </li>
+        <li class="relative">
+          <span
+            class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream"
+            aria-hidden="true"
+          ></span>
+          <p class="font-semibold text-accent-sapphire">4. File &amp; celebrate</p>
+          <p class="text-text-dark/85 mt-1">
+            After your authorized ceremony, ensure filing happens on time; then shift into portraits or dinner
+            without rushing signatures.
+          </p>
+        </li>
+      </ol>
+      <p class="mt-8 font-body text-sm text-text-dark/75">
+        Related guide:
+        <a
+          [routerLink]="['/en', 'blog', 'how-to-elope-in-miami']"
+          class="text-accent-sapphire font-semibold underline-offset-2 hover:underline"
+          >How to elope in Miami</a
+        >
+        —beach timelines and permit thinking after your civil paperwork.
+      </p>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2 md:items-center" aria-labelledby="cw-en-ceremony">
+      <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-soft ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.outdoorCeremonyOption"
+          alt="Outdoor wedding ceremony setup — optional vows after a Miami courthouse marriage license"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 42vw, 100vw"
+          class="w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+      <div>
+        @if (i18n.currentLang() === 'en') {
+          <h2 id="cw-en-ceremony" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-4">
+            Courthouse paperwork vs. ceremony storytelling
+          </h2>
+        } @else {
+          <h3 id="cw-en-ceremony" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-4">
+            Courthouse paperwork vs. ceremony storytelling
+          </h3>
+        }
+        <p class="font-body leading-relaxed mb-4">
+          A crisp civil track does not cancel romance—it sequences it. Many Miami pairs collect the license, then
+          host intentional vows elsewhere the same afternoon with an officiant who speaks their languages and
+          respects how public or private they want to be after leaving downtown.
+        </p>
+        <div class="rounded-xl bg-white/90 border border-black/[0.06] p-4 shadow-wix-soft">
+          <p class="font-display text-sm text-accent-sapphire mb-1">Pro tip</p>
+          <p class="font-body text-sm leading-relaxed">
+            Block buffer time between county windows and portrait starts—Miami traffic between Brickell and the
+            beach is not “just ten minutes.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="cw-en-costs">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="cw-en-costs" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Costs to budget (anchors, not quotes)
+        </h2>
+      } @else {
+        <h3 id="cw-en-costs" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Costs to budget (anchors, not quotes)
+        </h3>
+      }
+      <p class="font-body leading-relaxed mb-8 max-w-3xl">
+        County fees change—use this table for planning conversations. Add photography, attire, and celebration
+        meals separate from the clerk line items.
+      </p>
+      <div class="overflow-x-auto rounded-2xl border border-black/[0.08] bg-white/70 shadow-wix-soft mb-8">
+        <table class="min-w-full text-left font-body text-sm md:text-base">
+          <caption class="sr-only">
+            Approximate budgeting anchors for a Miami courthouse wedding
+          </caption>
+          <thead class="bg-accent-sapphire/95 text-white">
+            <tr>
+              <th scope="col" class="px-4 py-3 font-semibold">Item</th>
+              <th scope="col" class="px-4 py-3 font-semibold">Typical range (USD)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-black/[0.06] text-text-dark/90">
+            <tr>
+              <td class="px-4 py-3">Marriage license + county fees</td>
+              <td class="px-4 py-3">~$90–$120+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Certified copies (if needed)</td>
+              <td class="px-4 py-3">Varies</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Officiant for personalized ceremony</td>
+              <td class="px-4 py-3">~$350–$900+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Photography (2–4 hrs)</td>
+              <td class="px-4 py-3">~$600–$2,500+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Hair/makeup &amp; florals (optional)</td>
+              <td class="px-4 py-3">~$300–$1,800+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="rounded-2xl border border-black/[0.06] bg-primary-cream/90 p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Paperwork-first</p>
+          <p class="font-body text-sm text-text-dark/85">License + quick portraits downtown.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Civil + rooftop</p>
+          <p class="font-body text-sm text-text-dark/85">Clerk steps then cocktail hour with skyline views.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-primary-cream/90 p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Same-day dual locations</p>
+          <p class="font-body text-sm text-text-dark/85">County window + beach vows with officiant.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-wix-soft">
+          <p class="font-display text-lg text-accent-sapphire mb-1">Family-forward</p>
+          <p class="font-body text-sm text-text-dark/85">Weekday clerk + weekend dinner celebration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-5 gap-6 md:gap-8 items-center" aria-labelledby="cw-en-portraits">
+      <figure class="article-figure md:col-span-2 rounded-2xl overflow-hidden shadow-wix-card ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.portraitsAfterCivil"
+          alt="Bride and groom beach portraits at sunset after a Miami courthouse wedding day"
+          width="960"
+          height="720"
+          loading="lazy"
+          sizes="(min-width: 768px) 38vw, 100vw"
+          class="w-full object-cover aspect-[3/4] md:aspect-[4/5]"
+        />
+      </figure>
+      <div class="md:col-span-3 space-y-5">
+        @if (i18n.currentLang() === 'en') {
+          <h2 id="cw-en-portraits" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Portraits &amp; pacing after the clerk
+          </h2>
+        } @else {
+          <h3 id="cw-en-portraits" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Portraits &amp; pacing after the clerk
+          </h3>
+        }
+        <ul class="space-y-3 font-body leading-relaxed">
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Schedule hair and makeup after you know your clerk window—avoid sweating detail work in humidity.
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Choose two portrait zones max—downtown limestone textures plus one water view photograph beautifully.
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Tell your photographer you’re building from a courthouse wedding Miami timeline so they pad travel.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-8 items-start" aria-labelledby="cw-en-reception">
+      <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-soft ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.boutiqueCelebration"
+          alt="Tropical boutique hotel pool — private celebration after civil marriage in Miami"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 45vw, 100vw"
+          class="w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+      <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-soft ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.editorialReception"
+          alt="Editorial dinner table with florals — micro-reception ideas after a Miami courthouse wedding"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 45vw, 100vw"
+          class="w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+      <div class="md:col-span-2">
+        @if (i18n.currentLang() === 'en') {
+          <h2 id="cw-en-reception" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-3">
+            Micro-receptions that match a civil day
+          </h2>
+        } @else {
+          <h3 id="cw-en-reception" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-3">
+            Micro-receptions that match a civil day
+          </h3>
+        }
+        <p class="font-body leading-relaxed max-w-3xl">
+          Keep the meal intimate—twelve seats or fewer preserves budget for photography and florals. Boutique hotels
+          near downtown make easy transitions from clerk errands to champagne without renting a ballroom.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="cw-en-faq">
+      @if (i18n.currentLang() === 'en') {
+        <h2 id="cw-en-faq" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          FAQ
+        </h2>
+      } @else {
+        <h3 id="cw-en-faq" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          FAQ
+        </h3>
+      }
+      <div class="divide-y divide-black/[0.06] rounded-2xl border border-black/[0.08] bg-white/80 shadow-wix-soft">
+        <details class="group p-5 md:p-6">
+          <summary
+            class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4"
+          >
+            Does Miami-Dade perform courthouse ceremonies at the Clerk’s office?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Options vary by county policies and scheduling. Many couples obtain the marriage license through the
+            Clerk, then marry with an authorized officiant outside the building—confirm whether civil ceremonies
+            are offered on-site with Miami-Dade.
+          </p>
+        </details>
+        <details class="group p-5 md:p-6">
+          <summary
+            class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4"
+          >
+            How much does a marriage license cost for a courthouse wedding in Miami?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Fees are set by the county and can change; certified copies may add cost. Budget the license fee plus
+            any clerk processing charges before your appointment.
+          </p>
+        </details>
+        <details class="group p-5 md:p-6">
+          <summary
+            class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4"
+          >
+            Can our day include bilingual vows after clerk steps?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Yes—pair paperwork downtown with a Florida-licensed officiant who can script English and Spanish so
+            family recognition moments still feel emotional, not rushed.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <aside
+      class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent-sapphire via-accent-sapphire to-[#0f2433] px-6 py-10 md:px-12 text-center shadow-wix-card"
+      aria-label="Book officiant for Miami civil wedding"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_20%,#B89B77_0%,transparent_50%)]"
+        aria-hidden="true"
+      ></div>
+      @if (i18n.currentLang() === 'en') {
+        <h2 class="relative font-display text-2xl md:text-3xl font-semibold text-white mb-3">
+          Want bilingual vows after your Miami courthouse steps?
+        </h2>
+      } @else {
+        <h3 class="relative font-display text-2xl md:text-3xl font-semibold text-white mb-3">
+          Want bilingual vows after your Miami courthouse steps?
+        </h3>
+      }
+      <p class="relative font-body text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Share your clerk date and portrait plans—we’ll help you sequence signatures, ceremony tone, and family cues
+        without squeezing your courthouse wedding Miami timeline.
+      </p>
+      <div class="relative flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [routerLink]="navPage('contact')"
+          class="inline-flex items-center justify-center rounded-full bg-secondary-gold px-8 py-3 font-body font-semibold text-accent-sapphire shadow-lg hover:bg-white transition-colors"
+        >
+          Check availability
+        </a>
+        <a
+          [routerLink]="navPage('services')"
+          class="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-3 font-body font-semibold text-white hover:bg-white/10 transition-colors"
+        >
+          Ceremony &amp; officiant services
+        </a>
+      </div>
+    </aside>
+  </section>
+</ng-template>
+
+<ng-template #spanishBlock>
+  <section lang="es" id="article-es-cw" class="scroll-mt-24 space-y-12 md:space-y-16 pt-12 md:pt-16 border-t border-black/[0.06] mb-8">
+    <header class="max-w-3xl">
+      @if (i18n.currentLang() === 'es') {
+        <h1 class="font-display text-3xl md:text-4xl font-semibold text-accent-sapphire tracking-tight mb-4">
+          Casarse por lo civil en Miami en el juzgado (paso a paso)
+        </h1>
+      } @else {
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-accent-sapphire tracking-tight mb-4">
+          Casarse por lo civil en Miami en el juzgado (paso a paso)
+        </h2>
+      }
+      <p class="font-body text-lg md:text-xl leading-relaxed text-text-dark/95">
+        Esta parte está escrita para parejas hispanohablantes que buscan claridad práctica: no repetimos el inglés
+        palabra por palabra, pero sí cubrimos lo mismo—licencia en Florida, condado Miami-Dade y cómo sumar ceremonia
+        u oficiante cuando el trámite del clerk ya está resuelto.
+      </p>
+    </header>
+
+    <section class="grid gap-8 md:gap-12 md:grid-cols-2 md:items-center" aria-labelledby="cw-es-why">
+      <div class="order-2 md:order-1 space-y-4">
+        @if (i18n.currentLang() === 'es') {
+          <h2 id="cw-es-why" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Por qué encaja una ruta tipo courthouse wedding en Miami
+          </h2>
+        } @else {
+          <h3 id="cw-es-why" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Por qué encaja una ruta tipo courthouse wedding en Miami
+          </h3>
+        }
+        <p class="font-body leading-relaxed text-text-dark/90">
+          Cuando decís “quiero algo parecido a una
+          <strong class="font-semibold text-accent-sapphire">courthouse wedding en Miami</strong>”, normalmente
+          querés orden: primero licencia válida en Florida y después celebración breve o retratos sin montar un
+          salón gigante. El centro de Miami conviene para trámites y fotos urbanas; podés saltar después a playa u
+          hotel boutique con tiempo reservado.
+        </p>
+      </div>
+      <figure class="article-figure order-1 md:order-2 overflow-hidden rounded-2xl shadow-wix-card ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.downtownMiami"
+          alt="Panorama urbano de Miami cerca de oficinas del condado — contexto para trámite de licencia matrimonial"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 42vw, 100vw"
+          class="h-full w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+    </section>
+
+    <section aria-labelledby="cw-es-license">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="cw-es-license" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Licencia matrimonial en Florida (antes de ir al clerk)
+        </h2>
+      } @else {
+        <h3 id="cw-es-license" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Licencia matrimonial en Florida (antes de ir al clerk)
+        </h3>
+      }
+      <div class="grid gap-8 md:grid-cols-2 md:items-start">
+        <figure class="article-figure overflow-hidden rounded-2xl shadow-wix-soft order-2 md:order-1 ring-1 ring-accent-sapphire/10">
+          <img
+            [src]="img.marriageLicenseDocs"
+            alt="Anillos y documentación de licencia matrimonial Florida — requisitos para casarse por lo civil en Miami"
+            width="960"
+            height="640"
+            loading="lazy"
+            sizes="(min-width: 768px) 42vw, 100vw"
+            class="w-full object-cover aspect-[4/3]"
+          />
+        </figure>
+        <div class="order-1 md:order-2 space-y-4 font-body leading-relaxed">
+          <p>
+            Sin licencia emitida por el condado correspondiente no hay matrimonio civil válido tal como lo
+            contempla Florida. Reuní identificaciones, información sobre divorcios previos si aplica, y revisá en
+            la web oficial del Clerk del condado Miami-Dade horarios, citas y formas de pago.
+          </p>
+          <aside class="rounded-xl border border-secondary-gold/40 bg-primary-cream/80 p-5 shadow-wix-soft">
+            <p class="font-display text-sm uppercase tracking-[0.15em] text-accent-sapphire/80 mb-2">
+              Recordatorio
+            </p>
+            <p class="text-sm text-text-dark/90">
+              Las políticas cambian; basá tu plan en la fuente oficial del condado y, si necesitás certificaciones
+              extra, pedilas con margen para trámites internacionales o bancarios.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="cw-es-steps">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="cw-es-steps" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Secuencia sugerida en Miami-Dade
+        </h2>
+      } @else {
+        <h3 id="cw-es-steps" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-8">
+          Secuencia sugerida en Miami-Dade
+        </h3>
+      }
+      <ol class="relative border-l border-secondary-gold/40 pl-8 space-y-8 ml-2 font-body">
+        <li class="relative">
+          <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream" aria-hidden="true"></span>
+          <p class="font-semibold text-accent-sapphire">1. Leé la checklist del condado</p>
+          <p class="text-text-dark/85 mt-1">IDs, divorcio anterior si corresponde y política de citas.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream" aria-hidden="true"></span>
+          <p class="font-semibold text-accent-sapphire">2. Tramitá y aboná</p>
+          <p class="text-text-dark/85 mt-1">Confirmá cuándo la licencia es válida para celebrar según tu caso.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream" aria-hidden="true"></span>
+          <p class="font-semibold text-accent-sapphire">3. Definí si hay ceremonia civil programada</p>
+          <p class="text-text-dark/85 mt-1">
+            Muchas parejas firman con oficiante fuera del edificio; verificá opciones civiles disponibles en el
+            condado antes de prometer horarios a familia.
+          </p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-secondary-gold ring-4 ring-primary-cream" aria-hidden="true"></span>
+          <p class="font-semibold text-accent-sapphire">4. Presentación y festejo prudente</p>
+          <p class="text-text-dark/85 mt-1">Coordiná registro y retratos sin apilar todo en el mismo minuto.</p>
+        </li>
+      </ol>
+      <p class="mt-8 font-body text-sm text-text-dark/75">
+        Guía relacionada:
+        <a
+          [routerLink]="['/es', 'blog', 'how-to-elope-in-miami']"
+          class="text-accent-sapphire font-semibold underline-offset-2 hover:underline"
+          >Cómo casarse en Miami en una ceremonia íntima</a
+        >.
+      </p>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2 md:items-center" aria-labelledby="cw-es-ceremony">
+      <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-soft ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.outdoorCeremonyOption"
+          alt="Ceremonia al aire libre tras completar trámites civiles — boda íntima Miami"
+          width="960"
+          height="640"
+          loading="lazy"
+          sizes="(min-width: 768px) 42vw, 100vw"
+          class="w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+      <div>
+        @if (i18n.currentLang() === 'es') {
+          <h2 id="cw-es-ceremony" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-4">
+            Trámite civil y ceremonia emotiva pueden convivir
+          </h2>
+        } @else {
+          <h3 id="cw-es-ceremony" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-4">
+            Trámite civil y ceremonia emotiva pueden convivir
+          </h3>
+        }
+        <p class="font-body leading-relaxed mb-4">
+          El clerk encaja en la parte administrativa; la narrativa la construís con un oficiante que respete
+          ritmos bilingües y tiempos de llanto-abrazo-foto sin apuro. Si querés mar, reservá margen de tránsito.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="cw-es-costs">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="cw-es-costs" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Presupuesto orientativo
+        </h2>
+      } @else {
+        <h3 id="cw-es-costs" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Presupuesto orientativo
+        </h3>
+      }
+      <div class="overflow-x-auto rounded-2xl border border-black/[0.08] bg-white/70 shadow-wix-soft mb-8">
+        <table class="min-w-full text-left font-body text-sm md:text-base">
+          <caption class="sr-only">Referencias de costo para boda civil en Miami</caption>
+          <thead class="bg-accent-sapphire/95 text-white">
+            <tr>
+              <th scope="col" class="px-4 py-3 font-semibold">Concepto</th>
+              <th scope="col" class="px-4 py-3 font-semibold">Rango típico (USD)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-black/[0.06] text-text-dark/90">
+            <tr>
+              <td class="px-4 py-3">Licencia y tasas del condado</td>
+              <td class="px-4 py-3">~US$90–120+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Copias certificadas</td>
+              <td class="px-4 py-3">Variable</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Oficiante personalizado</td>
+              <td class="px-4 py-3">~US$350–900+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Fotografía (2–4 h)</td>
+              <td class="px-4 py-3">~US$600–2.500+</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Beauty / florales opcional</td>
+              <td class="px-4 py-3">~US$300–1.800+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-5 gap-6 md:gap-8 items-center" aria-labelledby="cw-es-portraits">
+      <figure class="article-figure md:col-span-2 rounded-2xl overflow-hidden shadow-wix-card ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.portraitsAfterCivil"
+          alt="Retrato de novios en la playa al atardecer después del trámite civil en Miami"
+          width="960"
+          height="720"
+          loading="lazy"
+          sizes="(min-width: 768px) 38vw, 100vw"
+          class="w-full object-cover aspect-[3/4] md:aspect-[4/5]"
+        />
+      </figure>
+      <div class="md:col-span-3 space-y-5">
+        @if (i18n.currentLang() === 'es') {
+          <h2 id="cw-es-portraits" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Fotos después del clerk
+          </h2>
+        } @else {
+          <h3 id="cw-es-portraits" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire">
+            Fotos después del clerk
+          </h3>
+        }
+        <ul class="space-y-3 font-body leading-relaxed">
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Coordiná maquillaje después de saber tu ventana horaria del condado.
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 text-secondary-gold" aria-hidden="true">✔</span>
+            Dos locaciones bastan: textura urbana + agua.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-8 items-start">
+      <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-soft ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.boutiqueCelebration"
+          alt="Hotel boutique tropical — mini celebración tras casamiento civil en Miami"
+          width="960"
+          height="640"
+          loading="lazy"
+          class="w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+      <figure class="article-figure rounded-2xl overflow-hidden shadow-wix-soft ring-1 ring-accent-sapphire/10">
+        <img
+          [src]="img.editorialReception"
+          alt="Mesa decorada para micro-recepción después de casamiento civil"
+          width="960"
+          height="640"
+          loading="lazy"
+          class="w-full object-cover aspect-[4/3]"
+        />
+      </figure>
+    </section>
+
+    <section aria-labelledby="cw-es-faq">
+      @if (i18n.currentLang() === 'es') {
+        <h2 id="cw-es-faq" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Preguntas frecuentes
+        </h2>
+      } @else {
+        <h3 id="cw-es-faq" class="font-display text-2xl md:text-3xl font-semibold text-accent-sapphire mb-6">
+          Preguntas frecuentes
+        </h3>
+      }
+      <div class="divide-y divide-black/[0.06] rounded-2xl border border-black/[0.08] bg-white/80 shadow-wix-soft">
+        <details class="group p-5 md:p-6">
+          <summary class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4">
+            ¿El condado Miami-Dade celebra ceremonias civiles en el mismo edificio del clerk?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Las opciones cambian según políticas del condado y disponibilidad. Muchas parejas tramitan la licencia en
+            la oficina del clerk y luego celebran con un oficiante autorizado fuera del edificio; confirmá
+            ceremonias civiles programadas directamente con Miami-Dade.
+          </p>
+        </details>
+        <details class="group p-5 md:p-6">
+          <summary class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4">
+            ¿Cuánto cuesta la licencia matrimonial para una courthouse wedding en Miami?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Los honorarios los fija el condado y pueden actualizarse; además puede haber cargos por copias
+            certificadas. Presupuestá la licencia y cualquier cargo administrativo antes del día de la cita.
+          </p>
+        </details>
+        <details class="group p-5 md:p-6">
+          <summary class="cursor-pointer font-display text-lg font-semibold text-accent-sapphire list-none flex justify-between gap-4">
+            ¿Puede ser bilingüe una boda civil o la firma después del clerk?
+            <span class="text-secondary-gold group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 font-body text-text-dark/85 leading-relaxed">
+            Sí. Muchas parejas combinan el trámite del condado con una ceremonia guiada en español e inglés con un
+            oficiante licenciado en Florida para que familia y documentación estén alineadas.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <aside
+      class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent-sapphire via-accent-sapphire to-[#0f2433] px-6 py-10 md:px-12 text-center shadow-wix-card"
+      aria-label="Consulta oficiante civil Miami"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_25%,#B89B77_0%,transparent_55%)]"
+        aria-hidden="true"
+      ></div>
+      @if (i18n.currentLang() === 'es') {
+        <h2 class="relative font-display text-2xl md:text-3xl font-semibold text-white mb-3">
+          ¿Coordinamos votos después del juzgado?
+        </h2>
+      } @else {
+        <h3 class="relative font-display text-2xl md:text-3xl font-semibold text-white mb-3">
+          ¿Coordinamos votos después del juzgado?
+        </h3>
+      }
+      <p class="relative font-body text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Enviá fecha del clerk y zona de fotos; armamos guión bilingüe y ritmo sin pisar tiempos administrativos.
+      </p>
+      <div class="relative flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [routerLink]="navPage('contact')"
+          class="inline-flex items-center justify-center rounded-full bg-secondary-gold px-8 py-3 font-body font-semibold text-accent-sapphire shadow-lg hover:bg-white transition-colors"
+        >
+          Consultar disponibilidad
+        </a>
+        <a
+          [routerLink]="navPage('services')"
+          class="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-3 font-body font-semibold text-white hover:bg-white/10 transition-colors"
+        >
+          Servicios de ceremonia
+        </a>
+      </div>
+    </aside>
+  </section>
+</ng-template>

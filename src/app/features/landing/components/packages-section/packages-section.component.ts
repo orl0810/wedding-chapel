@@ -5,6 +5,7 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 import { TranslatePipe } from '../../../../shared/pipes/translate/translate.pipe';
 import { ScrollService } from '../../../../core/services/scroll.service';
 import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
+import { WhatsappService } from '../../../../core/services/whatsapp.service';
 
 interface Package {
   key: string;
@@ -85,7 +86,7 @@ interface Package {
                   }
                 </ul>
               </div>
-              <app-button variant="primary" [fullWidth]="true" (click)="scrollToSection('contact')">
+              <app-button variant="primary" [fullWidth]="true" (click)="sendWhatsAppMessage()">
                 {{ 'PACKAGES_CTA' | translate }}
               </app-button>
             </article>
@@ -97,6 +98,7 @@ interface Package {
 })
 export class PackagesSectionComponent {
   private scrollService = inject(ScrollService);
+  private whatsappService = inject(WhatsappService);
 
   readonly serviceTypes = [
     { key: 'BEACH' },
@@ -125,5 +127,10 @@ export class PackagesSectionComponent {
 
   scrollToSection(id: string): void {
     this.scrollService.scrollToElementById(id);
+  }
+
+  sendWhatsAppMessage(): void {
+    this.whatsappService.buildUrl();
+    window.open(this.whatsappService.buildUrl(), '_blank');
   }
 }

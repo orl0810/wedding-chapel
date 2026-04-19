@@ -3,6 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { TranslatePipe } from '../../../../shared/pipes/translate/translate.pipe';
 import { ScrollService } from '../../../../core/services/scroll.service';
+import { WhatsappService } from '../../../../core/services/whatsapp.service';
 
 @Component({
   selector: 'app-hero-section',
@@ -40,7 +41,7 @@ import { ScrollService } from '../../../../core/services/scroll.service';
           variant="primary"
           size="lg"
           class="animate-fade-in-up [animation-delay:0.4s] [animation-fill-mode:both]"
-          (click)="scrollToSection('contact')">
+          (click)="sendWhatsAppMessage()">
           {{ 'HERO_CTA_BOOK' | translate }}
         </app-button>
       </div>
@@ -115,8 +116,14 @@ export class HeroSectionComponent {
   private scrollService = inject(ScrollService);
   readonly marqueeHalves = [0, 1] as const;
   readonly marqueeItems = [0, 1, 2, 3, 4, 5] as const;
+  private whatsappService = inject(WhatsappService);
 
   scrollToSection(id: string): void {
     this.scrollService.scrollToElementById(id);
+  }
+
+  sendWhatsAppMessage(): void {
+    this.whatsappService.buildUrl();
+    window.open(this.whatsappService.buildUrl(), '_blank');
   }
 }

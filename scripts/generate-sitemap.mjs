@@ -17,6 +17,9 @@ const PAGE_SEGMENTS = {
   blog: { en: 'blog', es: 'blog' },
 };
 
+/** Keep in sync with src/app/features/blog/blog-article-meta.ts BLOG_ARTICLE_SLUGS */
+const BLOG_ARTICLE_SLUGS = ['how-to-elope-in-miami', 'courthouse-wedding-miami'];
+
 const PAGE_ORDER = ['home', 'services', 'elopement', 'contact', 'blog'];
 
 function pagePath(lang, pageKey) {
@@ -40,6 +43,16 @@ function hreflangBlock(pageKey) {
 
 const today = new Date().toISOString().slice(0, 10);
 
+function hreflangArticleBlock(slug) {
+  const en = `${site}/en/blog/${slug}/`;
+  const es = `${site}/es/blog/${slug}/`;
+  return [
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(en)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(en)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="es" href="${escapeXml(es)}" />`,
+  ].join('\n');
+}
+
 const urlEntries = [];
 for (const pageKey of PAGE_ORDER) {
   for (const lang of ['en', 'es']) {
@@ -50,6 +63,19 @@ ${hreflangBlock(pageKey)}
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${pageKey === 'home' ? '1.0' : '0.8'}</priority>
+  </url>`);
+  }
+}
+
+for (const slug of BLOG_ARTICLE_SLUGS) {
+  for (const lang of ['en', 'es']) {
+    const loc = `${site}/${lang}/blog/${slug}/`;
+    urlEntries.push(`  <url>
+    <loc>${escapeXml(loc)}</loc>
+${hreflangArticleBlock(slug)}
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>`);
   }
 }

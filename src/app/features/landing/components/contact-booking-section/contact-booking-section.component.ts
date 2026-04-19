@@ -74,7 +74,6 @@ import { BookingService } from '../../../../core/services/booking.service';
             </form>
           </div> -->
     <section
-  id="contact"
   class="relative bg-accent-sapphire text-text-light py-20 md:py-28 px-4 overflow-hidden"
   aria-labelledby="contact-title">
 

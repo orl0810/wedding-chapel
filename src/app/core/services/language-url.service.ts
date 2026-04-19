@@ -22,6 +22,24 @@ export class LanguageUrlService {
     return seg ? ['/', lang, seg] : ['/', lang];
   }
 
+  /**
+   * Like `navCommands`, but keeps a blog post slug when switching language
+   * (e.g. `/en/blog/how-to-elope-in-miami` → `/es/blog/how-to-elope-in-miami`).
+   */
+  navCommandsForPath(pathname: string, targetLang: SiteLang): (string | SiteLang)[] {
+    let rest = pathname;
+    if (this.baseHref && this.baseHref !== '/' && rest.startsWith(this.baseHref)) {
+      rest = rest.slice(this.baseHref.length) || '/';
+    }
+    const parts = rest.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean);
+    const segment = parts[1] ?? '';
+    const blogSlug = parts[2];
+    if (segment === 'blog' && blogSlug) {
+      return ['/', targetLang, 'blog', blogSlug];
+    }
+    return this.navCommands(targetLang, this.pageKeyFromPath(pathname) ?? 'home');
+  }
+
   pageKeyFromPath(pathname: string): PageKey | null {
     if (!pathname) {
       return null;
