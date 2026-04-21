@@ -13,7 +13,8 @@ export const PAGE_SEGMENTS: Record<PageKey, Record<SiteLang, string>> = {
 };
 
 const siteBase = environment.siteUrl.replace(/\/$/, '');
-const heroOgImage = `${siteBase}/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.jpg`;
+/** 1200×630 WebP — optimized for Open Graph / WhatsApp link previews (`public/brand/og-share.webp`). */
+const heroOgImage = `${siteBase}/brand/og-share.webp`;
 
 export function absolutePageUrl(lang: SiteLang, pageKey: PageKey): string {
   const seg = PAGE_SEGMENTS[pageKey][lang];

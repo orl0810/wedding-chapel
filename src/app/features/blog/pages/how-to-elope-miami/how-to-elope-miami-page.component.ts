@@ -98,7 +98,7 @@ export class HowToElopeMiamiPageComponent implements OnInit, OnDestroy {
           url: `${site}/en/`,
           logo: {
             '@type': 'ImageObject',
-            url: `${site}/favicon.ico`,
+            url: `${site}/brand/favicon-32x32.png`,
           },
         },
         mainEntityOfPage: {
