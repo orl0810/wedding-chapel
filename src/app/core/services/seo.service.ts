@@ -150,7 +150,7 @@ export class SeoService {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: 'Miami Wedding Officiant',
-      image: `${base}/favicon.ico`,
+      image: [`${base}/brand/og-share.webp`, `${base}/brand/apple-touch-icon.png`],
       url: `${base}/en/`,
       telephone: '+13058703010',
       email: 'vuelvealser@gmail.com',
