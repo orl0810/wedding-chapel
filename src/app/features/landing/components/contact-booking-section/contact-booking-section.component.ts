@@ -208,7 +208,7 @@ import { BookingService } from '../../../../core/services/booking.service';
               <option value="">{{ 'FORM_SELECT_PACKAGE' | translate }}</option>
               <option value="intimate">{{ 'PACKAGE_INTIMATE_TITLE' | translate }}</option>
               <option value="signature">{{ 'PACKAGE_SIGNATURE_TITLE' | translate }}</option>
-              <option value="premium">{{ 'PACKAGE_PREMIUM_TITLE' | translate }}</option>
+              <option value="deluxe">{{ 'PACKAGE_DELUXE_TITLE' | translate }}</option>
             </select>
           </div>
 

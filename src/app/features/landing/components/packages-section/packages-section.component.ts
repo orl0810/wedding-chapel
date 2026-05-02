@@ -119,9 +119,9 @@ export class PackagesSectionComponent {
       features: ['FEATURE_1', 'FEATURE_2', 'FEATURE_3', 'FEATURE_4', 'FEATURE_5', 'FEATURE_6'],
     },
     {
-      key: 'PREMIUM',
-      priceKey: 'PACKAGE_PREMIUM_PRICE',
-      features: ['FEATURE_1', 'FEATURE_2', 'FEATURE_3', 'FEATURE_4', 'FEATURE_5'],
+      key: 'DELUXE',
+      priceKey: 'PACKAGE_DELUXE_PRICE',
+      features: ['FEATURE_1', 'FEATURE_2', 'FEATURE_3', 'FEATURE_4', 'FEATURE_5', 'FEATURE_6'],
     },
   ];
 
