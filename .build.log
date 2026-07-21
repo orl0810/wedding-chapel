@@ -1,0 +1,15 @@
+2026-04-05T13:52:56.127646 Project directory: /root/wedding-chapel
+2026-04-05T13:52:56.128420 Pulling project images
+2026-04-05T13:52:56.128934 ------------------------------
+2026-04-05T13:52:56.210187 time="2026-04-05T13:52:56Z" level=warning msg="/root/wedding-chapel/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+2026-04-05T13:52:56.212774  app Skipped - No image to be pulled 
+2026-04-05T13:52:56.218113 ------------------------------
+2026-04-05T13:52:56.218229 Deploying project
+2026-04-05T13:52:56.218856 ------------------------------
+2026-04-05T13:52:56.298115 time="2026-04-05T13:52:56Z" level=warning msg="/root/wedding-chapel/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+2026-04-05T13:52:56.302618  Container wedding-app  Recreate
+2026-04-05T13:53:06.469917  Container wedding-app  Recreated
+2026-04-05T13:53:06.471399  Container wedding-app  Starting
+2026-04-05T13:53:06.656127  Container wedding-app  Started
+2026-04-05T13:53:06.670198 ------------------------------
+2026-04-05T13:53:06.670337 Project deployed successfully

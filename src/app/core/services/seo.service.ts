@@ -9,6 +9,11 @@ export interface SeoData {
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
+  ogImageSecureUrl?: string;
+  ogImageType?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogImageAlt?: string;
   ogUrl?: string;
   canonicalUrl?: string;
   /** Defaults to `website`; use `article` for blog posts. */
@@ -17,6 +22,7 @@ export interface SeoData {
   twitterTitle?: string;
   twitterDescription?: string;
   twitterImage?: string;
+  twitterImageAlt?: string;
   /** When set, replaces default en/es home alternates (same URL triple as canonical per language). */
   hreflangAlternates?: { hreflang: string; href: string }[];
 }
@@ -53,7 +59,14 @@ export class SeoService {
     this.metaService.updateTag({ property: 'og:type', content: data.ogType ?? 'website' });
     if (data.ogImage) {
       this.metaService.updateTag({ property: 'og:image', content: data.ogImage });
+    } else {
+      this.metaService.removeTag('property="og:image"');
     }
+    this.updateOptionalPropertyTag('og:image:secure_url', data.ogImageSecureUrl);
+    this.updateOptionalPropertyTag('og:image:type', data.ogImageType);
+    this.updateOptionalPropertyTag('og:image:width', data.ogImageWidth);
+    this.updateOptionalPropertyTag('og:image:height', data.ogImageHeight);
+    this.updateOptionalPropertyTag('og:image:alt', data.ogImageAlt);
 
     const ogUrl =
       data.ogUrl ??
@@ -83,6 +96,26 @@ export class SeoService {
     } else {
       this.metaService.removeTag('name="twitter:image"');
     }
+    this.updateOptionalNameTag('twitter:image:alt', data.twitterImageAlt ?? data.ogImageAlt);
+  }
+
+  private updateOptionalPropertyTag(
+    property: string,
+    content: string | number | undefined
+  ): void {
+    if (content !== undefined) {
+      this.metaService.updateTag({ property, content: String(content) });
+    } else {
+      this.metaService.removeTag(`property="${property}"`);
+    }
+  }
+
+  private updateOptionalNameTag(name: string, content: string | undefined): void {
+    if (content !== undefined) {
+      this.metaService.updateTag({ name, content });
+    } else {
+      this.metaService.removeTag(`name="${name}"`);
+    }
   }
 
   private setCanonicalUrl(url?: string): void {
@@ -103,8 +136,8 @@ export class SeoService {
   private setHreflangAlternates(overrides?: { hreflang: string; href: string }[]): void {
     const base = environment.siteUrl.replace(/\/$/, '');
     const alternates = overrides ?? [
-      { hreflang: 'x-default', href: `${base}/en/` },
-      { hreflang: 'en', href: `${base}/en/` },
+      { hreflang: 'x-default', href: `${base}/` },
+      { hreflang: 'en', href: `${base}/` },
       { hreflang: 'es', href: `${base}/es/` },
     ];
 
@@ -151,7 +184,7 @@ export class SeoService {
       '@type': 'LocalBusiness',
       name: 'Miami Wedding Officiant',
       image: [`${base}/brand/og-share.webp`, `${base}/brand/apple-touch-icon.png`],
-      url: `${base}/en/`,
+      url: `${base}/`,
       telephone: '+13058703010',
       email: 'vuelvealser@gmail.com',
       address: {
@@ -162,7 +195,7 @@ export class SeoService {
         postalCode: '33014',
         addressCountry: 'US',
       },
-      priceRange: '$650 - $1950',
+      priceRange: '$290 - $690',
       hasMap: 'https://www.google.com/maps/place/7218+W+4th+Ave,+Hialeah,+FL',
       openingHoursSpecification: [
         {

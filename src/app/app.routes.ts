@@ -1,24 +1,20 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'en' },
-  /**
-   * Without language prefix, `/blog` used to hit `**` → redirect to `/en` (home).
-   * Send bare `/blog` URLs to the English blog index (matches x-default hreflang pattern).
-   */
-  { path: 'blog', pathMatch: 'full', redirectTo: '/en/blog' },
-  {
-    path: 'blog/:slug',
-    pathMatch: 'full',
-    redirectTo: '/en/blog/:slug',
-  },
-  {
-    path: 'en',
-    loadChildren: () => import('./pages/en/en.routes').then((m) => m.EN_ROUTES),
-  },
   {
     path: 'es',
     loadChildren: () => import('./pages/es/es.routes').then((m) => m.ES_ROUTES),
   },
-  { path: '**', redirectTo: 'en' },
+  // Preserve old English links while keeping unprefixed URLs canonical.
+  { path: 'en', pathMatch: 'full', redirectTo: '/' },
+  { path: 'en/services', pathMatch: 'full', redirectTo: '/services' },
+  { path: 'en/elopement-miami', pathMatch: 'full', redirectTo: '/elopement-miami' },
+  { path: 'en/contact', pathMatch: 'full', redirectTo: '/contact' },
+  { path: 'en/blog', pathMatch: 'full', redirectTo: '/blog' },
+  { path: 'en/blog/:slug', pathMatch: 'full', redirectTo: '/blog/:slug' },
+  {
+    path: '',
+    loadChildren: () => import('./pages/en/en.routes').then((m) => m.EN_ROUTES),
+  },
+  { path: '**', redirectTo: '/' },
 ];

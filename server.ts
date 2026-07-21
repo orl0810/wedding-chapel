@@ -5,21 +5,15 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
 
-function preferredLocale(acceptLanguage: string | undefined): 'en' | 'es' {
-  if (!acceptLanguage?.trim()) {
-    return 'en';
-  }
-  const first =
-    acceptLanguage.split(',')[0]?.trim().split(';')[0]?.trim().toLowerCase() ?? '';
-  return first.startsWith('es') ? 'es' : 'en';
-}
-
-/** Canonical public URLs use trailing slashes (e.g. /en/, /es/servicios/). */
+/** Canonical public URLs use trailing slashes (e.g. /services/, /es/servicios/). */
 function trailingSlashRedirect(pathOnly: string): string | null {
   if (!pathOnly || pathOnly === '/' || pathOnly.endsWith('/')) {
     return null;
   }
-  if (!/^\/(en|es)(\/|$)/.test(pathOnly)) {
+  if (
+    pathOnly !== '/es' &&
+    !/^\/(es\/)?(services|servicios|elopement-miami|contact|contacto|blog)(\/|$)/.test(pathOnly)
+  ) {
     return null;
   }
   if (/\.[a-z0-9]+$/i.test(pathOnly.split('/').pop() ?? '')) {
@@ -55,11 +49,6 @@ export function app(): express.Express {
 
   server.use((req, res, next) => {
     const pathOnly = req.path || '';
-    if (pathOnly === '/' || pathOnly === '') {
-      const target = `/${preferredLocale(req.headers['accept-language'])}/`;
-      res.redirect(302, target);
-      return;
-    }
     const slashTarget = trailingSlashRedirect(pathOnly);
     if (slashTarget) {
       const q = req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '';

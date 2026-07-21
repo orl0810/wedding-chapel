@@ -13,12 +13,15 @@ export const PAGE_SEGMENTS: Record<PageKey, Record<SiteLang, string>> = {
 };
 
 const siteBase = environment.siteUrl.replace(/\/$/, '');
-/** 1200×630 WebP — optimized for Open Graph / WhatsApp link previews (`public/brand/og-share.webp`). */
+/** Default 1200×630 WebP used by non-home page previews. */
 const heroOgImage = `${siteBase}/brand/og-share.webp`;
+/** Hero crop dedicated to the English and Spanish landing-page social previews. */
+const landingSocialImage = `${siteBase}/assets/images/hero-social-preview.webp`;
 
 export function absolutePageUrl(lang: SiteLang, pageKey: PageKey): string {
   const seg = PAGE_SEGMENTS[pageKey][lang];
-  const path = seg ? `/${lang}/${seg}/` : `/${lang}/`;
+  const prefix = lang === 'es' ? '/es' : '';
+  const path = seg ? `${prefix}/${seg}/` : `${prefix}/`;
   return `${siteBase}${path}`;
 }
 
@@ -36,6 +39,11 @@ type PageCopy = {
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
+  ogImageSecureUrl?: string;
+  ogImageType?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogImageAlt?: string;
   includeLocalBusinessSchema?: boolean;
   initialSectionId?: string;
 };
@@ -49,7 +57,12 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
       ogTitle: 'Wedding Officiant Miami | Bilingual Ceremonies & Elopements',
       ogDescription:
         'Bilingual wedding officiant in Miami. Beach elopements, courthouse and backyard ceremonies. Serving Miami-Dade & Broward.',
-      ogImage: heroOgImage,
+      ogImage: landingSocialImage,
+      ogImageSecureUrl: landingSocialImage,
+      ogImageType: 'image/webp',
+      ogImageWidth: 1200,
+      ogImageHeight: 600,
+      ogImageAlt: 'Bride and groom exchanging vows during a wedding ceremony in Miami',
       includeLocalBusinessSchema: true,
     },
     es: {
@@ -59,7 +72,12 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
       ogTitle: 'Oficiante de Bodas en Miami | Ceremonias Bilingües y Elopements',
       ogDescription:
         'Oficiante de bodas licenciado en Miami. Ceremonias en la playa, juzgado y jardín. Bilingüe inglés/español. Miami-Dade y Broward.',
-      ogImage: heroOgImage,
+      ogImage: landingSocialImage,
+      ogImageSecureUrl: landingSocialImage,
+      ogImageType: 'image/webp',
+      ogImageWidth: 1200,
+      ogImageHeight: 600,
+      ogImageAlt: 'Novios intercambiando votos durante una ceremonia de boda en Miami',
       includeLocalBusinessSchema: true,
     },
   },
@@ -67,7 +85,7 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
     en: {
       title: 'Miami Wedding Officiant Services | Beach, Courthouse & Venue Ceremonies',
       description:
-        'Wedding officiant services in Miami: beach elopements, courthouse signings, backyard and hotel ceremonies. Bilingual English/Spanish. Packages from $650.',
+        'Wedding officiant services in Miami: beach elopements, courthouse signings, backyard and hotel ceremonies. Bilingual English/Spanish. Packages from $290.',
       ogTitle: 'Miami Wedding Officiant Services | Beach, Courthouse & Venues',
       ogDescription:
         'Personalized officiant services across Miami-Dade and Broward—beach, legal, home, and venue ceremonies with bilingual scripting.',
@@ -78,7 +96,7 @@ const PAGE_COPY: Record<PageKey, Record<SiteLang, PageCopy>> = {
     es: {
       title: 'Servicios de Oficiante de Bodas en Miami | Playa, Juzgado y Hoteles',
       description:
-        'Servicios de ceremonias en Miami: bodas en la playa, firma en juzgado, casa y hoteles. Oficiante bilingüe. Paquetes desde $650.',
+        'Servicios de ceremonias en Miami: bodas en la playa, firma en juzgado, casa y hoteles. Oficiante bilingüe. Paquetes desde $290.',
       ogTitle: 'Servicios de Oficiante de Bodas en Miami',
       ogDescription:
         'Ceremonias personalizadas en Miami-Dade y Broward: playa, legal, hogar y venue, con guión bilingüe.',
@@ -167,8 +185,18 @@ export function buildSeoRouteData(pageKey: PageKey, lang: SiteLang): Record<stri
     ogTitle: copy.ogTitle,
     ogDescription: copy.ogDescription,
     ogImage: copy.ogImage,
+    ogImageSecureUrl: copy.ogImageSecureUrl,
+    ogImageType: copy.ogImageType,
+    ogImageWidth: copy.ogImageWidth,
+    ogImageHeight: copy.ogImageHeight,
+    ogImageAlt: copy.ogImageAlt,
     canonicalUrl,
     ogUrl: canonicalUrl,
+    twitterCard: 'summary_large_image',
+    twitterTitle: copy.ogTitle ?? copy.title,
+    twitterDescription: copy.ogDescription ?? copy.description,
+    twitterImage: copy.ogImage,
+    twitterImageAlt: copy.ogImageAlt,
     hreflangAlternates: hreflangTriple(pageKey),
     includeLocalBusinessSchema: copy.includeLocalBusinessSchema === true,
     initialSectionId: copy.initialSectionId,

@@ -80,12 +80,12 @@ export class CourthouseWeddingMiamiPageComponent implements OnInit, OnDestroy {
         author: {
           '@type': 'Organization',
           name: 'Miami Wedding Officiant',
-          url: `${site}/en/`,
+          url: `${site}/`,
         },
         publisher: {
           '@type': 'Organization',
           name: 'Miami Wedding Officiant',
-          url: `${site}/en/`,
+          url: `${site}/`,
           logo: {
             '@type': 'ImageObject',
             url: `${site}/brand/favicon-32x32.png`,

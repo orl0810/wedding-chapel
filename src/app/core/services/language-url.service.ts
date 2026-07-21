@@ -19,12 +19,13 @@ export class LanguageUrlService {
   /** Router commands for `routerLink` / `navigate` (no trailing slash; server normalizes). */
   navCommands(lang: SiteLang, pageKey: PageKey): (string | SiteLang)[] {
     const seg = PAGE_SEGMENTS[pageKey][lang];
-    return seg ? ['/', lang, seg] : ['/', lang];
+    const prefix = lang === 'es' ? ['/', 'es'] : ['/'];
+    return seg ? [...prefix, seg] : prefix;
   }
 
   /**
    * Like `navCommands`, but keeps a blog post slug when switching language
-   * (e.g. `/en/blog/how-to-elope-in-miami` → `/es/blog/how-to-elope-in-miami`).
+   * (e.g. `/blog/how-to-elope-in-miami` → `/es/blog/how-to-elope-in-miami`).
    */
   navCommandsForPath(pathname: string, targetLang: SiteLang): (string | SiteLang)[] {
     let rest = pathname;
@@ -32,10 +33,13 @@ export class LanguageUrlService {
       rest = rest.slice(this.baseHref.length) || '/';
     }
     const parts = rest.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean);
-    const segment = parts[1] ?? '';
-    const blogSlug = parts[2];
+    const isSpanish = parts[0] === 'es';
+    const segment = parts[isSpanish ? 1 : 0] ?? '';
+    const blogSlug = parts[isSpanish ? 2 : 1];
     if (segment === 'blog' && blogSlug) {
-      return ['/', targetLang, 'blog', blogSlug];
+      return targetLang === 'es'
+        ? ['/', 'es', 'blog', blogSlug]
+        : ['/', 'blog', blogSlug];
     }
     return this.navCommands(targetLang, this.pageKeyFromPath(pathname) ?? 'home');
   }
@@ -49,16 +53,13 @@ export class LanguageUrlService {
       rest = rest.slice(this.baseHref.length) || '/';
     }
     const parts = rest.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean);
-    const lang = parts[0];
-    if (lang !== 'en' && lang !== 'es') {
-      return null;
-    }
-    const segment = parts[1] ?? '';
+    const lang: SiteLang = parts[0] === 'es' ? 'es' : 'en';
+    const segment = parts[0] === 'es' ? (parts[1] ?? '') : (parts[0] ?? '');
     if (!segment) {
       return 'home';
     }
     for (const key of Object.keys(PAGE_SEGMENTS) as PageKey[]) {
-      if (PAGE_SEGMENTS[key][lang as SiteLang] === segment) {
+      if (PAGE_SEGMENTS[key][lang] === segment) {
         return key;
       }
     }

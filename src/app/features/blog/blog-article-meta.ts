@@ -12,7 +12,8 @@ export const BLOG_ARTICLE_SLUGS = [
 export type BlogArticleSlug = (typeof BLOG_ARTICLE_SLUGS)[number];
 
 export function absoluteBlogArticleUrl(lang: SiteLang, slug: string): string {
-  return `${siteBase}/${lang}/blog/${slug}/`;
+  const prefix = lang === 'es' ? '/es' : '';
+  return `${siteBase}${prefix}/blog/${slug}/`;
 }
 
 export function hreflangArticleTriple(slug: string): { hreflang: string; href: string }[] {

@@ -159,6 +159,11 @@ export class AppComponent implements OnInit {
         ogTitle: data['ogTitle'] as string | undefined,
         ogDescription: data['ogDescription'] as string | undefined,
         ogImage: data['ogImage'] as string | undefined,
+        ogImageSecureUrl: data['ogImageSecureUrl'] as string | undefined,
+        ogImageType: data['ogImageType'] as string | undefined,
+        ogImageWidth: data['ogImageWidth'] as number | undefined,
+        ogImageHeight: data['ogImageHeight'] as number | undefined,
+        ogImageAlt: data['ogImageAlt'] as string | undefined,
         ogUrl: data['ogUrl'] as string | undefined,
         canonicalUrl: data['canonicalUrl'] as string | undefined,
         ogType: data['ogType'] as string | undefined,
@@ -166,6 +171,7 @@ export class AppComponent implements OnInit {
         twitterTitle: data['twitterTitle'] as string | undefined,
         twitterDescription: data['twitterDescription'] as string | undefined,
         twitterImage: data['twitterImage'] as string | undefined,
+        twitterImageAlt: data['twitterImageAlt'] as string | undefined,
         hreflangAlternates: data['hreflangAlternates'] as
           | { hreflang: string; href: string }[]
           | undefined,
@@ -223,7 +229,7 @@ export class AppComponent implements OnInit {
     if (pageKey === 'home') {
       this.scrollService.scrollToElementByIdWhenReady(id);
     } else {
-      void this.router.navigate(['/', lang], { fragment: id });
+      void this.router.navigate(this.languageUrl.navCommands(lang, 'home'), { fragment: id });
     }
   }
 }

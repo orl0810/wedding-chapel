@@ -24,7 +24,8 @@ const PAGE_ORDER = ['home', 'services', 'elopement', 'contact', 'blog'];
 
 function pagePath(lang, pageKey) {
   const seg = PAGE_SEGMENTS[pageKey][lang];
-  return seg ? `/${lang}/${seg}/` : `/${lang}/`;
+  const prefix = lang === 'es' ? '/es' : '';
+  return seg ? `${prefix}/${seg}/` : `${prefix}/`;
 }
 
 function absUrl(lang, pageKey) {
@@ -44,7 +45,7 @@ function hreflangBlock(pageKey) {
 const today = new Date().toISOString().slice(0, 10);
 
 function hreflangArticleBlock(slug) {
-  const en = `${site}/en/blog/${slug}/`;
+  const en = `${site}/blog/${slug}/`;
   const es = `${site}/es/blog/${slug}/`;
   return [
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(en)}" />`,
@@ -69,7 +70,8 @@ ${hreflangBlock(pageKey)}
 
 for (const slug of BLOG_ARTICLE_SLUGS) {
   for (const lang of ['en', 'es']) {
-    const loc = `${site}/${lang}/blog/${slug}/`;
+    const prefix = lang === 'es' ? '/es' : '';
+    const loc = `${site}${prefix}/blog/${slug}/`;
     urlEntries.push(`  <url>
     <loc>${escapeXml(loc)}</loc>
 ${hreflangArticleBlock(slug)}

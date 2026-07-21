@@ -39,11 +39,6 @@ export class I18nService {
     const fromPath = this.peekLangFromPath(this.document.location?.pathname);
     if (fromPath) {
       initial = fromPath;
-    } else if (isPlatformBrowser(this.platformId)) {
-      const storedLang = localStorage.getItem(this.LANG_KEY) as Language;
-      if (storedLang && ['en', 'es'].includes(storedLang)) {
-        initial = storedLang;
-      }
     }
     this._currentLang.set(initial);
 
@@ -71,10 +66,7 @@ export class I18nService {
       rest = rest.slice(prefix.length) || '/';
     }
     const first = rest.replace(/^\//, '').split('/')[0];
-    if (first === 'en' || first === 'es') {
-      return first;
-    }
-    return null;
+    return first === 'es' ? 'es' : 'en';
   }
 
   private getTranslationUrl(lang: Language): string {

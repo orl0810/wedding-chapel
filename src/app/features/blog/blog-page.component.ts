@@ -6,7 +6,7 @@ import { TranslatePipe } from '../../shared/pipes/translate/translate.pipe';
 import { I18nService } from '../../core/services/i18n.service';
 import type { SiteLang } from '../../routing/localized-page-meta';
 
-/** Single-language strings per post for the blog index (/en/blog, /es/blog). */
+/** Single-language strings per post for the blog index (/blog, /es/blog). */
 type BlogIndexCard = {
   slug: string;
   title: Record<SiteLang, string>;
