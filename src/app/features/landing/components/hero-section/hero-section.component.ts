@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { TranslatePipe } from '../../../../shared/pipes/translate/translate.pipe';
 import { ScrollService } from '../../../../core/services/scroll.service';
@@ -8,23 +8,27 @@ import { WhatsappService } from '../../../../core/services/whatsapp.service';
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, ButtonComponent, TranslatePipe],
+  imports: [CommonModule, ButtonComponent, TranslatePipe],
   template: `
     <section
       class="relative min-h-screen flex flex-col justify-center items-center text-white overflow-hidden"
       aria-label="Hero Section - Wedding Officiant">
-      <picture class="pointer-events-none absolute inset-0 z-0 block">
-        <source
-          type="image/webp"
-          srcset="/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.webp" />
-        <img
-          ngSrc="/assets/images/miami-wedding-officiant-marriage-certificate-south-florida-best-venues-florida-luxury.jpg"
-          fill
-          priority
-          sizes="100vw"
-          alt=""
-          class="object-cover object-center" />
-      </picture>
+      <img
+        src="/assets/images/hero-wedding-officiant-miami-1920.webp"
+        srcset="
+          /assets/images/hero-wedding-officiant-miami-640.webp 640w,
+          /assets/images/hero-wedding-officiant-miami-960.webp 960w,
+          /assets/images/hero-wedding-officiant-miami-1280.webp 1280w,
+          /assets/images/hero-wedding-officiant-miami-1920.webp 1920w
+        "
+        sizes="100vw"
+        width="1920"
+        height="1280"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+        alt=""
+        class="pointer-events-none absolute inset-0 h-full w-full object-cover object-center" />
       <div class="absolute inset-0 z-[1] bg-gradient-to-b from-accent-sapphire/75 via-accent-sapphire/55 to-accent-sapphire/80"></div>
       <div class="absolute inset-0 z-[1] bg-black/20"></div>
 

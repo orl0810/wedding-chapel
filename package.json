@@ -7,6 +7,7 @@
     "build": "ng build",
     "postbuild": "node scripts/generate-sitemap.mjs",
     "generate-brand-icons": "node scripts/generate-brand-icons.mjs",
+    "generate-responsive-images": "node scripts/generate-responsive-images.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:wedding-chapel": "node dist/wedding-chapel/server/server.mjs"

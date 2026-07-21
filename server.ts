@@ -22,6 +22,25 @@ function trailingSlashRedirect(pathOnly: string): string | null {
   return `${pathOnly}/`;
 }
 
+function setStaticCacheHeaders(res: express.Response, filePath: string): void {
+  if (filePath.endsWith('.html')) {
+    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    return;
+  }
+
+  if (/\-[A-Z0-9]{8,}\.(?:css|js)$/i.test(filePath)) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    return;
+  }
+
+  if (/\.(?:avif|gif|ico|jpe?g|png|svg|webp|woff2?)$/i.test(filePath)) {
+    res.setHeader('Cache-Control', 'public, max-age=2592000');
+    return;
+  }
+
+  res.setHeader('Cache-Control', 'public, max-age=3600, must-revalidate');
+}
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
@@ -64,8 +83,9 @@ export function app(): express.Express {
 
   // Serve static files from /browser
   server.use(express.static(browserDistFolder, {
-    maxAge: '1y',
+    maxAge: 0,
     index: 'index.html',
+    setHeaders: setStaticCacheHeaders,
   }));
 
   // All regular routes use the Angular engine

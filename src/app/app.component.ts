@@ -33,11 +33,11 @@ import type { PageKey, SiteLang } from './routing/localized-page-meta';
             <ul class="hidden lg:flex flex-wrap justify-end gap-x-5 gap-y-2 font-body text-sm md:text-[15px] text-text-dark uppercase tracking-[0.12em]">
               <li><a [routerLink]="navPage('home')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_HOME' | translate }}</a></li>
               <li><a [routerLink]="navPage('services')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_SERVICES' | translate }}</a></li>
-              <li><a (click)="scrollToSection('process')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_PROCESS' | translate }}</a></li>
-              <li><a (click)="scrollToSection('about')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_ABOUT' | translate }}</a></li>
-              <li><a (click)="scrollToSection('areas')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_AREAS' | translate }}</a></li>
-              <li><a (click)="scrollToSection('testimonials')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_TESTIMONIALS' | translate }}</a></li>
-              <li><a (click)="scrollToSection('faq')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_FAQ' | translate }}</a></li>
+              <li><a [routerLink]="navPage('home')" fragment="process" class="hover:text-secondary-gold transition-colors">{{ 'NAV_PROCESS' | translate }}</a></li>
+              <li><a [routerLink]="navPage('home')" fragment="about" class="hover:text-secondary-gold transition-colors">{{ 'NAV_ABOUT' | translate }}</a></li>
+              <li><a [routerLink]="navPage('home')" fragment="areas" class="hover:text-secondary-gold transition-colors">{{ 'NAV_AREAS' | translate }}</a></li>
+              <li><a [routerLink]="navPage('home')" fragment="testimonials" class="hover:text-secondary-gold transition-colors">{{ 'NAV_TESTIMONIALS' | translate }}</a></li>
+              <li><a [routerLink]="navPage('home')" fragment="faq" class="hover:text-secondary-gold transition-colors">{{ 'NAV_FAQ' | translate }}</a></li>
               <li><a [routerLink]="navPage('contact')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_CONTACT' | translate }}</a></li>
               <li><a [routerLink]="navPage('blog')" class="hover:text-secondary-gold transition-colors cursor-pointer">{{ 'NAV_BLOG' | translate }}</a></li>
             </ul>

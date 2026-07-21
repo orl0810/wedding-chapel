@@ -16,6 +16,8 @@ services:
       - "traefik.http.routers.wedding-chapel.entrypoints=websecure"
       - "traefik.http.routers.wedding-chapel.tls=true"
       - "traefik.http.routers.wedding-chapel.tls.certresolver=mytlschallenge"
+      - "traefik.http.routers.wedding-chapel.middlewares=wedding-compress"
+      - "traefik.http.middlewares.wedding-compress.compress=true"
       - "traefik.http.services.wedding-chapel.loadbalancer.server.port=4000"
     networks:
       - n8n_evoapi

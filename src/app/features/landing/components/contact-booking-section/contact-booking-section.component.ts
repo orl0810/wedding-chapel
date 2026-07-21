@@ -105,17 +105,18 @@ import { BookingService } from '../../../../core/services/booking.service';
 
       <!-- ① Cinematic banner image — full width, fixed height -->
       <div class="relative min-h-[320px] self-stretch overflow-hidden rounded-sm shadow-wix-card md:min-h-0 md:h-full">
-        <picture class="absolute inset-0 block h-full w-full">
-          <source
-            type="image/webp"
-            srcset="/assets/images/miami-officiant-marriage-south-florida-best-venues-florida-luxury-miami2.webp" />
-          <img
-            ngSrc="/assets/images/miami-officiant-marriage-south-florida-best-venues-florida-luxury-miami2.jpg"
-            fill
-            sizes="(max-width: 767px) 100vw, 50vw"
-            alt="Juan Camilo Méndez - Miami Wedding Officiant"
-            class="border border-black/10 object-cover object-center" />
-        </picture>
+        <img
+          ngSrc="/assets/images/contact-wedding-officiant-miami-1024.webp"
+          srcset="
+            /assets/images/contact-wedding-officiant-miami-480.webp 480w,
+            /assets/images/contact-wedding-officiant-miami-768.webp 768w,
+            /assets/images/contact-wedding-officiant-miami-1024.webp 1024w
+          "
+          fill
+          disableOptimizedSrcset
+          sizes="(max-width: 767px) 100vw, 50vw"
+          alt="Juan Camilo Méndez - Miami Wedding Officiant"
+          class="border border-black/10 object-cover object-center" />
       </div>
 
       <!-- ② Form card -->
